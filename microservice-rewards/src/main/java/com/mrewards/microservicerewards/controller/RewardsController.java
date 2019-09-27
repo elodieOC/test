@@ -1,48 +1,44 @@
 package com.mrewards.microservicerewards.controller;
 
 import com.mrewards.microservicerewards.dao.RewardDao;
-import com.mrewards.microservicerewards.exceptions.BadLoginPasswordException;
 import com.mrewards.microservicerewards.exceptions.CannotAddException;
 import com.mrewards.microservicerewards.exceptions.NotFoundException;
+import com.mrewards.microservicerewards.manager.RewardsManagerImpl;
 import com.mrewards.microservicerewards.model.Reward;
-import com.mrewards.microservicerewards.utils.Encryption;
-import com.mrewards.microservicerewards.utils.validators.RewardLoginValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 /**
  * <h2>Controller for Model Reward</h2>
  */
 @RestController
-public class RewardController {
+public class RewardsController {
     @Autowired
     private RewardDao rewardDao;
 
+    private RewardsManagerImpl rewardsManager = new RewardsManagerImpl();
+
     /**
-     * <p>Lists all rewards</p>
+     * <p>Lists all reward accounts</p>
      * @return a list
      */
-    @GetMapping(value= "/Recompenses")
+    @GetMapping(value= "/CarteFidelites")
     public List<Reward> listRewards() {
         return rewardDao.findAll();
     }
 
     /**
-     * <p>Adds a new reward account to db</p>
+     * <p>Adds a new reward account to db for a user.</p>
+     * <p>The user needs to create a reward account per merchant.</p>
      * @param reward
      * @return responseEntity
      */
-    @PostMapping(value = "/Recompenses/add-reward")
+    @PostMapping(value = "/CarteFidelites/add-reward")
     public ResponseEntity<Reward> addReward(@RequestBody Reward reward) {
         Reward rewardAdded =  rewardDao.save(reward);
         if (rewardAdded == null) {throw new CannotAddException("Reward03");}
@@ -51,11 +47,11 @@ public class RewardController {
 
 
     /**
-     * <p>shows details of a particular reward by its id</p>
+     * <p>shows details of a particular reward account by its id</p>
      * @param id
      * @return the reward
      */
-    @GetMapping(value = "/Recompenses/{id}")
+    @GetMapping(value = "/CarteFidelites/{id}")
     public Optional<Reward> showReward(@PathVariable Integer id) {
         Optional<Reward> reward = rewardDao.findById(id);
         if(!reward.isPresent()) {
@@ -63,6 +59,24 @@ public class RewardController {
         }
         return reward;
     }
+
+    /**
+     * <p>Adds points to an account </p>
+     * @param id
+     * @return
+     */
+    @PostMapping(value = "/CarteFidelites/{id}/add-point")
+    public ResponseEntity<Reward> addPoint(@PathVariable Integer id){
+        Optional<Reward> rewardGiven = rewardDao.findById(id);
+        if(!rewardGiven.isPresent()) {
+            throw new NotFoundException("L'marchand avec l'id " + id + " est INTROUVABLE.");
+        }
+        Reward rewardAccount = rewardDao.findRewardsById(id);
+        rewardAccount = rewardsManager.addPointManager(rewardAccount);
+        rewardDao.save(rewardAccount);
+        return new ResponseEntity<Reward>(rewardAccount, HttpStatus.ACCEPTED);
+    }
+
 
 
 

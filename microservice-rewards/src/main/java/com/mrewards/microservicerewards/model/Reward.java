@@ -1,10 +1,7 @@
 package com.mrewards.microservicerewards.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import java.sql.Timestamp;
 
 
 @Entity
@@ -24,7 +21,7 @@ public class Reward {
     private Integer points;
 
     @NotEmpty
-    @Column(name="rewards_nbr")
+    @Column(name="rewards")
     private Integer rewardsNbr;
     
     @NotEmpty
@@ -48,15 +45,16 @@ public class Reward {
         this.id = id;
     }
 
-    public Integer getMaxPoints() {
-        return maxPoints;
-    }
+    public Integer getMaxPoints() {return maxPoints;}
 
     public void setMaxPoints(Integer maxPoints) {
         this.maxPoints = maxPoints;
     }
 
     public Integer getPoints() {
+        if(points == null) {
+            points = 0;
+        }
         return points;
     }
 
@@ -65,6 +63,9 @@ public class Reward {
     }
 
     public Integer getRewardsNbr() {
+        if(rewardsNbr == null){
+            rewardsNbr = 0;
+        }
         return rewardsNbr;
     }
 
