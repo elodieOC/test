@@ -1,5 +1,6 @@
 package com.mrewards.microservicerewards.manager;
 
+import com.mrewards.microservicerewards.dao.RewardDao;
 import com.mrewards.microservicerewards.model.Reward;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +23,6 @@ public class RewardsManagerImplTest {
         return reward;
     }
     @Test
-
     public void addPointManager() {
         Reward reward = createReward();
         Reward actualReward = rewardsManager.addPointManager(reward);
@@ -47,4 +47,5 @@ public class RewardsManagerImplTest {
         Assert.assertNotEquals(actualReward.toString(), expectedReward.toString());
 
     }
+
 }
