@@ -12,47 +12,13 @@
         <div class="row mt-5">
             <h2 th:text="'Mes comptes fidélités'" class="mb-5 mx-auto"/>
         </div>
-        <!--<td th:if="${!borrowings.isEmpty()}">
-        <div class="card-group mt-5 offset-md-1">
-            <div th:each="borrowing : ${borrowings}" class="card bg-light border-light col-6 col-md-3 ml-3 mr-3 mt-3">
-                <a th:href="@{/Livres/__${borrowing.book.id}__}" >
-                    <div class="card-header bg-darkened">
-                        <h4 th:text= "${#strings.abbreviate(borrowing.book.title, 55)}" />
-                    </div>
-                    <div class="card-body">
-                        <div class="thumbnail text-center mt-2 mb-2">
-                            <img th:src="${borrowing.book.bookCover}"  class="card-img-top img-thumbnail" />
-                        </div>
-                    </div>
-                </a>
-                <div class="card-footer bg-darkened" >
-                    <p th:text="'Emprunté le: '+${borrowing.borrowed}" />
-
-                    <span th:if="${borrowing.borrowingType.id eq 4}">
-                        <strong><p class="error" th:text="'Emprunt '+${borrowing.borrowingType.type}" /></strong>
-                    </span>
-                    </span>
-                    <span th:if="${borrowing.borrowingType.id ne 4 && borrowing.borrowingType.id ne 1 }">
-                    <p th:text="'Emprunt '+${borrowing.borrowingType.type}" />
-                    </span>
-                    <span th:if="${borrowing.borrowingType.id eq 1 || borrowing.borrowingType.id eq 4 && borrowing.renewed eq false}">
-                        <a th:href="@{/Prets/__${borrowing.id}__/renew}">
-                            <p>Prolongez le prêt</p>
-                        </a>
-                    </span>
-                    <span th:if="${borrowing.borrowingType.id eq 2}">
-                        <p  th:text="'Rendu le: '+${borrowing.returned}" />
-                    </span>
-                    <span th:unless="${borrowing.borrowingType.id eq 2 || borrowing.borrowingType.id eq 4}">
-                        <strong><p th:text="'Date limite: '+${borrowing.limitDate}" /></strong>
-                    </span>
-                </div>
+        <form th:action="@{/Utilisateurs/delete/{id}(id=${user.getId()})}" method="post" th:object="${user}">
+            <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                <input type="submit"
+                       class="form-control btn btn-lg btn-danger"
+                       value="Suppression de compte">
             </div>
-        </div>
-        </td>
-        <td th:if="${borrowings.isEmpty()}">
-            <h4 th:text="'Je n\'ai pas encore emprunté de livre'" />
-        </td>-->
+        </form>
     </div>
 </div>
 </body>

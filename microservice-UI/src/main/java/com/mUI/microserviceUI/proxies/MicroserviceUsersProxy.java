@@ -35,4 +35,7 @@ public interface MicroserviceUsersProxy {
     @GetMapping( value = "microservice-users/Utilisateurs/MonProfil/{id}")
     UserBean showUser(@PathVariable("id") Integer id);
 
+    @PostMapping(value = "microservice-users/Utilisateurs/delete/{id}")
+    void deleteUser(@PathVariable("id") Integer id);
+
 }

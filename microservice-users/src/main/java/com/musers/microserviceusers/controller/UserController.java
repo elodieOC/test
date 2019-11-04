@@ -4,6 +4,7 @@ import com.musers.microserviceusers.dao.RoleDao;
 import com.musers.microserviceusers.dao.UserDao;
 import com.musers.microserviceusers.exceptions.BadLoginPasswordException;
 import com.musers.microserviceusers.exceptions.CannotAddException;
+import com.musers.microserviceusers.exceptions.CannotDeleteException;
 import com.musers.microserviceusers.exceptions.NotFoundException;
 import com.musers.microserviceusers.model.User;
 import com.musers.microserviceusers.utils.Encryption;
@@ -148,6 +149,20 @@ public class UserController {
         return user;
     }
 
+    /**
+     * <p>deletes a user from db and all its datas</p>
+     * @param id
+     */
+    @PostMapping(value = "/Utilisateurs/delete/{id}")
+    public void deleteUSer(@PathVariable Integer id){
+        Optional<User> user = userDao.findById(id);
+        if(!user.isPresent()) {
+            throw new NotFoundException("L'utilisateur avec l'id " + id + " est INTROUVABLE.");
+        }
+        User userToDelete = userDao.getOne(id);
+        userDao.delete(userToDelete);
+    }
 
-   
+
+
 }

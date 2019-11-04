@@ -229,11 +229,38 @@ public class ClientUsersController {
         return "password-reset";
     }
 
+    /*
+     **************************************
+     * User delete
+     * ************************************
+     */
+
+    /**
+     * <p>deletes a user when user clicks on suppress button</p>
+     * @param id
+     * @return url depending on function result
+     */
+    //TODO supprime utilisateur mais renvoi une erreur en navigateur a la methode delete && ne supprime pas la session
+    @RequestMapping(value = "/Utilisateurs/delete/{id}", method = RequestMethod.POST)
+    public String deleteUser(@PathVariable("id") Integer id, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        usersProxy.deleteUser(id);
+        session.invalidate();
+        return "redirect:/Accueil";
+    }
+
+
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex){
         return new ModelAndView("redirect:/Utilisateurs/connexion");
     }
 
+    /**
+     * <p>Sets session attributes for a user</p>
+     * @param user
+     * @param session
+     * @return url
+     */
     public String setSessionAttributes(UserBean user, HttpSession session){
         String redirectString = "/Utilisateurs/MonProfil/"+user.getId();
         session.setAttribute("loggedInUserEmail", user.getEmail());
