@@ -47,6 +47,7 @@ public class UserController {
             throw new CannotAddException("User03");
         }
         user.setPassword(Encryption.encrypt(user.getPassword()));
+        user.setUserRole(roleDao.getOne(2));
         User userAdded =  userDao.save(user);
         if (userAdded == null) {throw new CannotAddException("User04");}
         return new ResponseEntity<User>(userAdded, HttpStatus.CREATED);
