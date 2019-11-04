@@ -61,14 +61,6 @@ public class Merchant {
         this.resetToken = resetToken;
     }
 
-    public String getUserName() {
-        return merchantName;
-    }
-
-    public void setUserName(String merchantName) {
-        this.merchantName = merchantName;
-    }
-
     public Integer getId() {
         return id;
     }

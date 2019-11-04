@@ -6,16 +6,12 @@ import com.mmerchants.microservicemerchants.exceptions.CannotAddException;
 import com.mmerchants.microservicemerchants.exceptions.NotFoundException;
 import com.mmerchants.microservicemerchants.model.Merchant;
 import com.mmerchants.microservicemerchants.utils.Encryption;
-import com.mmerchants.microservicemerchants.utils.validators.MerchantLoginValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -28,8 +24,6 @@ public class MerchantController {
     @Autowired
     private MerchantDao merchantDao;
 
-    @Autowired
-    private MerchantLoginValidator merchantLoginValidator;
     /**
      * <p>Lists all merchants</p>
      * @return a list

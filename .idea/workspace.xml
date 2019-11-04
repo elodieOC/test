@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9ca31c92-415f-4045-8aa9-dfa1078cf13a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceUsersProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceUsersProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/microservice-rewards/target/" />
     <ignored path="$PROJECT_DIR$/microservice-merchants/target/" />
@@ -27,6 +23,9 @@
     <SUITE FILE_PATH="coverage/test$RoleTest.ic" NAME="RoleTest Coverage Results" MODIFIED="1572866659018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.musers.microserviceusers.model.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/test$MerchantTest.ic" NAME="MerchantTest Coverage Results" MODIFIED="1572880116227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mmerchants.microservicemerchants.model.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/test$UserTest_getSetUserRole.ic" NAME="UserTest.getSetUserRole Coverage Results" MODIFIED="1572867458307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.musers.microserviceusers.model.*</FILTER>
     </SUITE>
@@ -43,25 +42,39 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="181" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
+        <entry file="file://$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="242" column="118" selection-start-line="242" selection-start-column="118" selection-end-line="242" selection-end-column="118" />
+            <state relative-caret-position="444">
+              <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3322#3323#0" expanded="true" />
+                <element signature="e#3358#3359#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java">
+        <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/model/UserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="156" column="15" selection-start-line="156" selection-start-column="11" selection-end-line="156" selection-end-column="15" />
+            <state relative-caret-position="-1226">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,13 +93,16 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>User</find>
       <find>UserBean</find>
       <find>fly</find>
+      <find>User</find>
+      <find>testUser</find>
     </findStrings>
     <replaceStrings>
       <replace>UserBean</replace>
       <replace>User</replace>
+      <replace>Merchant</replace>
+      <replace>testMerchant</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -95,8 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/MicroserviceMerchantsApplication.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/bootstrap.properties" />
         <option value="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/MicroserviceRewardsApplication.java" />
         <option value="$PROJECT_DIR$/microservice-rewards/src/main/resources/bootstrap.properties" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/resources/bootstrap.properties" />
@@ -144,8 +158,10 @@
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/FeignExceptionHandler.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/config/FeignExceptionHandler.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/exceptions/CustomErrorDecoder.java" />
-        <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" />
       </list>
     </option>
   </component>
@@ -180,6 +196,45 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
               <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
@@ -381,7 +436,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572877164052" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572880113799" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/microservice-mailing" />
@@ -394,6 +449,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.mmerchants.microservicemerchants.model" />
       <recent name="com.musers.microserviceusers.model" />
       <recent name="com.musers.microserviceusers.controller" />
     </key>
@@ -433,7 +489,38 @@
     </option>
     <option name="contentProportion" value="0.23106647" />
   </component>
-  <component name="RunManager" selected="Spring Boot.MicroserviceUsersApplication">
+  <component name="RunManager" selected="JUnit.MerchantTest">
+    <configuration name="MerchantTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-merchants" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmerchants.microservicemerchants.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mmerchants.microservicemerchants.model" />
+      <option name="MAIN_CLASS_NAME" value="com.mmerchants.microservicemerchants.model.MerchantTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MerchantTest.toStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-merchants" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mmerchants.microservicemerchants.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mmerchants.microservicemerchants.model" />
+      <option name="MAIN_CLASS_NAME" value="com.mmerchants.microservicemerchants.model.MerchantTest" />
+      <option name="METHOD_NAME" value="toStringTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RoleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-users" />
       <extension name="coverage">
@@ -445,22 +532,6 @@
       <option name="PACKAGE_NAME" value="com.musers.microserviceusers.model" />
       <option name="MAIN_CLASS_NAME" value="com.musers.microserviceusers.model.RoleTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoleTest.getSetId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-users" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.musers.microserviceusers.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.musers.microserviceusers.model" />
-      <option name="MAIN_CLASS_NAME" value="com.musers.microserviceusers.model.RoleTest" />
-      <option name="METHOD_NAME" value="getSetId" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -492,22 +563,6 @@
       <option name="PACKAGE_NAME" value="com.musers.microserviceusers.model" />
       <option name="MAIN_CLASS_NAME" value="com.musers.microserviceusers.model.UserTest" />
       <option name="METHOD_NAME" value="getSetUserRole" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserTest.toStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-users" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.musers.microserviceusers.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.musers.microserviceusers.model" />
-      <option name="MAIN_CLASS_NAME" value="com.musers.microserviceusers.model.UserTest" />
-      <option name="METHOD_NAME" value="toStringTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -571,11 +626,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MerchantTest" />
+        <item itemvalue="JUnit.MerchantTest.toStringTest" />
         <item itemvalue="JUnit.UserTest.getSetUserRole" />
         <item itemvalue="JUnit.RoleTest.toStringTest" />
         <item itemvalue="JUnit.RoleTest" />
-        <item itemvalue="JUnit.RoleTest.getSetId" />
-        <item itemvalue="JUnit.UserTest.toStringTest" />
       </list>
     </recent_temporary>
   </component>
@@ -592,7 +647,7 @@
       <workItem from="1571923681967" duration="3003000" />
       <workItem from="1571927081804" duration="706000" />
       <workItem from="1572254362725" duration="194000" />
-      <workItem from="1572526084566" duration="33509000" />
+      <workItem from="1572526084566" duration="34772000" />
     </task>
     <servers />
   </component>
@@ -629,7 +684,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37412000" />
+    <option name="totallyTimeSpent" value="38675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -666,9 +721,9 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.24962178" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32980332" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32980332" />
     </layout>
   </component>
@@ -688,19 +743,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/resources/db/migration/V1.1__create_schema.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/resources/bootstrap.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/beans/UserBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -884,34 +926,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/mmerchants/microservicemerchants/MicroserviceUsersApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/model/RoleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="33" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/model/UserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="87" column="39" selection-start-line="87" selection-start-column="39" selection-end-line="87" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,22 +1048,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="156" column="15" selection-start-line="156" selection-start-column="11" selection-end-line="156" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="242" column="118" selection-start-line="242" selection-start-column="118" selection-end-line="242" selection-end-column="118" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="13" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="79" column="21" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="79" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/model/RoleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/model/UserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1226">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
+          <folding>
+            <element signature="e#3322#3323#0" expanded="true" />
+            <element signature="e#3358#3359#0" expanded="true" />
           </folding>
         </state>
       </provider>
