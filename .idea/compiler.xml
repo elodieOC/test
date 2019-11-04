@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
         <module name="eureka-server" />
+        <module name="microservice-mailing" />
         <module name="microservice-merchants" />
         <module name="microservice-rewards" />
         <module name="microservice-UI" />
@@ -21,6 +22,7 @@
       <module name="config-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="microservice-UI" options="-parameters" />
+      <module name="microservice-mailing" options="-parameters" />
       <module name="microservice-merchants" options="-parameters" />
       <module name="microservice-rewards" options="-parameters" />
       <module name="microservice-users" options="-parameters" />

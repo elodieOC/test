@@ -23,6 +23,8 @@ public class Reward {
     @NotEmpty
     @Column(name="rewards")
     private Integer rewardsNbr;
+
+    //TODO add rewardsToCollect
     
     @NotEmpty
     @Column(name="id_user")

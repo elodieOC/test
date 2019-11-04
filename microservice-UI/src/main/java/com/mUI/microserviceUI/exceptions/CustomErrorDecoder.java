@@ -18,12 +18,14 @@ public class CustomErrorDecoder implements ErrorDecoder {
         try{
             ApiError error = mapper.readValue(reponse.body().asInputStream(), ApiError.class);
             switch (error.getMessage()){
-                case "User03":
-                    return new CannotAddException("");
                 case "User01":
-                    return new BadLoginPasswordException("");
+                    return new BadLoginPasswordException("L'utilisateur n'existe pas");
                 case "User02":
-                    return new BadLoginPasswordException("");
+                    return new BadLoginPasswordException("L'association login/mot de passe est invalide");
+                case "User03":
+                    return new CannotAddException("Cet email est déjà lié à un compte");
+                case "User04":
+                    return new CannotAddException("Echec dans l'ajout");
                 default: return defaultErrorDecoder.decode(invoqueur, reponse);
             }
         }catch (IOException e){

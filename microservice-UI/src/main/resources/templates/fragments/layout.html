@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/fontawesome/css/font-awesome.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <!-- Javascript -->
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Tous Mes Points</title>
+</head>
+<body>
+<span th:if="${session.loggedInUserRole eq null}">
+        <th:block th:text="${session.loggedInUserRole}" />
+        <th:block th:replace="fragments/headers/header-public :: header-public"/>
+    </span>
+<span th:if="${session.loggedInUserRole eq 'ADMIN'}">
+        <th:block th:text="${session.loggedInUserRole}" />
+        <th:block th:replace="fragments/headers/header-admin :: header-admin"/>
+    </span>
+<span th:if="${session.loggedInUserRole eq 'USER'}">
+        <th:block th:text="${session.loggedInUserRole}" />
+        <th:block th:replace="fragments/headers/header-connected :: header-connected"/>
+    </span>
+<main role="main" class="flex-shrink-0 mt-5">
+    <div class="container col-12 mt-5" >
+        <div class="container">
+            <th:block layout:fragment="content"/>
+        </div>
+    </div>
+</main>
+</body>
+<th:block th:replace="fragments/footer :: footer"/>
+</html>

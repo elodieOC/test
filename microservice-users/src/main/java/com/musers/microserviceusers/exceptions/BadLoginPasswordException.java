@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class BadLoginPasswordException extends RuntimeException {
     /**
      * <p>Exception if a query returns "can't log user"</p>
-     * @param s
+     * @param message
      */
     public BadLoginPasswordException(String message) {
         super(message);

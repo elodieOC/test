@@ -18,10 +18,6 @@ public class User {
     private Integer id;
 
     @NotEmpty
-    @Column(name="username")
-    private String userName;
-
-    @NotEmpty
     @Column(name="first_name")
     private String firstName;
 
@@ -67,14 +63,6 @@ public class User {
 
     public void setResetToken(String resetToken) {
         this.resetToken = resetToken;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public Integer getId() {

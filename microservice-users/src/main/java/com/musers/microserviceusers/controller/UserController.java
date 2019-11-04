@@ -1,21 +1,18 @@
 package com.musers.microserviceusers.controller;
 
+import com.musers.microserviceusers.dao.RoleDao;
 import com.musers.microserviceusers.dao.UserDao;
 import com.musers.microserviceusers.exceptions.BadLoginPasswordException;
 import com.musers.microserviceusers.exceptions.CannotAddException;
 import com.musers.microserviceusers.exceptions.NotFoundException;
 import com.musers.microserviceusers.model.User;
 import com.musers.microserviceusers.utils.Encryption;
-import com.musers.microserviceusers.utils.validators.UserLoginValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -27,9 +24,9 @@ import java.util.UUID;
 public class UserController {
     @Autowired
     private UserDao userDao;
-
     @Autowired
-    private UserLoginValidator userLoginValidator;
+    private RoleDao roleDao;
+
     /**
      * <p>Lists all users</p>
      * @return a list
@@ -40,16 +37,18 @@ public class UserController {
     }
 
     /**
-     * <h2>Not needed for user application => for employees application</h2>
      * <p>Adds a new user to db, encrypts password before save</p>
      * @param user
      * @return responseEntity
      */
     @PostMapping(value = "/Utilisateurs/add-user")
     public ResponseEntity<User> addUser(@RequestBody User user) {
+        if(userDao.findFirstByEmail(user.getEmail()).isPresent()){
+            throw new CannotAddException("User03");
+        }
         user.setPassword(Encryption.encrypt(user.getPassword()));
         User userAdded =  userDao.save(user);
-        if (userAdded == null) {throw new CannotAddException("User03");}
+        if (userAdded == null) {throw new CannotAddException("User04");}
         return new ResponseEntity<User>(userAdded, HttpStatus.CREATED);
     }
 
@@ -70,13 +69,13 @@ public class UserController {
 
     /**
      * <p>method to log users</p>
-     * @param userName from form
+     * @param email from form
      * @param password from form
      * @return response entity of user
      */
     @PostMapping(value = "/Utilisateurs/log-user")
-    public ResponseEntity<User> logUser(@RequestParam String userName, @RequestParam String password) {
-        User userLogged =  userDao.findByUserName(userName);
+    public ResponseEntity<User> logUser(@RequestParam String email, @RequestParam String password) {
+        User userLogged =  userDao.findByEmail(email);
         if (userLogged == null) {throw new BadLoginPasswordException("User01");}
 
         String loginPassword = Encryption.encrypt(password);

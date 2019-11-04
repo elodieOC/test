@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Accueil</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+        <div class="col-10 mx-auto ">
+            <div class="text-center">
+                <img th:src="@{/img/noimage-thumbnail.png}" alt="no image" class="img-fluid">
+                <h2 class="mt-2">Tous mes points!</h2>
+                <a th:href="@{/APropos}" >A propos de nous</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

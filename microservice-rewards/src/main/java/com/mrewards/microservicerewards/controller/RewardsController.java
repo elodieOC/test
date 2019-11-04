@@ -55,7 +55,7 @@ public class RewardsController {
     public Optional<Reward> showReward(@PathVariable Integer id) {
         Optional<Reward> reward = rewardDao.findById(id);
         if(!reward.isPresent()) {
-            throw new NotFoundException("L'marchand avec l'id " + id + " est INTROUVABLE.");
+            throw new NotFoundException("La carte avec l'id " + id + " est INTROUVABLE.");
         }
         return reward;
     }
@@ -69,7 +69,7 @@ public class RewardsController {
     public ResponseEntity<Reward> addPoint(@PathVariable Integer id){
         Optional<Reward> rewardGiven = rewardDao.findById(id);
         if(!rewardGiven.isPresent()) {
-            throw new NotFoundException("L'marchand avec l'id " + id + " est INTROUVABLE.");
+            throw new NotFoundException("La carte avec l'id " + id + " est INTROUVABLE.");
         }
         Reward rewardAccount = rewardDao.findRewardsById(id);
         rewardAccount = rewardsManager.addPointManager(rewardAccount);
