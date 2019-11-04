@@ -1,10 +1,11 @@
 package com.mUI.microserviceUI.controller;
 
-import com.mUI.microserviceUI.beans.RoleBean;
-import com.mUI.microserviceUI.beans.UserBean;
+import com.mUI.microserviceUI.beans.MerchantBean;
 import com.mUI.microserviceUI.exceptions.BadLoginPasswordException;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMailingProxy;
+import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
+import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,15 +14,18 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * <h2>Controller linking with microservice-users</h2>
+ * <h2>Controller linking with microservice-merchants</h2>
  */
 @Controller
-public class ClientUsersController {
+public class ClientMerchantsController {
 
+    @Autowired
+    private MicroserviceMerchantsProxy merchantsProxy;
     @Autowired
     private MicroserviceUsersProxy usersProxy;
     @Autowired
@@ -29,111 +33,110 @@ public class ClientUsersController {
 
     /*
      **************************************
-     * User register
+     * Merchant register
      * ************************************
      */
 
 
     /**
-     * <p>Page that displays a form to register a user</p>
+     * <p>Page that displays a form to register a merchant</p>
      * @param model attribute passed to jsp page
      * @return login page
      */
-    @GetMapping("/Utilisateurs/inscription")
+    @GetMapping("/Marchands/inscription")
     public String registerPage(Model model) {
-        UserBean userBean = new UserBean();
-        model.addAttribute("user", userBean);
-        return "register";
+        MerchantBean merchantBean = new MerchantBean();
+        model.addAttribute("merchant", merchantBean);
+        return "register-merchant";
     }
 
     /**
      * <p>Process called after the submit button is clicked on register page</p>
-     * @param theUser user being created
+     * @param theMerchant merchant being created
      * @param request servlet request
      * @param model attribute passed to jsp page
      * @return page to show depending on result of process
      */
-    @PostMapping("/Utilisateurs/add-user")
-    public String saveUser(@ModelAttribute("user") UserBean theUser, HttpServletRequest request, ModelMap model) {
+    @PostMapping("/Marchands/add-merchant")
+    public String saveMerchant(@ModelAttribute("merchant") MerchantBean theMerchant, HttpServletRequest request, ModelMap model) {
         String toBeReturned;
         HttpSession session = request.getSession();
         try {
-            UserBean userToRegister = usersProxy.addUser(theUser);
-            toBeReturned = setSessionAttributes(userToRegister, session);
+            MerchantBean merchantToRegister = merchantsProxy.addMerchant(theMerchant);
+            toBeReturned = setSessionAttributes(merchantToRegister, session);
         }
         catch (Exception e){
             e.printStackTrace();
             if(e instanceof CannotAddException){
                 model.addAttribute("errorMessage", e.getMessage());
             }
-            toBeReturned = "register";
+            toBeReturned = "register-merchant";
         }
         return toBeReturned;
     }
     /*
      **************************************
-     * User login
+     * Merchant login
      * ************************************
      */
 
     /**
-     * <p>Page that displays a form to login a user</p>
+     * <p>Page that displays a form to login a merchant</p>
      * @param model attribute passed to jsp page
      * @return login page
      */
-    @GetMapping("/Utilisateurs/connexion")
+    @GetMapping("/Marchands/connexion")
     public String loginPage(Model model) {
-        UserBean userBean = new UserBean();
-        model.addAttribute("user", userBean);
-        return "login";
+        MerchantBean merchantBean = new MerchantBean();
+        model.addAttribute("merchant", merchantBean);
+        return "login-merchant";
     }
 
 
-    @RequestMapping("/Utilisateurs/log-user")
-    public String logUser(@ModelAttribute("user") UserBean userBean, ModelMap model, HttpServletRequest request) {
+    @RequestMapping("/Marchands/log-merchant")
+    public String logMerchant(@ModelAttribute("merchant") MerchantBean merchantBean, ModelMap model, HttpServletRequest request) {
         String toBeReturned;
         HttpSession session = request.getSession();
         try{
-            UserBean userToConnect = usersProxy.logUser(userBean.getEmail(), userBean.getPassword());
-            toBeReturned = setSessionAttributes(userToConnect, session);
+            MerchantBean merchantToConnect = merchantsProxy.logMerchant(merchantBean.getEmail(), merchantBean.getPassword());
+            toBeReturned = setSessionAttributes(merchantToConnect, session);
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("FIELDS: "+userBean.getEmail()+" "+userBean.getPassword());
+            System.out.println("FIELDS: "+merchantBean.getEmail()+" "+merchantBean.getPassword());
             if(e instanceof BadLoginPasswordException){
                 model.addAttribute("errorMessage", "Login ou Mot de Passe incorrect");
             }
-            toBeReturned = "login";
+            toBeReturned = "login-merchant";
         }
         return toBeReturned;
     }
 
     /**
-     * shows details of particular user with its id
-     * @param userId
+     * shows details of particular merchant with its id
+     * @param merchantId
      * @param model
-     * @return user-details.html
+     * @return merchant-details.html
      */
-    @RequestMapping("/Utilisateurs/MonProfil/{userId}")
-    public String userDetails(@PathVariable Integer userId, Model model, HttpServletRequest request){
+    @RequestMapping("/Marchands/MonProfil/{merchantId}")
+    public String merchantDetails(@PathVariable Integer merchantId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
-        UserBean user = usersProxy.showUser(userId);
+        MerchantBean merchant = merchantsProxy.showMerchant(merchantId);
 
-        if(!session.getAttribute("loggedInUserId").equals(userId)){
-            System.out.println("User trying to access profile is not the owner of the profile");
-            System.out.println("User is: [id:"
-                    +session.getAttribute("loggedInUserId")+ ", email:"
-                    +session.getAttribute("loggedInUserEmail")+", role:"
-                    +session.getAttribute("loggedInUserRole")+"]");
+        if(!session.getAttribute("loggedInMerchantId").equals(merchantId)){
+            System.out.println("Merchant trying to access profile is not the owner of the profile");
+            System.out.println("Merchant is: [id:"
+                    +session.getAttribute("loggedInMerchantId")+ ", email:"
+                    +session.getAttribute("loggedInMerchantEmail")+"]");
             return "redirect:/Accueil";
         }
 
-        model.addAttribute("user", user);
+        model.addAttribute("merchant", merchant);
         model.addAttribute("session", session);
-        return "user-details";
+        return "merchant-details";
     }
     /*
      **************************************
-     * User logout
+     * Merchant logout
      * ************************************
      */
     /**
@@ -141,7 +144,7 @@ public class ClientUsersController {
      * @param session session
      * @return homepage
      */
-    @RequestMapping(value = "/Utilisateurs/logout")
+    @RequestMapping(value = "/Marchands/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/Accueil";
@@ -149,44 +152,44 @@ public class ClientUsersController {
 
   /*
      **************************************
-     * User reset password
+     * Merchant reset password
      * ************************************
      */
 
     /**
      *<p>displays form to send an email to retrieve a link to reset password</p>
-     * @param model user
+     * @param model merchant
      * @return page with form
      */
-    @GetMapping(value = "/Utilisateurs/MotDePasseOublie")
+    @GetMapping(value = "/Marchands/MotDePasseOublie")
     public String forgotPassword(Model model) {
-        UserBean userBean = new UserBean();
-        model.addAttribute("user", userBean);
+        MerchantBean merchantBean = new MerchantBean();
+        model.addAttribute("merchant", merchantBean);
         return "password-forgot";
     }
 
     /**
      *<p>process called when form to send reset link is validated</p>
-     * @param userBean user
+     * @param merchantBean merchant
      * @param theModel form model
      * @param request servlet request
      * @return page form
      */
-    @RequestMapping("/Utilisateurs/forgot-password")
-    public String findUserSendLinkForPassword(@ModelAttribute("user") UserBean userBean, ModelMap theModel, HttpServletRequest request) {
-        UserBean userToFind = new UserBean();
+    @RequestMapping("/Marchands/forgot-password")
+    public String findMerchantSendLinkForPassword(@ModelAttribute("merchant") MerchantBean merchantBean, ModelMap theModel, HttpServletRequest request) {
+        MerchantBean merchantToFind = new MerchantBean();
         String appUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort();
         try{
-            userToFind = usersProxy.findUserForPassword(userBean.getEmail());
+            merchantToFind = merchantsProxy.findMerchantForPassword(merchantBean.getEmail());
             theModel.addAttribute("successMessage", "Un email a été envoyé à l'adresse indiquée");
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("EMAIL INPUT = "+userBean.getEmail());
+            System.out.println("EMAIL INPUT = "+merchantBean.getEmail());
             theModel.addAttribute("errorMessage", "email inconnu");
         }
         //TODO le mail est bien envoyé mais renvoi le catch: FeignException: status 504 reading MicroserviceMailingProxy#sendLinkForPassword(String,String,String)
         try{
-            mailingProxy.sendLinkForPassword(userToFind.getEmail(), userToFind.getResetToken(), appUrl);
+            mailingProxy.sendLinkForPassword(merchantToFind.getEmail(), merchantToFind.getResetToken(), appUrl);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -198,17 +201,17 @@ public class ClientUsersController {
      * @param model model form
      * @return page form
      */
-  @RequestMapping(value = "/Utilisateurs/MotDePasseReset", method = RequestMethod.GET)
+  @RequestMapping(value = "/Marchands/MotDePasseReset", method = RequestMethod.GET)
     public String resetPasswordForm(Model model, @RequestParam("token") String token) {
       String redirectPage = "";
       try {
-          UserBean userBean = usersProxy.findUserByToken(token);
-          model.addAttribute("user", userBean);
+          MerchantBean merchantBean = merchantsProxy.findMerchantByToken(token);
+          model.addAttribute("merchant", merchantBean);
           model.addAttribute("resetToken", token);
           redirectPage = "password-reset";
       } catch (Exception e) {
           e.printStackTrace();
-          redirectPage = "redirect:/Utilisateurs/connexion";
+          redirectPage = "redirect:/Marchands/connexion";
       }
       return redirectPage;
   }
@@ -216,14 +219,14 @@ public class ClientUsersController {
 
     /**
      * <p>process called after password is reset</p>
-     * @param userBean user
+     * @param merchantBean merchant
      * @param theModel modelpage
      * @return modelandview
      */
-    @RequestMapping (value = "/Utilisateurs/MotDePasseReset", method = RequestMethod.POST)
-    public String resetPassword(@ModelAttribute("user") UserBean userBean, ModelMap theModel){
+    @RequestMapping (value = "/Marchands/MotDePasseReset", method = RequestMethod.POST)
+    public String resetPassword(@ModelAttribute("merchant") MerchantBean merchantBean, ModelMap theModel){
         int success = 0;
-        UserBean userToresetPassword = usersProxy.findUserByTokenAndSetsNewPassword(userBean.getResetToken(), userBean.getPassword());
+        MerchantBean merchantToresetPassword = merchantsProxy.findMerchantByTokenAndSetsNewPassword(merchantBean.getResetToken(), merchantBean.getPassword());
         success = 1;
         theModel.addAttribute("success", success);
         return "password-reset";
@@ -231,19 +234,19 @@ public class ClientUsersController {
 
     /*
      **************************************
-     * User delete
+     * Merchant delete
      * ************************************
      */
 
     /**
-     * <p>deletes a user when user clicks on suppress button</p>
+     * <p>deletes a merchant when merchant clicks on suppress button</p>
      * @param id
      * @return url depending on function result
      */
-    @RequestMapping(value = "/Utilisateurs/delete/{id}", method = RequestMethod.POST)
-    public String deleteUser(@PathVariable("id") Integer id, HttpServletRequest request){
+    @RequestMapping(value = "/Marchands/delete/{id}", method = RequestMethod.POST)
+    public String deleteMerchant(@PathVariable("id") Integer id, HttpServletRequest request){
         HttpSession session = request.getSession();
-        usersProxy.deleteUser(id);
+        merchantsProxy.deleteMerchant(id);
         session.invalidate();
         return "redirect:/Accueil";
     }
@@ -251,20 +254,20 @@ public class ClientUsersController {
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex){
-        return new ModelAndView("redirect:/Utilisateurs/connexion");
+        return new ModelAndView("redirect:/Marchands/connexion");
     }
 
     /**
-     * <p>Sets session attributes for a user</p>
-     * @param user
+     * <p>Sets session attributes for a merchant</p>
+     * @param merchant
      * @param session
      * @return url
      */
-    public String setSessionAttributes(UserBean user, HttpSession session){
-        String redirectString = "/Utilisateurs/MonProfil/"+user.getId();
-        session.setAttribute("loggedInUserEmail", user.getEmail());
-        session.setAttribute("loggedInUserId", user.getId());
-        session.setAttribute("loggedInUserRole", user.getUserRole().getRoleName());
+    public String setSessionAttributes(MerchantBean merchant, HttpSession session){
+        String redirectString = "/Marchands/MonProfil/"+merchant.getId();
+        session.setAttribute("loggedInMerchantEmail", merchant.getEmail());
+        session.setAttribute("loggedInMerchantId", merchant.getId());
+        session.setAttribute("loggedInMerchantRole", merchant.getUserRole().getRoleName());
         return "redirect:"+redirectString;
     }
 }

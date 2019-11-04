@@ -31,6 +31,10 @@
         <th:block th:text="${session.loggedInUserRole}" />
         <th:block th:replace="fragments/headers/header-connected :: header-connected"/>
     </span>
+<span th:if="${session.loggedInMerchantRole eq 'MERCHANT'}">
+        <th:block th:text="${session.loggedInMerchantRole}" />
+        <th:block th:replace="fragments/headers/header-connected-merchant :: header-connected-merchant"/>
+    </span>
 <main role="main" class="flex-shrink-0 mt-5">
     <div class="container col-12 mt-5" >
         <div class="container">

@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <div class="mx-auto col-md-6 mt-4">
-                <form th:action="@{/Utilisateurs/add-user}" method="post" th:object="${user}">
+                <form th:action="@{/Marchands/add-merchant}" method="post" th:object="${merchant}">
                     <td th:if="${errorMessage ne null}">
                         <div class="alert alert-danger">
                             <span  th:text="${errorMessage}"/>
@@ -29,22 +29,31 @@
                                placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="merchantName">Prénom</label>:
+                        <label for="merchantName">Nom</label>:
                         <input type="test"
                                id="merchantName"
                                name="merchantName"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Prénom">
+                               placeholder="Nom">
                     </div>
                     <div class="form-group">
-                        <label for="category">Nom</label>:
+                        <label for="category">Categorie</label>:
                         <input type="text"
                                id="category"
                                name="category"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Nom">
+                               placeholder="Catégorie">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Adresse</label>:
+                        <input type="text"
+                               id="address"
+                               name="address"
+                               class="form-control"
+                               autofocus="autofocus"
+                               placeholder="Adresse">
                     </div>
                     <div class="form-group">
                         <label for="password">Mot de Passe</label>:

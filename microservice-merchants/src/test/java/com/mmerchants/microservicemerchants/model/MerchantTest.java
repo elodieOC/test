@@ -14,12 +14,14 @@ public class MerchantTest {
 
     /** Jeu de données */
     private Merchant testMerchant;
+    private Role testRole;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         testMerchant = new Merchant();
+        testRole = new Role();
         /*Merchant*/
         testMerchant.setId(1);
         testMerchant.setEmail("boulangerie@aufournil.fr");
@@ -27,6 +29,9 @@ public class MerchantTest {
         testMerchant.setCategory("boulangerie");
         testMerchant.setPassword("croissant"); 
         testMerchant.setAddress("15 rue du chocolat");
+        /*Role*/
+        testRole.setId(5);
+        testRole.setRoleName("MERCHANT_TEST");
     }
 
     @Test(expected = Test.None.class)
@@ -89,6 +94,18 @@ public class MerchantTest {
         String encrypted2 = Encryption.encrypt("paschocolatine");
         Assert.assertTrue(Encryption.encrypt(testMerchant.getPassword()).equals(encrypted2));
     }
+
+    @Test(expected = Test.None.class)
+    public void getSetUserRole() {
+        testMerchant.setMerchantRole(testRole);
+        Assert.assertEquals("MERCHANT_TEST",testMerchant.getMerchantRole().getRoleName());
+        Role newTestRole = new Role();
+        newTestRole.setRoleName("NEWROLE_TEST");
+        newTestRole.setId(2);
+        testMerchant.setMerchantRole(newTestRole);
+        Assert.assertTrue(testMerchant.getMerchantRole().getRoleName().equals("NEWROLE_TEST"));
+    }
+
 
     @Test
     public void toStringTest() {

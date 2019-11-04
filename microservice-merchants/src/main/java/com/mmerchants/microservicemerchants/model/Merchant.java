@@ -1,5 +1,7 @@
 package com.mmerchants.microservicemerchants.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -42,7 +44,20 @@ public class Merchant {
     @Column(name = "token_date")
     private Timestamp tokenDate;
 
+    @JsonSerialize(using = RoleSerializer.class)
+    @ManyToOne //plusieurs user pour un seul role
+    @JoinColumn(name = "id_role")
+    private Role merchantRole;
+
     public Merchant() {
+    }
+
+    public Role getMerchantRole() {
+        return merchantRole;
+    }
+
+    public void setMerchantRole(Role merchantRole) {
+        this.merchantRole = merchantRole;
     }
 
     public Timestamp getTokenDate() {

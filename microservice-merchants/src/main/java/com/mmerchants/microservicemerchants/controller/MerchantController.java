@@ -1,6 +1,7 @@
 package com.mmerchants.microservicemerchants.controller;
 
 import com.mmerchants.microservicemerchants.dao.MerchantDao;
+import com.mmerchants.microservicemerchants.dao.RoleDao;
 import com.mmerchants.microservicemerchants.exceptions.BadLoginPasswordException;
 import com.mmerchants.microservicemerchants.exceptions.CannotAddException;
 import com.mmerchants.microservicemerchants.exceptions.NotFoundException;
@@ -23,6 +24,8 @@ import java.util.UUID;
 public class MerchantController {
     @Autowired
     private MerchantDao merchantDao;
+    @Autowired
+    private RoleDao roleDao;
 
     /**
      * <p>Lists all merchants</p>
@@ -40,7 +43,14 @@ public class MerchantController {
      */
     @PostMapping(value = "/Marchands/add-merchant")
     public ResponseEntity<Merchant> addMerchant(@RequestBody Merchant merchant) {
+        if(merchantDao.findFirstByEmail(merchant.getEmail()).isPresent()){
+            throw new CannotAddException("Merchant03");
+        }
+        if(merchantDao.findFirstByMerchantName(merchant.getMerchantName()).isPresent()){
+            throw new CannotAddException("Merchant04");
+        }
         merchant.setPassword(Encryption.encrypt(merchant.getPassword()));
+        merchant.setMerchantRole(roleDao.getOne(1));
         Merchant merchantAdded =  merchantDao.save(merchant);
         if (merchantAdded == null) {throw new CannotAddException("Merchant03");}
         return new ResponseEntity<Merchant>(merchantAdded, HttpStatus.CREATED);
@@ -140,6 +150,19 @@ public class MerchantController {
         return merchant;
     }
 
+    /**
+     * <p>deletes a merchant from db and all its datas</p>
+     * @param id
+     */
+    @PostMapping(value = "/Marchands/delete/{id}")
+    public void deleteUSer(@PathVariable Integer id){
+        Optional<Merchant> user = merchantDao.findById(id);
+        if(!user.isPresent()) {
+            throw new NotFoundException("Le marchand avec l'id " + id + " est INTROUVABLE.");
+        }
+        Merchant merchantToDelete = merchantDao.getOne(id);
+        merchantDao.delete(merchantToDelete);
+    }
 
    
 }

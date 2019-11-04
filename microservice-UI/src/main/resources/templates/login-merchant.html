@@ -9,11 +9,11 @@
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
         <div class="row mt-5">
-            <h1 class="mb-3 mt-3 mx-auto">Inscription</h1>
+            <h1 class="mb-5 mt-5 mx-auto">Connexion</h1>
         </div>
         <div class="row">
             <div class="mx-auto col-md-6 mt-4">
-                <form th:action="@{/Utilisateurs/add-user}" method="post" th:object="${user}">
+                <form th:action="@{/Marchands/log-merchant}" method="post">
                     <td th:if="${errorMessage ne null}">
                         <div class="alert alert-danger">
                             <span  th:text="${errorMessage}"/>
@@ -27,24 +27,6 @@
                                class="form-control"
                                autofocus="autofocus"
                                placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="merchantName">Prénom</label>:
-                        <input type="test"
-                               id="merchantName"
-                               name="merchantName"
-                               class="form-control"
-                               autofocus="autofocus"
-                               placeholder="Prénom">
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Nom</label>:
-                        <input type="text"
-                               id="category"
-                               name="category"
-                               class="form-control"
-                               autofocus="autofocus"
-                               placeholder="Nom">
                     </div>
                     <div class="form-group">
                         <label for="password">Mot de Passe</label>:
@@ -61,12 +43,12 @@
                                        name="login-submit"
                                        id="login-submit"
                                        class="form-control btn btn-lg btn-info"
-                                       value="Création de compte">
+                                       value="Connexion">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mx-auto">
-                                <a th:text="'Vous avez déjà un compte?'" th:href="@{/Utilisateurs/connexion}" />
+                                <a th:text="'Mot de passe oublié?'" th:href="@{/Marchands/MotDePasseOublie}" />
                             </div>
                         </div>
                     </div>

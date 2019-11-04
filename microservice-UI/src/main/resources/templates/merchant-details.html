@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Mon profil</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' '+${merchant.category}" />
+        <div class="row mt-5">
+            <h2 th:text="'Mes utilisateurs'" class="mb-5 mx-auto"/>
+        </div>
+        <div class="row mt-5">
+
+        </div>
+        <form th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
+            <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                <input type="submit"
+                       class="form-control btn btn-lg btn-danger"
+                       value="Suppression de compte">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

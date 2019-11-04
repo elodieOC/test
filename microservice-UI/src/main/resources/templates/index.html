@@ -12,6 +12,20 @@
             <div class="text-center">
                 <img th:src="@{/img/noimage-thumbnail.png}" alt="no image" class="img-fluid">
                 <h2 class="mt-2">Tous mes points!</h2>
+                <div class="mt-5 col-sm-6 col-sm-offset-3  mx-auto">
+                    <a th:href="@{/Utilisateurs/connexion}">
+                        <input type="submit"
+                               class="form-control btn btn-lg btn-success"
+                               value="Utilisateurs">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-sm-offset-3  mx-auto mt-3 mb-5">
+                    <a th:href="@{/Marchands/connexion}">
+                        <input type="submit"
+                               class="form-control btn btn-lg btn-success"
+                               value="Marchands">
+                    </a>
+                </div>
                 <a th:href="@{/APropos}" >A propos de nous</a>
             </div>
         </div>
