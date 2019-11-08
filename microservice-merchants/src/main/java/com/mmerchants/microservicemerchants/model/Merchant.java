@@ -2,8 +2,6 @@ package com.mmerchants.microservicemerchants.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import java.sql.Timestamp;
 
 
 @Entity

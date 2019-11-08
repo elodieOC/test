@@ -4,33 +4,16 @@
     <list default="true" id="9ca31c92-415f-4045-8aa9-dfa1078cf13a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/filters/RestrictionFilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/filters/RestrictionFilterConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/login-merchant.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchant-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchant-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/beans/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/beans/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/batch/ScheduledTasks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/RoleDao.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/RoleSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.1__create_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.1__create_schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.2__init_data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.3__maj_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.2__maj_schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/config/SecurityConfig.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/microservice-rewards/target/" />
     <ignored path="$PROJECT_DIR$/microservice-merchants/target/" />
@@ -86,10 +69,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+            <state relative-caret-position="273">
+              <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,29 +80,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="57" column="56" lean-forward="true" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+            <state relative-caret-position="255">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -143,6 +117,8 @@
       <find>testUser</find>
       <find>loggedInUserRole</find>
       <find>reset</find>
+      <find>user id</find>
+      <find>mes</find>
     </findStrings>
     <replaceStrings>
       <replace>UserBean</replace>
@@ -159,9 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/microservice-mailing/pom.xml" />
-        <option value="$PROJECT_DIR$/zuul-server/src/main/resources/bootstrap.properties" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/bootstrap.properties" />
         <option value="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailConfig.java" />
         <option value="$PROJECT_DIR$/microservice-users/pom.xml" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/model/Role.java" />
@@ -185,31 +158,34 @@
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/RoleSerializer.java" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Role.java" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/RoleDao.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.4__maj_data.sql" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.2__init_data.sql" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.3__maj_schema.sql" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
         <option value="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/beans/UserBean.java" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.2__maj_schema.sql" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.1__create_schema.sql" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceUsersProxy.java" />
         <option value="$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/config/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/UserBean.java" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/model/User.java" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/filters/RestrictionFilterConfig.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" />
       </list>
     </option>
   </component>
@@ -246,6 +222,63 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
               <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
@@ -319,6 +352,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="microserviceUI" type="462c0819:PsiDirectoryNode" />
+              <item name="filters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microserviceUI" type="462c0819:PsiDirectoryNode" />
               <item name="proxies" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -355,156 +397,6 @@
               <item name="fragments" type="462c0819:PsiDirectoryNode" />
               <item name="headers" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
-              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="migration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zuulserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zuulserver" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -518,7 +410,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573221883429" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573230903800" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/microservice-mailing" />
@@ -535,6 +427,9 @@
       <recent name="com.musers.microserviceusers.model" />
       <recent name="com.musers.microserviceusers.controller" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.mmerchants.microservicemerchants.dao" />
       <recent name="com.mUI.microserviceUI.beans" />
@@ -542,12 +437,9 @@
       <recent name="com.mUI.microserviceUI.controller" />
       <recent name="com.mUI.microserviceUI.config" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\F41374\IdeaProjects\test\microservice-users\src\main\resources\db\migration" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-UI\src\main\resources\templates" />
+      <recent name="C:\Users\F41374\IdeaProjects\test\microservice-users\src\main\resources\db\migration" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-merchants\src\main\resources\db\migration" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-merchants\src\main\java\com\mmerchants\microservicemerchants\model" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-UI\src\main\resources\templates\fragments\headers" />
@@ -746,7 +638,7 @@
       <workItem from="1572254362725" duration="194000" />
       <workItem from="1572526084566" duration="47774000" />
       <workItem from="1573136934256" duration="5950000" />
-      <workItem from="1573205271212" duration="4991000" />
+      <workItem from="1573205271212" duration="14101000" />
     </task>
     <servers />
   </component>
@@ -783,7 +675,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62618000" />
+    <option name="totallyTimeSpent" value="71728000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -798,7 +690,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984227" visible="true" weight="0.2647504" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984227" visible="true" weight="0.26399395" />
       <window_info id="Structure" order="1" sideWeight="0.50157726" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -822,7 +714,7 @@
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info anchor="bottom" id="Duplicate detector" order="15" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.46972176" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.46972176" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -852,27 +744,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/config/FeignExceptionConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/exceptions/CustomErrorDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="27" column="82" selection-start-line="27" selection-start-column="82" selection-end-line="27" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -897,13 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
           <caret line="31" column="100" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-public.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="198" selection-start-line="14" selection-start-column="198" selection-end-line="14" selection-end-column="198" />
         </state>
       </provider>
     </entry>
@@ -980,23 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="40" column="82" selection-start-line="40" selection-start-column="82" selection-end-line="40" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.1__create_schema.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -1008,20 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -1067,51 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceUsersProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="61" lean-forward="true" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0.jar!/feign/FeignException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1142,17 +934,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="57" column="56" lean-forward="true" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-public.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="198" selection-start-line="14" selection-start-column="198" selection-end-line="14" selection-end-column="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,17 +989,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html">
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="123">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+        <state relative-caret-position="221">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceUsersProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="61" lean-forward="true" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1185,15 +1022,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="206" selection-start-line="13" selection-start-column="206" selection-end-line="13" selection-end-column="206" />
+        <state relative-caret-position="221">
+          <caret line="13" column="179" selection-start-line="13" selection-start-column="179" selection-end-line="13" selection-end-column="179" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.9.RELEASE/spring-web-5.1.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+        <state relative-caret-position="158">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="200" column="5" lean-forward="true" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/filters/RestrictionFilterConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
         </state>
       </provider>
     </entry>

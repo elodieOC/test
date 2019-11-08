@@ -13,12 +13,13 @@
         </div>
         <div class="row">
             <div class="mx-auto col-md-6 mt-4">
-                <form th:action="@{/Marchands/add-merchant}" method="post" th:object="${merchant}">
+                <form th:action="@{/Marchands/add-shop}" method="post" th:object="${merchant}">
                     <td th:if="${errorMessage ne null}">
                         <div class="alert alert-danger">
                             <span  th:text="${errorMessage}"/>
                         </div>
                     </td>
+                    <input type="hidden" name="userId" th:value="${sessionId}"/>
                     <div class="form-group">
                         <label for="email">Email</label>:
                         <input type="email"

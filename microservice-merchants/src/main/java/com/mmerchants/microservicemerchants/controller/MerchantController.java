@@ -1,11 +1,9 @@
 package com.mmerchants.microservicemerchants.controller;
 
 import com.mmerchants.microservicemerchants.dao.MerchantDao;
-import com.mmerchants.microservicemerchants.exceptions.BadLoginPasswordException;
 import com.mmerchants.microservicemerchants.exceptions.CannotAddException;
 import com.mmerchants.microservicemerchants.exceptions.NotFoundException;
 import com.mmerchants.microservicemerchants.model.Merchant;
-import com.mmerchants.microservicemerchants.utils.Encryption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,12 +29,12 @@ public class MerchantController {
         return merchantDao.findAll();
     }
 
-    /**
+     /**
      * <p>Adds a new shop to db</p>
      * @param merchant
      * @return responseEntity
      */
-    @PostMapping(value = "/Marchands/MesBoutiques/add-shop")
+    @PostMapping(value = "/Marchands/add-shop")
     public ResponseEntity<Merchant> addMerchant(@RequestBody Merchant merchant) {
         if(merchantDao.findFirstByMerchantName(merchant.getMerchantName()).isPresent()){
             throw new CannotAddException("Merchant04");

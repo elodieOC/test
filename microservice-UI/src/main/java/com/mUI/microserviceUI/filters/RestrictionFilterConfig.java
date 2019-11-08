@@ -19,7 +19,10 @@ public class RestrictionFilterConfig implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         /* Non-filtering of static resources */
         String path = request.getRequestURI().substring( request.getContextPath().length());
-        if ( !path.matches( "/Utilisateurs/MonProfil/\\d+$" )){
+        if ( !path.contains( "MonProfil") &&
+                !path.contains("Marchands/nouvelle-boutique") &&
+                !path.contains("Marchands/MesBoutiques") &&
+                !path.contains("Marchands/add")){
             /* Display requested page */
             chain.doFilter( request, response );
             return;

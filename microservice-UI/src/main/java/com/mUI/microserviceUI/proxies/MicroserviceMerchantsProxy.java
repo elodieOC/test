@@ -17,13 +17,13 @@ public interface MicroserviceMerchantsProxy {
     @GetMapping(value = "microservice-merchants/Marchands")
     List<MerchantBean> listMerchants();
 
-    @PostMapping(value = "microservice-merchants/Marchands/MesBoutiques/add-shop")
-    MerchantBean addMerchant(@RequestBody MerchantBean merchantBean);
+    @PostMapping(value = "microservice-merchants/Marchands/add-shop")
+    MerchantBean addShop(@RequestBody MerchantBean merchantBean);
 
     @GetMapping( value = "microservice-merchants/Marchands/{id}")
-    MerchantBean showMerchant(@PathVariable("id") Integer id);
+    MerchantBean showShop(@PathVariable("id") Integer id);
 
     @PostMapping(value = "microservice-merchants/Marchands/delete/{id}")
-    void deleteMerchant(@PathVariable("id") Integer id);
+    void deleteShop(@PathVariable("id") Integer id);
 
 }

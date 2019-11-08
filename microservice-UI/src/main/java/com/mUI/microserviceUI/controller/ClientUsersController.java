@@ -1,9 +1,11 @@
 package com.mUI.microserviceUI.controller;
 
+import com.mUI.microserviceUI.beans.MerchantBean;
 import com.mUI.microserviceUI.beans.UserBean;
 import com.mUI.microserviceUI.exceptions.BadLoginPasswordException;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMailingProxy;
+import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * <h2>Controller linking with microservice-users</h2>
@@ -25,6 +28,8 @@ public class ClientUsersController {
     private MicroserviceUsersProxy usersProxy;
     @Autowired
     private MicroserviceMailingProxy mailingProxy;
+    @Autowired
+    private MicroserviceMerchantsProxy merchantsProxy;
 
     /*
      **************************************
@@ -128,9 +133,8 @@ public class ClientUsersController {
                     +session.getAttribute("loggedInUserRole")+"]");
             return "redirect:/Accueil";
         }
-
         model.addAttribute("user", user);
-        model.addAttribute("session", session);
+        model.addAttribute("sessionRole", session.getAttribute("loggedInUserRole"));
         return "user-profile";
     }
     /*

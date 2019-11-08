@@ -12,7 +12,7 @@
         <div th:each="merchant : ${merchants}" class="card col-md-3 mt-5 mr-5 ml-5">
            <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
                <div  class="card-header  bg-secondary text-capitalize text-white" th:text= "${merchant.merchantName}" />
-               <div th:text="${merchant.address}">
+               <div th:text="${merchant.address}" />
                <div class="card-footer text-capitalize" th:text="${merchant.getCategory()}"/>
             </a>
         </div>

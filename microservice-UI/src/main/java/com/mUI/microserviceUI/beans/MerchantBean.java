@@ -6,7 +6,6 @@ public class MerchantBean {
     private String merchantName;
     private String category;
     private String email;
-    private String password;
     private String address;
     private Integer userId;
 
@@ -61,12 +60,5 @@ public class MerchantBean {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 }
