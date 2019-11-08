@@ -1,9 +1,6 @@
 package com.mmerchants.microservicemerchants.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
@@ -33,47 +30,18 @@ public class Merchant {
     @Column(name="address")
     private String address;
 
-    @NotEmpty
-    @Size(min=8, message="Veuillez saisir un mot de passe d'au moins 8 caractères")
-    @Column(name="password")
-    private String password;
-
-    @Column(name = "reset_token")
-    private String resetToken;
-
-    @Column(name = "token_date")
-    private Timestamp tokenDate;
-
-    @JsonSerialize(using = RoleSerializer.class)
-    @ManyToOne //plusieurs user pour un seul role
-    @JoinColumn(name = "id_role")
-    private Role merchantRole;
+    @Column(name = "userId")
+    private Integer userId;
 
     public Merchant() {
     }
 
-    public Role getMerchantRole() {
-        return merchantRole;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setMerchantRole(Role merchantRole) {
-        this.merchantRole = merchantRole;
-    }
-
-    public Timestamp getTokenDate() {
-        return tokenDate;
-    }
-
-    public void setTokenDate(Timestamp tokenDate) {
-        this.tokenDate = tokenDate;
-    }
-
-    public String getResetToken() {
-        return resetToken;
-    }
-
-    public void setResetToken(String resetToken) {
-        this.resetToken = resetToken;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -114,14 +82,6 @@ public class Merchant {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override

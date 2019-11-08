@@ -7,9 +7,8 @@ public class MerchantBean {
     private String category;
     private String email;
     private String password;
-    private String resetToken;
     private String address;
-    private RoleBean userRole;
+    private Integer userId;
 
     public MerchantBean() {
     }
@@ -22,20 +21,12 @@ public class MerchantBean {
         this.address = address;
     }
 
-    public RoleBean getUserRole() {
-        return userRole;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserRole(RoleBean userRole) {
-        this.userRole = userRole;
-    }
-
-    public String getResetToken() {
-        return resetToken;
-    }
-
-    public void setResetToken(String resetToken) {
-        this.resetToken = resetToken;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getId() {

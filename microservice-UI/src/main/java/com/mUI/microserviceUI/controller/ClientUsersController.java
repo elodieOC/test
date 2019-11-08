@@ -1,6 +1,5 @@
 package com.mUI.microserviceUI.controller;
 
-import com.mUI.microserviceUI.beans.RoleBean;
 import com.mUI.microserviceUI.beans.UserBean;
 import com.mUI.microserviceUI.exceptions.BadLoginPasswordException;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
@@ -48,22 +47,25 @@ public class ClientUsersController {
 
     /**
      * <p>Process called after the submit button is clicked on register page</p>
-     * @param theUser user being created
+     * @param user user being created
      * @param request servlet request
      * @param model attribute passed to jsp page
      * @return page to show depending on result of process
      */
     @PostMapping("/Utilisateurs/add-user")
-    public String saveUser(@ModelAttribute("user") UserBean theUser, HttpServletRequest request, ModelMap model) {
+    public String saveUser(@ModelAttribute("user") UserBean user, HttpServletRequest request, ModelMap model) {
         String toBeReturned;
         HttpSession session = request.getSession();
         try {
-            UserBean userToRegister = usersProxy.addUser(theUser);
+            UserBean userToRegister = usersProxy.addUser(user);
             toBeReturned = setSessionAttributes(userToRegister, session);
         }
         catch (Exception e){
             e.printStackTrace();
             if(e instanceof CannotAddException){
+                model.addAttribute("errorMessage", e.getMessage());
+            }
+            else{
                 model.addAttribute("errorMessage", e.getMessage());
             }
             toBeReturned = "register";
@@ -129,7 +131,7 @@ public class ClientUsersController {
 
         model.addAttribute("user", user);
         model.addAttribute("session", session);
-        return "user-details";
+        return "user-profile";
     }
     /*
      **************************************
@@ -175,6 +177,7 @@ public class ClientUsersController {
     @RequestMapping("/Utilisateurs/forgot-password")
     public String findUserSendLinkForPassword(@ModelAttribute("user") UserBean userBean, ModelMap theModel, HttpServletRequest request) {
         UserBean userToFind = new UserBean();
+        System.out.println(userBean);
         String appUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort();
         try{
             userToFind = usersProxy.findUserForPassword(userBean.getEmail());

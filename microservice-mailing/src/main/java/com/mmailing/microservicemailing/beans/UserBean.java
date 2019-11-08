@@ -8,7 +8,6 @@ public class UserBean {
     private String email;
     private String password;
     private RoleBean userRole;
-    private String userName;
     private String resetToken;
     private String tokenDate;
 
@@ -29,14 +28,6 @@ public class UserBean {
 
     public void setTokenDate(String tokenDate) {
         this.tokenDate = tokenDate;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public RoleBean getUserRole() {

@@ -17,22 +17,10 @@ public interface MicroserviceMerchantsProxy {
     @GetMapping(value = "microservice-merchants/Marchands")
     List<MerchantBean> listMerchants();
 
-    @PostMapping(value = "microservice-merchants/Marchands/add-merchant")
+    @PostMapping(value = "microservice-merchants/Marchands/MesBoutiques/add-shop")
     MerchantBean addMerchant(@RequestBody MerchantBean merchantBean);
 
-    @PostMapping(value = "microservice-merchants/Marchands/log-merchant")
-    MerchantBean logMerchant(@RequestParam String email, @RequestParam String password);
-
-    @PostMapping(value = "microservice-merchants/Marchands/forgot-password")
-    MerchantBean findMerchantForPassword(@RequestParam String email);
-
-    @GetMapping(value = "microservice-merchants/Marchands/MotDePasseReset")
-    MerchantBean findMerchantByToken(@RequestParam String token);
-
-    @PostMapping(value = "microservice-merchants/Marchands/MotDePasseReset")
-    MerchantBean findMerchantByTokenAndSetsNewPassword(@RequestParam String token, @RequestParam String password);
-
-    @GetMapping( value = "microservice-merchants/Marchands/MonProfil/{id}")
+    @GetMapping( value = "microservice-merchants/Marchands/{id}")
     MerchantBean showMerchant(@PathVariable("id") Integer id);
 
     @PostMapping(value = "microservice-merchants/Marchands/delete/{id}")

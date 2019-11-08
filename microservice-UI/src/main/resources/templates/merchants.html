@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Nos Marchands</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+    <div class="row offset-md-1 ">
+        <div th:each="merchant : ${merchants}" class="card col-md-3 mt-5 mr-5 ml-5">
+           <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
+               <div  class="card-header  bg-secondary text-capitalize text-white" th:text= "${merchant.merchantName}" />
+               <div th:text="${merchant.address}">
+               <div class="card-footer text-capitalize" th:text="${merchant.getCategory()}"/>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

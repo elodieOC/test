@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{fragments/layout}">
 <head>
-    <title>Login</title>
+    <title>Inscription</title>
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
@@ -29,19 +29,19 @@
                                placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="merchantName">Prénom</label>:
-                        <input type="test"
-                               id="merchantName"
-                               name="merchantName"
+                        <label for="firstName">Prénom</label>:
+                        <input type="text"
+                               id="firstName"
+                               name="firstName"
                                class="form-control"
                                autofocus="autofocus"
                                placeholder="Prénom">
                     </div>
                     <div class="form-group">
-                        <label for="category">Nom</label>:
+                        <label for="lastName">Nom</label>:
                         <input type="text"
-                               id="category"
-                               name="category"
+                               id="lastName"
+                               name="lastName"
                                class="form-control"
                                autofocus="autofocus"
                                placeholder="Nom">
@@ -53,6 +53,13 @@
                                name="password"
                                class="form-control"
                                placeholder="Mot de passe">
+                    </div>
+                    <div class="form-group ">
+                        <label th:text="'Vous êtes:'" />
+                        <select  id="merchantOrNot" name="merchantOrNot" class="form-control">
+                            <option th:value="1" th:text="'Commerçant'" />
+                            <option th:value="0" th:text="'Utilisateur'" />
+                        </select>
                     </div>
                     <div class="form-group mt-5">
                         <div class="row">

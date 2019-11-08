@@ -8,51 +8,38 @@ import org.mockito.MockitoAnnotations;
 
 import java.sql.Timestamp;
 
-import static org.junit.Assert.*;
-
 public class MerchantTest {
 
     /** Jeu de données */
     private Merchant testMerchant;
-    private Role testRole;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         testMerchant = new Merchant();
-        testRole = new Role();
         /*Merchant*/
         testMerchant.setId(1);
         testMerchant.setEmail("boulangerie@aufournil.fr");
         testMerchant.setMerchantName("Le Fournil");
         testMerchant.setCategory("boulangerie");
-        testMerchant.setPassword("croissant"); 
         testMerchant.setAddress("15 rue du chocolat");
-        /*Role*/
-        testRole.setId(5);
-        testRole.setRoleName("MERCHANT_TEST");
+        testMerchant.setUserId(2);
     }
 
-    @Test(expected = Test.None.class)
-    public void setGetResetToken() {
-        testMerchant.setResetToken("resetTestToken");
-        Assert.assertTrue(testMerchant.getResetToken().equals("resetTestToken"));
-        Assert.assertFalse(testMerchant.getResetToken()== null);
-    }
-
-    @Test(expected = Test.None.class)
-    public void getSetTokenDate() {
-        Timestamp now = new Timestamp(System.currentTimeMillis());
-        testMerchant.setTokenDate(now);
-        Assert.assertTrue(testMerchant.getTokenDate().equals(now));
-    }
     
     @Test
     public void getSetId() {
         testMerchant.setId(55);
         Assert.assertTrue(testMerchant.getId() == 55);
         Assert.assertFalse(testMerchant.getId() == 1);
+    }
+
+    @Test
+    public void getSetUserId() {
+        Assert.assertTrue(testMerchant.getUserId() == 2);
+        testMerchant.setUserId(55);
+        Assert.assertTrue(testMerchant.getUserId() == 55);
     }
 
     @Test
@@ -84,28 +71,6 @@ public class MerchantTest {
         Assert.assertEquals("17 avenue de la tarte", testMerchant.getAddress());
         Assert.assertNotEquals("15 rue du chocolat", testMerchant.getAddress());
     }
-
-    @Test
-    public void getSetPassword() {  
-        Assert.assertTrue(testMerchant.getPassword().equals("croissant"));
-        String encrypted = Encryption.encrypt("croissant");
-        Assert.assertTrue(Encryption.encrypt(testMerchant.getPassword()).equals(encrypted));
-        testMerchant.setPassword("paschocolatine");
-        String encrypted2 = Encryption.encrypt("paschocolatine");
-        Assert.assertTrue(Encryption.encrypt(testMerchant.getPassword()).equals(encrypted2));
-    }
-
-    @Test(expected = Test.None.class)
-    public void getSetUserRole() {
-        testMerchant.setMerchantRole(testRole);
-        Assert.assertEquals("MERCHANT_TEST",testMerchant.getMerchantRole().getRoleName());
-        Role newTestRole = new Role();
-        newTestRole.setRoleName("NEWROLE_TEST");
-        newTestRole.setId(2);
-        testMerchant.setMerchantRole(newTestRole);
-        Assert.assertTrue(testMerchant.getMerchantRole().getRoleName().equals("NEWROLE_TEST"));
-    }
-
 
     @Test
     public void toStringTest() {

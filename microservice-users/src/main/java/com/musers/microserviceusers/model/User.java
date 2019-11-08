@@ -46,7 +46,18 @@ public class User {
     @JoinColumn(name = "id_role")
     private Role userRole;
 
+    @Transient
+    private boolean merchantOrNot;
+
     public User() {
+    }
+
+    public boolean isMerchantOrNot() {
+        return merchantOrNot;
+    }
+
+    public void setIsMerchant(boolean merchant) {
+        this.merchantOrNot = merchant;
     }
 
     public Timestamp getTokenDate() {

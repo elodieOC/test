@@ -4,7 +4,6 @@ import com.musers.microserviceusers.dao.RoleDao;
 import com.musers.microserviceusers.dao.UserDao;
 import com.musers.microserviceusers.exceptions.BadLoginPasswordException;
 import com.musers.microserviceusers.exceptions.CannotAddException;
-import com.musers.microserviceusers.exceptions.CannotDeleteException;
 import com.musers.microserviceusers.exceptions.NotFoundException;
 import com.musers.microserviceusers.model.User;
 import com.musers.microserviceusers.utils.Encryption;
@@ -48,7 +47,12 @@ public class UserController {
             throw new CannotAddException("User03");
         }
         user.setPassword(Encryption.encrypt(user.getPassword()));
-        user.setUserRole(roleDao.getOne(2));
+        if(user.isMerchantOrNot() == true){
+            user.setUserRole(roleDao.getOne(3));
+        }
+        else {
+            user.setUserRole(roleDao.getOne(2));
+        }
         User userAdded =  userDao.save(user);
         if (userAdded == null) {throw new CannotAddException("User04");}
         return new ResponseEntity<User>(userAdded, HttpStatus.CREATED);

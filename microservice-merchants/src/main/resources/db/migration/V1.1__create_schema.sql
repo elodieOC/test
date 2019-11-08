@@ -16,5 +16,5 @@ CREATE TABLE public.merchants(
                                  token_date timestamp default null,
                                  address   VARCHAR (100) ,
                                  password   VARCHAR (100)   ,
-                                 CONSTRAINT users_PK PRIMARY KEY (id)
+                                 CONSTRAINT merchants_PK PRIMARY KEY (id)
 )WITHOUT OIDS;

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<th:block th:fragment="header-connected">
+<th:block th:fragment="header-connected-merchant">
     <nav   class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" th:href="@{/Accueil}">Accueil</a>
@@ -11,7 +11,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-
+                    <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Mes Boutiques' ? 'active':''}"><a class="nav-link" th:href="@{/Marchands/mesBoutiques}">Mes Boutiques</a></li>
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Marchands' ? 'active':''}"><a class="nav-link" th:href="@{/Marchands}">Les Marchands</a></li>
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Contact' ? 'active':''}">
                         <a class="nav-link js-scroll-trigger" href="#" />Contact</a>
@@ -19,9 +19,9 @@
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/APropos' ? 'active':''}">
                         <a class="nav-link js-scroll-trigger" th:href="@{/APropos}" />A Propos</a>
                     </li>
-                    <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI().contains('/Marchands/MonProfil/') ? 'active':''}"><a class="nav-link js-scroll-trigger" th:href="@{/Utilisateurs/MonProfil/__${session.loggedInUserId}__}"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
+                    <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI().contains('/Utilisateurs/MonProfil/') ? 'active':''}"><a class="nav-link js-scroll-trigger" th:href="@{/Utilisateurs/MonProfil/__${session.loggedInUserId}__}"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
                     <li class="nav-item ml-4">
-                        <a class="nav-link js-scroll-trigger" th:href="@{/Marchands/logout}">
+                        <a class="nav-link js-scroll-trigger" th:href="@{/Utilisateurs/logout}">
                             <span class="glyphicon glyphicon-off"></span>
                         </a>
                     </li>

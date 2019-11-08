@@ -9,8 +9,17 @@ public class UserBean {
     private String password;
     private RoleBean userRole;
     private String resetToken;
+    private boolean merchantOrNot;
 
     public UserBean() {
+    }
+
+    public boolean isMerchantOrNot() {
+        return merchantOrNot;
+    }
+
+    public void setMerchantOrNot(boolean merchantOrNot) {
+        this.merchantOrNot = merchantOrNot;
     }
 
     public String getResetToken() {

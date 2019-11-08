@@ -14,7 +14,6 @@ public interface MerchantDao extends JpaRepository<Merchant, Integer> {
 
     Optional<Merchant> findFirstByEmail(String email);
     Optional<Merchant> findFirstByMerchantName(String merchantName);
-    Optional<Merchant> findByResetToken(String resetToken);
 
 
 }
