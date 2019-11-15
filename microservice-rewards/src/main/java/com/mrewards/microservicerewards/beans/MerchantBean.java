@@ -1,4 +1,4 @@
-package com.mUI.microserviceUI.beans;
+package com.mrewards.microservicerewards.beans;
 
 public class MerchantBean {
 

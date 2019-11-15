@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Ma carte fidélité</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' '+${merchant.category}" />
+
+        <div class="text-center mt-5" th:text="'Mes points: '+${reward.getPoints()}" />
+        <div class="text-center mt-5" th:text="'Points avant récompense: '+${reward.getMaxPoints()}" />
+        <div class="text-center mt-5" th:text="'Mes récompenses: '+${reward.getRewardsNbr()}" />
+    </div>
+</div>
+</body>
+</html>

@@ -1,23 +1,29 @@
 package com.mUI.microserviceUI.beans;
 
-public class MerchantBean {
+import javax.validation.constraints.NotEmpty;
 
-    private Integer id;
+public class AddShopDTO {
+
+    @NotEmpty
     private String merchantName;
+    @NotEmpty
     private String category;
+    @NotEmpty
     private String email;
+    @NotEmpty
     private String address;
     private Integer userId;
-    private Integer maxPoints;
+    @NotEmpty
+    private String maxPoints;
 
-    public MerchantBean() {
+    public AddShopDTO() {
     }
 
-    public Integer getMaxPoints() {
+    public String getMaxPoints() {
         return maxPoints;
     }
 
-    public void setMaxPoints(Integer maxPoints) {
+    public void setMaxPoints(String maxPoints) {
         this.maxPoints = maxPoints;
     }
 
@@ -35,14 +41,6 @@ public class MerchantBean {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getMerchantName() {
@@ -69,5 +67,15 @@ public class MerchantBean {
         this.email = email;
     }
 
-
+    @Override
+    public String toString() {
+        return "AddShopDTO{" +
+                "merchantName='" + merchantName + '\'' +
+                ", category='" + category + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", userId=" + userId +
+                ", maxPoints='" + maxPoints + '\'' +
+                '}';
+    }
 }

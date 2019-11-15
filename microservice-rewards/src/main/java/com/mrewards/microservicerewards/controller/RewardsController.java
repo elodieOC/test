@@ -38,7 +38,7 @@ public class RewardsController {
      * @param reward
      * @return responseEntity
      */
-    @PostMapping(value = "/CarteFidelites/add-reward")
+    @PostMapping(value = "/CarteFidelites/add-account")
     public ResponseEntity<Reward> addReward(@RequestBody Reward reward) {
         Reward rewardAdded =  rewardDao.save(reward);
         if (rewardAdded == null) {throw new CannotAddException("Reward03");}
@@ -75,6 +75,20 @@ public class RewardsController {
         rewardAccount = rewardsManager.addPointManager(rewardAccount);
         rewardDao.save(rewardAccount);
         return new ResponseEntity<Reward>(rewardAccount, HttpStatus.ACCEPTED);
+    }
+
+    /**
+     * <p>deletes a merchant from db and all its datas</p>
+     * @param id
+     */
+    @PostMapping(value = "/CarteFidelites/delete/{id}")
+    public void deleteUSer(@PathVariable Integer id){
+        Optional<Reward> user = rewardDao.findById(id);
+        if(!user.isPresent()) {
+            throw new NotFoundException("Le compte fidélité avec l'id " + id + " est INTROUVABLE.");
+        }
+        Reward rewardToDelete = rewardDao.getOne(id);
+        rewardDao.delete(rewardToDelete);
     }
 
 

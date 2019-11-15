@@ -1,10 +1,13 @@
-package com.mUI.microserviceUI.proxies;
+package com.mrewards.microservicerewards.proxies;
 
-import com.mUI.microserviceUI.beans.MerchantBean;
-import com.mUI.microserviceUI.config.FeignConfig;
+import com.mrewards.microservicerewards.beans.MerchantBean;
+import com.mrewards.microservicerewards.config.FeignConfig;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -25,6 +28,5 @@ public interface MicroserviceMerchantsProxy {
 
     @PostMapping(value = "microservice-merchants/Marchands/delete/{id}")
     void deleteShop(@PathVariable("id") Integer id);
-
 
 }

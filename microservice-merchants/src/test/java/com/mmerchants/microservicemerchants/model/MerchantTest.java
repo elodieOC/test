@@ -24,6 +24,7 @@ public class MerchantTest {
         testMerchant.setMerchantName("Le Fournil");
         testMerchant.setCategory("boulangerie");
         testMerchant.setAddress("15 rue du chocolat");
+        testMerchant.setMaxPoints(10);
         testMerchant.setUserId(2);
     }
 
@@ -33,6 +34,13 @@ public class MerchantTest {
         testMerchant.setId(55);
         Assert.assertTrue(testMerchant.getId() == 55);
         Assert.assertFalse(testMerchant.getId() == 1);
+    }
+
+    @Test
+    public void getSetMaxPoints() {
+        testMerchant.setMaxPoints(55);
+        Assert.assertTrue(testMerchant.getMaxPoints() == 55);
+        Assert.assertFalse(testMerchant.getMaxPoints() == 10);
     }
 
     @Test

@@ -1,7 +1,7 @@
 package com.mrewards.microservicerewards.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -12,25 +12,25 @@ public class Reward {
     @GeneratedValue(strategy = GenerationType. IDENTITY )
     private Integer id;
 
-    @NotEmpty
+    @NotNull
     @Column(name="max_points")
     private Integer maxPoints;
     
-    @NotEmpty
+
     @Column(name="points")
     private Integer points;
 
-    @NotEmpty
+
     @Column(name="rewards")
     private Integer rewardsNbr;
 
     //TODO add rewardsToCollect
     
-    @NotEmpty
+    @NotNull
     @Column(name="id_user")
     private Integer idUser;
     
-    @NotEmpty
+    @NotNull
     @Column(name="id_merchant")
     private Integer idMerchant;
     

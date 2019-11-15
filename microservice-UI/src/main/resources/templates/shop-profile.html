@@ -9,6 +9,8 @@
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
         <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' '+${merchant.category}" />
+        <h2 class="text-center mb-5 text-capitalize" th:text= "${merchant.address}" />
+        <div th:if="${sessionId == merchant.getUserId()}">
         <div class="row mt-5">
             <h2 th:text="'Mes utilisateurs'" class="mb-5 mx-auto"/>
         </div>
@@ -19,9 +21,22 @@
             <div class="col-sm-6 col-sm-offset-3  mx-auto">
                 <input type="submit"
                        class="form-control btn btn-lg btn-danger"
-                       value="Suppression de compte">
+                       value="Suppression de boutique">
             </div>
         </form>
+        </div>
+
+        <div th:if="${sessionId != merchant.getUserId() && sessionId != null}">
+            <form th:action="@{/CarteFidelites/add-account}" method="post" th:object="${rewardCard}">
+                <input type="hidden" name="idMerchant" th:value="${merchant.id}" />
+                <input type="hidden" name="idUser" th:value="${sessionId}" />
+                <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                    <input type="submit"
+                           class="form-control btn btn-lg btn-danger"
+                           value="Prendre une carte fidélité">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>

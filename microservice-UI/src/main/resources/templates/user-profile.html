@@ -12,8 +12,19 @@
         <div class="row mt-5">
             <h2 th:text="'Mes comptes fidélités'" class="mb-5 mx-auto"/>
         </div>
+        <div th:each="account : ${userRewards}">
+            <a th:href="@{/CarteFidelites/__${account.getId()}__}" th:style="|text-decoration:none;|">
+                <div th:each="shop:${shops}">
+                    <div th:if="${shop.getId() == account.getIdMerchant()}" class="card col-md-3 mt-5 mr-5 ml-5">
+                        <div  class="card-header  bg-secondary text-capitalize text-white" th:text= "${shop.getMerchantName()}" />
+                        <div th:text="${shop.address}" />
+                        <div class="card-footer text-capitalize" th:text="${shop.getCategory()}"/>
+                    </div>
+                </div>
+            </a>
+        </div>
         <form th:action="@{/Utilisateurs/delete/{id}(id=${user.getId()})}" method="post" th:object="${user}">
-            <div class="col-sm-6 col-sm-offset-3  mx-auto">
+            <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
                 <input type="submit"
                        class="form-control btn btn-lg btn-danger"
                        value="Suppression de compte">

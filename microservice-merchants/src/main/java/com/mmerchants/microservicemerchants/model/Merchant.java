@@ -2,6 +2,7 @@ package com.mmerchants.microservicemerchants.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -31,7 +32,18 @@ public class Merchant {
     @Column(name = "userId")
     private Integer userId;
 
+    @NotNull
+    @Column(name="max_points")
+    private Integer maxPoints;
     public Merchant() {
+    }
+
+    public Integer getMaxPoints() {
+        return maxPoints;
+    }
+
+    public void setMaxPoints(Integer maxPoints) {
+        this.maxPoints = maxPoints;
     }
 
     public Integer getUserId() {
@@ -89,6 +101,7 @@ public class Merchant {
                 ", merchantName='" + merchantName + '\'' +
                 ", category='" + category + '\'' +
                 ", address='" + address + '\'' +
+                ", maxPoints='" + maxPoints + '\'' +
                 '}';
     }
 }

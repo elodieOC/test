@@ -1,11 +1,13 @@
 package com.mUI.microserviceUI.controller;
 
 import com.mUI.microserviceUI.beans.MerchantBean;
+import com.mUI.microserviceUI.beans.RewardBean;
 import com.mUI.microserviceUI.beans.UserBean;
 import com.mUI.microserviceUI.exceptions.BadLoginPasswordException;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMailingProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
+import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +33,8 @@ public class ClientUsersController {
     private MicroserviceMailingProxy mailingProxy;
     @Autowired
     private MicroserviceMerchantsProxy merchantsProxy;
+    @Autowired
+    private MicroserviceRewardsProxy rewardsProxy;
 
     /*
      **************************************
@@ -95,7 +100,7 @@ public class ClientUsersController {
         return "login";
     }
 
-
+//TODO badloginpassword not thrown : status 400 reading MicroserviceUsersProxy#logUser(String,String) instead
     @RequestMapping("/Utilisateurs/log-user")
     public String logUser(@ModelAttribute("user") UserBean userBean, ModelMap model, HttpServletRequest request) {
         String toBeReturned;
@@ -124,7 +129,14 @@ public class ClientUsersController {
     public String userDetails(@PathVariable Integer userId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         UserBean user = usersProxy.showUser(userId);
-
+        List<RewardBean> rewardBeans = rewardsProxy.listRewards();
+        List<RewardBean> userRewards = new ArrayList<>();
+        List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
+        for (RewardBean reward : rewardBeans){
+            if(reward.getIdUser() == userId){
+                userRewards.add(reward);
+            }
+        }
         if(!session.getAttribute("loggedInUserId").equals(userId)){
             System.out.println("User trying to access profile is not the owner of the profile");
             System.out.println("User is: [id:"
@@ -134,6 +146,8 @@ public class ClientUsersController {
             return "redirect:/Accueil";
         }
         model.addAttribute("user", user);
+        model.addAttribute("shops", merchantBeanList);
+        model.addAttribute("userRewards", userRewards);
         model.addAttribute("sessionRole", session.getAttribute("loggedInUserRole"));
         return "user-profile";
     }
