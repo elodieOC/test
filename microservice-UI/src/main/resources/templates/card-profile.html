@@ -15,13 +15,15 @@
         <div class="text-center mt-5" th:text="'Points avant récompense: '+${reward.getMaxPoints()}" />
         <div class="text-center mt-5" th:text="'Mes récompenses: '+${reward.getRewardsNbr()}" />
         <!--TEST LOCAL-->
-        <form th:action="@{/CarteFidelites/add-point/{id}(id=${reward.getId()})}" method="post" th:object="${reward}">
+
+        <form th:action="@{/CarteFidelites/{id}/add-point(id=${reward.getId()})}" method="post" th:object="${reward}">
             <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
                 <input type="submit"
                        class="form-control btn btn-lg btn-primary"
                        value="Ajouter un point (TEST LOCAL)">
             </div>
         </form>
+
         <!-- / TEST LOCAL-->
         <div class="text-center mt-5">
         <img th:src="'data:image/jpg;base64,'+${reward.base64}" />

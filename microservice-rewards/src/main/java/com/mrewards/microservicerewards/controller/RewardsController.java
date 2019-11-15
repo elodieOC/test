@@ -53,7 +53,7 @@ public class RewardsController {
         Reward rewardAdded =  rewardDao.save(reward);
         if (rewardAdded == null) {throw new CannotAddException("Reward03");}
         // create QR Code
-        String data = "localhost:8080/CarteFidelites/add-point/"+rewardAdded.getId();
+        String data = "localhost:8080/CarteFidelites/"+rewardAdded.getId()+"/add-point";
         int size = 400;
         try {
             // encode
@@ -102,7 +102,7 @@ public class RewardsController {
      * @param id
      * @return
      */
-    @PostMapping(value = "/CarteFidelites/add-point/{id}")
+    @PostMapping(value = "/CarteFidelites/{id}/add-point")
     public ResponseEntity<Reward> addPoint(@PathVariable Integer id){
         Optional<Reward> rewardGiven = rewardDao.findById(id);
         if(!rewardGiven.isPresent()) {

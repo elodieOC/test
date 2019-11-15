@@ -87,10 +87,17 @@ public class ClientRewardsController {
      * Reward add points
      * ************************************
      */
-    @RequestMapping(value = "/CarteFidelites/add-point/{id}/", method = RequestMethod.POST)
+    @PostMapping(value = "/CarteFidelites/{id}/add-point")
     public String addPoint(@PathVariable("id") Integer id, HttpServletRequest request){
         String toBeReturned;
         HttpSession session = request.getSession();
+        /*to delete when not local test */
+        RewardBean rewardBean = rewardsProxy.showReward(id);
+            rewardsProxy.addPoint(id);
+            toBeReturned = "redirect:/CarteFidelites/" + id;
+
+
+        /* commented for test local reasons
         if(session.getAttribute("loggedInUserRole").equals("MERCHANT")) {
             RewardBean rewardBean = rewardsProxy.showReward(id);
             if(rewardBean.getIdMerchant() == session.getAttribute("loggedInUserId")) {
@@ -107,7 +114,7 @@ public class ClientRewardsController {
             System.out.println("L'utilsiateur avec l'id "+session.getAttribute("loggedInUserId")+
                     " a essayé d'accéder à une boutique sans être marchand");
             toBeReturned="redirect:/Accueil";
-        }
+        }*/
         return toBeReturned;
     }
 
@@ -130,6 +137,9 @@ public class ClientRewardsController {
         rewardsProxy.deleteAccount(id);
         return "redirect:/Utilisateurs/MonProfil/"+userId;
     }
+
+
+
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex){
         return new ModelAndView("redirect:/Accueil");
