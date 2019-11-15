@@ -32,4 +32,17 @@ public class RewardsManagerImpl implements RewardsManager {
         }
         return rewardAccount;
     }
+
+    /**
+     * <p>client redeems a reward from merchant</p>
+     * <p>rewardNbr -1</p>
+     * @param rewardAccount
+     * @return
+     */
+    @Override
+    public Reward redeemRewardManager(Reward rewardAccount) {
+        int rewardsNbr = rewardAccount.getRewardsNbr();
+        rewardAccount.setRewardsNbr(rewardsNbr-1);
+        return rewardAccount;
+    }
 }

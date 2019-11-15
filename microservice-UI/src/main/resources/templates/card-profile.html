@@ -14,6 +14,17 @@
         <div class="text-center mt-5" th:text="'Mes points: '+${reward.getPoints()}" />
         <div class="text-center mt-5" th:text="'Points avant récompense: '+${reward.getMaxPoints()}" />
         <div class="text-center mt-5" th:text="'Mes récompenses: '+${reward.getRewardsNbr()}" />
+
+        <div th:if="${reward.getRewardsNbr() == 1}">
+            <form th:action="@{/CarteFidelites/{id}/redeem(id=${reward.getId()})}" method="post" th:object="${reward}">
+                <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
+                    <input type="submit"
+                           class="form-control btn btn-lg btn-success"
+                           value="Récupérer la récompense">
+                </div>
+            </form>
+        </div>
+
         <!--TEST LOCAL-->
 
         <form th:action="@{/CarteFidelites/{id}/add-point(id=${reward.getId()})}" method="post" th:object="${reward}">

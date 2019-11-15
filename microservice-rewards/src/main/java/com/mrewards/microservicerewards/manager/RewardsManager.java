@@ -8,4 +8,5 @@ import com.mrewards.microservicerewards.model.Reward;
  */
 public interface RewardsManager {
     Reward addPointManager(Reward rewardAccount);
+    Reward redeemRewardManager(Reward rewardAccount);
 }

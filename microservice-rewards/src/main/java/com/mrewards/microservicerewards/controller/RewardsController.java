@@ -104,12 +104,23 @@ public class RewardsController {
      */
     @PostMapping(value = "/CarteFidelites/{id}/add-point")
     public ResponseEntity<Reward> addPoint(@PathVariable Integer id){
-        Optional<Reward> rewardGiven = rewardDao.findById(id);
-        if(!rewardGiven.isPresent()) {
-            throw new NotFoundException("La carte avec l'id " + id + " est INTROUVABLE.");
-        }
+        checkOptionalReward(id);
         Reward rewardAccount = rewardDao.findRewardsById(id);
         rewardAccount = rewardsManager.addPointManager(rewardAccount);
+        rewardDao.save(rewardAccount);
+        return new ResponseEntity<Reward>(rewardAccount, HttpStatus.ACCEPTED);
+    }
+
+    /**
+     * <p>redeems reward from an account </p>
+     * @param id
+     * @return
+     */
+    @PostMapping(value = "/CarteFidelites/{id}/redeem")
+    public ResponseEntity<Reward> redeem(@PathVariable Integer id){
+        checkOptionalReward(id);
+        Reward rewardAccount = rewardDao.findRewardsById(id);
+        rewardAccount = rewardsManager.redeemRewardManager(rewardAccount);
         rewardDao.save(rewardAccount);
         return new ResponseEntity<Reward>(rewardAccount, HttpStatus.ACCEPTED);
     }
@@ -129,6 +140,13 @@ public class RewardsController {
     }
 
 
+    private Optional<Reward> checkOptionalReward(Integer id){
+        Optional<Reward> rewardGiven = rewardDao.findById(id);
+        if(!rewardGiven.isPresent()) {
+            throw new NotFoundException("La carte avec l'id " + id + " est INTROUVABLE.");
+        }
+        return rewardGiven;
+    }
 
 
 

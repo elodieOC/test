@@ -28,6 +28,9 @@ public interface MicroserviceRewardsProxy {
 
     @PostMapping(value = "microservice-rewards/CarteFidelites/{id}/add-point")
     RewardBean addPoint(@PathVariable("id") Integer id);
+
+    @PostMapping(value = "microservice-rewards/CarteFidelites/{id}/redeem")
+    RewardBean redeem(@PathVariable("id") Integer id);
     
     @PostMapping(value = "microservice-rewards/CarteFidelites/delete/{id}")
     void deleteAccount(@PathVariable("id") Integer id);

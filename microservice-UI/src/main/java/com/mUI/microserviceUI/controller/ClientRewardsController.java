@@ -118,7 +118,27 @@ public class ClientRewardsController {
         return toBeReturned;
     }
 
-
+    /*
+     **************************************
+     * Reward redeem reward
+     * ************************************
+     */
+    @PostMapping(value = "/CarteFidelites/{id}/redeem")
+    public String redeem(@PathVariable("id") Integer id, HttpServletRequest request) {
+        String toBeReturned;
+        HttpSession session = request.getSession();
+        RewardBean rewardBean = rewardsProxy.showReward(id);
+        if(rewardBean.getIdUser() == session.getAttribute("loggedInUserId")) {
+            rewardsProxy.redeem(id);
+            toBeReturned = "redirect:/CarteFidelites/" + rewardBean.getId();
+        }
+        else{//TODO ajouter sout pour qui a fait quoi
+            System.out.println("L'utilsiateur avec l'id "+session.getAttribute("loggedInUserId")+
+                    " a essayé d'accéder à une récompense qui n'est pas la sienne");
+            toBeReturned="redirect:/Accueil";
+        }
+        return toBeReturned;
+    }
     /*
      **************************************
      * Reward delete
