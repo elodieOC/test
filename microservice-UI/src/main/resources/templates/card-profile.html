@@ -8,11 +8,31 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' '+${merchant.category}" />
+        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}" />
+        <h2 class="text-center" th:text="${merchant.category}" />
 
         <div class="text-center mt-5" th:text="'Mes points: '+${reward.getPoints()}" />
         <div class="text-center mt-5" th:text="'Points avant récompense: '+${reward.getMaxPoints()}" />
         <div class="text-center mt-5" th:text="'Mes récompenses: '+${reward.getRewardsNbr()}" />
+        <!--TEST LOCAL-->
+        <form th:action="@{/CarteFidelites/add-point/{id}(id=${reward.getId()})}" method="post" th:object="${reward}">
+            <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
+                <input type="submit"
+                       class="form-control btn btn-lg btn-primary"
+                       value="Ajouter un point (TEST LOCAL)">
+            </div>
+        </form>
+        <!-- / TEST LOCAL-->
+        <div class="text-center mt-5">
+        <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
+        </div>
+        <form th:action="@{/CarteFidelites/delete/{id}(id=${reward.getId()})}" method="post" th:object="${reward}">
+            <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
+                <input type="submit"
+                       class="form-control btn btn-lg btn-danger"
+                       value="Suppression de carte fidélité">
+            </div>
+        </form>
     </div>
 </div>
 </body>

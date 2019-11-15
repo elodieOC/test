@@ -22,7 +22,8 @@ public class RestrictionFilterConfig implements Filter {
         if ( !path.contains( "MonProfil") &&
                 !path.contains("Marchands/nouvelle-boutique") &&
                 !path.contains("Marchands/MesBoutiques") &&
-                !path.contains("Marchands/add")){
+                !path.contains("Marchands/add")&&
+                !path.contains("CarteFidelites")){
             /* Display requested page */
             chain.doFilter( request, response );
             return;

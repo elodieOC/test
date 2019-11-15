@@ -15,7 +15,7 @@
         <div th:each="account : ${userRewards}">
             <a th:href="@{/CarteFidelites/__${account.getId()}__}" th:style="|text-decoration:none;|">
                 <div th:each="shop:${shops}">
-                    <div th:if="${shop.getId() == account.getIdMerchant()}" class="card col-md-3 mt-5 mr-5 ml-5">
+                    <div th:if="${shop.getId() == account.getIdMerchant()}" class="card col-md-3 mt-5 mr-5 ml-5 mx-auto">
                         <div  class="card-header  bg-secondary text-capitalize text-white" th:text= "${shop.getMerchantName()}" />
                         <div th:text="${shop.address}" />
                         <div class="card-footer text-capitalize" th:text="${shop.getCategory()}"/>

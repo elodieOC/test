@@ -1,15 +1,23 @@
 package com.mrewards.microservicerewards.controller;
 
+import com.google.zxing.client.j2se.MatrixToImageConfig;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import com.mrewards.microservicerewards.dao.RewardDao;
 import com.mrewards.microservicerewards.exceptions.CannotAddException;
 import com.mrewards.microservicerewards.exceptions.NotFoundException;
 import com.mrewards.microservicerewards.manager.RewardsManagerImpl;
 import com.mrewards.microservicerewards.model.Reward;
+import com.mrewards.microservicerewards.utils.QRCodeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +30,8 @@ public class RewardsController {
     private RewardDao rewardDao;
 
     private RewardsManagerImpl rewardsManager = new RewardsManagerImpl();
+
+    private QRCodeGenerator qrCodeGenerator;
 
     /**
      * <p>Lists all reward accounts</p>
@@ -42,6 +52,33 @@ public class RewardsController {
     public ResponseEntity<Reward> addReward(@RequestBody Reward reward) {
         Reward rewardAdded =  rewardDao.save(reward);
         if (rewardAdded == null) {throw new CannotAddException("Reward03");}
+        // create QR Code
+        String data = "localhost:8080/CarteFidelites/add-point/"+rewardAdded.getId();
+        int size = 400;
+        try {
+            // encode
+            BitMatrix bitMatrix = qrCodeGenerator.generateMatrix(data, size);
+            String imageFormat = "png";
+            String nameAndPath = "C:\\code\\qrcode-01.";
+            File outputFile = new File(nameAndPath);
+            String outputFileName = outputFile + imageFormat;
+            // write in a file
+            qrCodeGenerator.writeImage(outputFileName, imageFormat, bitMatrix);
+            // Load QR image
+            MatrixToImageConfig config = new MatrixToImageConfig(MatrixToImageConfig.BLACK, MatrixToImageConfig.WHITE);
+            BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(bitMatrix, config);
+            // Convert QR image to byte[]
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write( qrImage, "png", baos );
+            baos.flush();
+            byte[] qrImageInByte = baos.toByteArray();
+            //Set QR for card
+            rewardAdded.setQrCode(qrImageInByte);
+            rewardDao.save(rewardAdded);
+            baos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return new ResponseEntity<Reward>(rewardAdded, HttpStatus.CREATED);
     }
 
@@ -65,7 +102,7 @@ public class RewardsController {
      * @param id
      * @return
      */
-    @PostMapping(value = "/CarteFidelites/{id}/add-point")
+    @PostMapping(value = "/CarteFidelites/add-point/{id}")
     public ResponseEntity<Reward> addPoint(@PathVariable Integer id){
         Optional<Reward> rewardGiven = rewardDao.findById(id);
         if(!rewardGiven.isPresent()) {

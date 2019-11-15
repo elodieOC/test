@@ -1,5 +1,7 @@
 package com.mUI.microserviceUI.beans;
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
 public class RewardBean {
 
     private Integer id;
@@ -8,10 +10,26 @@ public class RewardBean {
     private Integer idUser;
     private Integer idMerchant;
     private Integer maxPoints;
+    private byte[] qrCode;
+    private String base64;
 
     public RewardBean() {
     }
 
+    public byte[] getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(byte[] qrCode) {
+        this.qrCode = qrCode;
+    }
+    public String getBase64() {
+        return this.base64 = Base64.encode(this.qrCode);
+    }
+
+    public void setBase64(String base64) {
+        this.base64 = base64;
+    }
     public Integer getId() {
         return id;
     }

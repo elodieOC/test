@@ -1,6 +1,5 @@
 package com.mUI.microserviceUI.controller;
 
-import com.mUI.microserviceUI.beans.AddShopDTO;
 import com.mUI.microserviceUI.beans.MerchantBean;
 import com.mUI.microserviceUI.beans.RewardBean;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
@@ -16,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,26 +27,6 @@ public class ClientRewardsController {
     private MicroserviceRewardsProxy rewardsProxy;
     @Autowired
     private MicroserviceMerchantsProxy merchantsProxy;
-
-/*
-    *//*A mettre dans USER PROFILE
-    ***************************************
-    * Reward List
-    * *************************************
-     *//*
-
-    *//**
-     * <p>show list of possible rewards</p>
-     * @param model
-     * @return rewards.html
-     *//*
-    @GetMapping("/CarteFidelites")
-    public String listRewards(Model model){
-        List<RewardBean> rewardBeanList = rewardsProxy.listRewards();
-        model.addAttribute("rewards", rewardBeanList);
-        return "rewards";
-    }*/
-
 
     /*
      **************************************
@@ -66,6 +44,7 @@ public class ClientRewardsController {
         String toBeReturned;
         try {
             rewardBean.setMaxPoints(merchantsProxy.showShop(rewardBean.getIdMerchant()).getMaxPoints());
+            // create card
             RewardBean rewardToRegister = rewardsProxy.addReward(rewardBean);
             toBeReturned = "redirect:/CarteFidelites/"+rewardToRegister.getId();
         }
@@ -99,7 +78,37 @@ public class ClientRewardsController {
         model.addAttribute("reward", reward);
         model.addAttribute("merchant", merchantBean);
         model.addAttribute("sessionId", session.getAttribute("loggedInUserId"));
+        model.addAttribute("sessionRole", session.getAttribute("loggedInUserRole"));
         return "card-profile";
+    }
+
+    /*
+     **************************************
+     * Reward add points
+     * ************************************
+     */
+    @RequestMapping(value = "/CarteFidelites/add-point/{id}/", method = RequestMethod.POST)
+    public String addPoint(@PathVariable("id") Integer id, HttpServletRequest request){
+        String toBeReturned;
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loggedInUserRole").equals("MERCHANT")) {
+            RewardBean rewardBean = rewardsProxy.showReward(id);
+            if(rewardBean.getIdMerchant() == session.getAttribute("loggedInUserId")) {
+                rewardsProxy.addPoint(id);
+                toBeReturned = "redirect:/CarteFidelites/" + id;
+            }
+            else{//TODO ajouter sout pour qui a fait quoi
+                System.out.println("Le marchand avec l'id "+session.getAttribute("loggedInUserId")+
+                        " a essayé d'accéder à une autre boutique");
+                toBeReturned="redirect:/Accueil";
+                }
+            }
+        else{//TODO ajouter sout pour qui a fait quoi
+            System.out.println("L'utilsiateur avec l'id "+session.getAttribute("loggedInUserId")+
+                    " a essayé d'accéder à une boutique sans être marchand");
+            toBeReturned="redirect:/Accueil";
+        }
+        return toBeReturned;
     }
 
 
@@ -121,19 +130,6 @@ public class ClientRewardsController {
         rewardsProxy.deleteAccount(id);
         return "redirect:/Utilisateurs/MonProfil/"+userId;
     }
-    /*
-     **************************************
-     * Reward add points
-     * ************************************
-     */
-    @RequestMapping(value = "/CarteFidelites/{id}/add-point", method = RequestMethod.POST)
-    public String addPoint(@PathVariable("id") Integer id, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        Integer userId = (Integer) session.getAttribute("loggedInUserId");
-        rewardsProxy.addPoint(id);
-        return "redirect:/Utilisateurs/MonProfil/"+userId;
-    }
-
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex){
         return new ModelAndView("redirect:/Accueil");

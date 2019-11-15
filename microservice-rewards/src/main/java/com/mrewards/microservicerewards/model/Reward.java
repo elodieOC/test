@@ -1,5 +1,9 @@
 package com.mrewards.microservicerewards.model;
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import org.springframework.lang.Nullable;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -33,7 +37,31 @@ public class Reward {
     @NotNull
     @Column(name="id_merchant")
     private Integer idMerchant;
-    
+
+    @Lob
+    @Column(name = "qr_code")
+    private byte[] qrCode;
+    @Transient
+    private MultipartFile qrCodeFile;
+
+    @Transient
+    private String base64;
+
+    public byte[] getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(byte[] qrCode) {
+        this.qrCode = qrCode;
+    }
+
+    public String getBase64() {
+        return this.base64 = Base64.encode(this.qrCode);
+    }
+
+    public void setBase64(String base64) {
+        this.base64 = base64;
+    }
    
 
     public Reward() {
