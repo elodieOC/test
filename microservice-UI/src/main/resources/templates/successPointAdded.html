@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Point Ajouté</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+        <div class="row mt-5 alert alert-success" role="alert">
+            Le point a bien été ajouté!
+        </div>
+    </div>
+</div>
+</body>
+</html>

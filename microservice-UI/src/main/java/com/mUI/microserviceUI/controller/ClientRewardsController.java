@@ -87,30 +87,40 @@ public class ClientRewardsController {
      * Reward add points
      * ************************************
      */
+
+    /**
+     * <p>When a client goes to the shop, he connects to its profile, goes to shop's card and shows the QR code.</p>
+     * <p>The merchant connects to its own profile, and when connected can flash qr code to add a point to the client's card.</p>
+     * @param id id of the reward card
+     * @param request servlet request
+     * @return success or home page
+     */
     @PostMapping(value = "/CarteFidelites/{id}/add-point")
     public String addPoint(@PathVariable("id") Integer id, HttpServletRequest request){
         String toBeReturned;
         HttpSession session = request.getSession();
-        /*to delete when not local test */
+        //only a merchant can add a point to a card.
+
+        /*START to delete when not local test */
         RewardBean rewardBean = rewardsProxy.showReward(id);
             rewardsProxy.addPoint(id);
-            toBeReturned = "redirect:/CarteFidelites/" + id;
+            toBeReturned = "redirect:successPointAdded";
+        /*END to delete when not local test */
 
-
-        /* commented for test local reasons
+        /* UNCOMMENT when not local tests or development
         if(session.getAttribute("loggedInUserRole").equals("MERCHANT")) {
             RewardBean rewardBean = rewardsProxy.showReward(id);
             if(rewardBean.getIdMerchant() == session.getAttribute("loggedInUserId")) {
                 rewardsProxy.addPoint(id);
                 toBeReturned = "redirect:/CarteFidelites/" + id;
             }
-            else{//TODO ajouter sout pour qui a fait quoi
+            else{
                 System.out.println("Le marchand avec l'id "+session.getAttribute("loggedInUserId")+
                         " a essayé d'accéder à une autre boutique");
                 toBeReturned="redirect:/Accueil";
                 }
             }
-        else{//TODO ajouter sout pour qui a fait quoi
+        else{
             System.out.println("L'utilsiateur avec l'id "+session.getAttribute("loggedInUserId")+
                     " a essayé d'accéder à une boutique sans être marchand");
             toBeReturned="redirect:/Accueil";
@@ -123,6 +133,14 @@ public class ClientRewardsController {
      * Reward redeem reward
      * ************************************
      */
+
+    /**
+     * <p>When a client has enough points, redeems a reward with the points</p>
+     * <p>gets a reward and sets points to zero</p>
+     * @param id of reward card
+     * @param request servlet request
+     * @return reward card page or homepage
+     */
     @PostMapping(value = "/CarteFidelites/{id}/redeem")
     public String redeem(@PathVariable("id") Integer id, HttpServletRequest request) {
         String toBeReturned;
@@ -132,7 +150,7 @@ public class ClientRewardsController {
             rewardsProxy.redeem(id);
             toBeReturned = "redirect:/CarteFidelites/" + rewardBean.getId();
         }
-        else{//TODO ajouter sout pour qui a fait quoi
+        else{
             System.out.println("L'utilsiateur avec l'id "+session.getAttribute("loggedInUserId")+
                     " a essayé d'accéder à une récompense qui n'est pas la sienne");
             toBeReturned="redirect:/Accueil";

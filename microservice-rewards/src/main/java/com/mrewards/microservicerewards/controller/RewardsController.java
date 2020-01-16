@@ -39,7 +39,8 @@ public class RewardsController {
      */
     @GetMapping(value= "/CarteFidelites")
     public List<Reward> listRewards() {
-        return rewardDao.findAll();
+        List<Reward> rewards = rewardDao.findAll();
+        return rewards;
     }
 
     /**
@@ -52,8 +53,24 @@ public class RewardsController {
     public ResponseEntity<Reward> addReward(@RequestBody Reward reward) {
         Reward rewardAdded =  rewardDao.save(reward);
         if (rewardAdded == null) {throw new CannotAddException("Reward03");}
-        // create QR Code
-        String data = "localhost:8080/CarteFidelites/"+rewardAdded.getId()+"/add-point";
+
+        return new ResponseEntity<Reward>(rewardAdded, HttpStatus.CREATED);
+    }
+
+
+    /**
+     * <p>shows details of a particular reward account by its id</p>
+     * @param id
+     * @return the reward
+     */
+    @GetMapping(value = "/CarteFidelites/{id}")
+    public Optional<Reward> showReward(@PathVariable Integer id) {
+        Optional<Reward> reward = rewardDao.findById(id);
+        if(!reward.isPresent()) {
+            throw new NotFoundException("La carte avec l'id " + id + " est INTROUVABLE.");
+        }
+        // create QR Code each time the page is called, not saved in db
+        String data = "localhost:8080/CarteFidelites/"+reward.get().getId()+"/add-point";
         int size = 400;
         try {
             // encode
@@ -73,26 +90,10 @@ public class RewardsController {
             baos.flush();
             byte[] qrImageInByte = baos.toByteArray();
             //Set QR for card
-            rewardAdded.setQrCode(qrImageInByte);
-            rewardDao.save(rewardAdded);
+            reward.get().setQrCode(qrImageInByte);
             baos.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        return new ResponseEntity<Reward>(rewardAdded, HttpStatus.CREATED);
-    }
-
-
-    /**
-     * <p>shows details of a particular reward account by its id</p>
-     * @param id
-     * @return the reward
-     */
-    @GetMapping(value = "/CarteFidelites/{id}")
-    public Optional<Reward> showReward(@PathVariable Integer id) {
-        Optional<Reward> reward = rewardDao.findById(id);
-        if(!reward.isPresent()) {
-            throw new NotFoundException("La carte avec l'id " + id + " est INTROUVABLE.");
         }
         return reward;
     }
