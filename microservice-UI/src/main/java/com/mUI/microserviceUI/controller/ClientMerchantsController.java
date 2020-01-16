@@ -6,11 +6,13 @@ import com.mUI.microserviceUI.beans.RewardBean;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -125,10 +127,10 @@ public class ClientMerchantsController {
     @RequestMapping("/Marchands/MesBoutiques")
     public String shopListByOwner(Model model, HttpServletRequest request){
         List<MerchantBean> allShops = merchantsProxy.listMerchants();
-        Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
+        Integer loggedInUserId = (Integer)request.getSession().getAttribute("loggedInUserId");
         List<MerchantBean> list = new ArrayList<>();
         for(MerchantBean shop:allShops){
-            if(request.getSession().getAttribute("loggedInUserId").equals(userId)){
+            if(loggedInUserId.equals(shop.getUserId())){
                 list.add(shop);
             }
         }
