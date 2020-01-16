@@ -10,11 +10,14 @@ import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -35,6 +38,7 @@ public class ClientUsersController {
     private MicroserviceMerchantsProxy merchantsProxy;
     @Autowired
     private MicroserviceRewardsProxy rewardsProxy;
+
 
     /*
      **************************************
@@ -129,14 +133,7 @@ public class ClientUsersController {
     public String userDetails(@PathVariable Integer userId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         UserBean user = usersProxy.showUser(userId);
-        List<RewardBean> rewardBeans = rewardsProxy.listRewards();
-        List<RewardBean> userRewards = new ArrayList<>();
-        List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
-        for (RewardBean reward : rewardBeans){
-            if(reward.getIdUser() == userId){
-                userRewards.add(reward);
-            }
-        }
+        //session is always checked, here check if user accessing profile is owner of profile
         if(!session.getAttribute("loggedInUserId").equals(userId)){
             System.out.println("User trying to access profile is not the owner of the profile");
             System.out.println("User is: [id:"
@@ -145,8 +142,22 @@ public class ClientUsersController {
                     +session.getAttribute("loggedInUserRole")+"]");
             return "redirect:/Accueil";
         }
+        //adds the user's fidelity cards
+        List<RewardBean> rewardBeans = rewardsProxy.listRewards();
+        List<RewardBean> userRewards = new ArrayList<>();
+        for (RewardBean reward : rewardBeans){
+            if(reward.getIdUser() == userId){
+                userRewards.add(reward);
+            }
+        }
+        if(!userRewards.isEmpty()) {
+            List<MerchantBean> myRewardingShops = new ArrayList<>();
+            for (RewardBean r : userRewards) {
+                myRewardingShops.add(merchantsProxy.showShop(r.getIdMerchant()));
+            }
+            model.addAttribute("shops", myRewardingShops);
+        }
         model.addAttribute("user", user);
-        model.addAttribute("shops", merchantBeanList);
         model.addAttribute("userRewards", userRewards);
         model.addAttribute("sessionRole", session.getAttribute("loggedInUserRole"));
         return "user-profile";

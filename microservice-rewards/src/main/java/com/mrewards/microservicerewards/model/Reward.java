@@ -39,7 +39,7 @@ public class Reward {
     private Integer idMerchant;
 
     @Lob
-    @Column(name = "qr_code")
+    @Transient
     private byte[] qrCode;
     @Transient
     private MultipartFile qrCodeFile;

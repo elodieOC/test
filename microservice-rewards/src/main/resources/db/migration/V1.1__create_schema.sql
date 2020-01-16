@@ -14,6 +14,5 @@ CREATE TABLE public.rewards(
                                  rewards INT DEFAULT NULL,
                                  id_user INT NOT NULL,
                                  id_merchant INT NOT NULL,
-                                 qr_code oid,
                                  CONSTRAINT rewards_PK PRIMARY KEY (id)
 )WITHOUT OIDS;
