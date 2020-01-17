@@ -4,12 +4,14 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Point Ajouté</title>
+    <script type="text/javascript" th:src="@{/js/countdown.js}"></script>
 </head>
-<body>
+<body th:onload="countdown()">
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
         <div class="row mt-5 alert alert-success" role="alert">
-            Le point a bien été ajouté!
+            <input type="hidden" id="cardId" th:value="${cardId}" />
+            <p>Le point a bien été ajouté! <span id="countdown">10</span> secondes
         </div>
     </div>
 </div>
