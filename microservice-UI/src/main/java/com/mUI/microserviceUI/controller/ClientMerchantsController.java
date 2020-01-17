@@ -2,23 +2,27 @@ package com.mUI.microserviceUI.controller;
 
 import com.mUI.microserviceUI.beans.AddShopDTO;
 import com.mUI.microserviceUI.beans.MerchantBean;
+import com.mUI.microserviceUI.beans.Place;
 import com.mUI.microserviceUI.beans.RewardBean;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
+import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mUI.microserviceUI.utils.MapsUtils.setUpForGMaps;
+
 
 /**
  * <h2>Controller linking with microservice-merchants</h2>
@@ -44,6 +48,9 @@ public class ClientMerchantsController {
     @GetMapping("/Marchands")
     public String listMerchants(Model model){
         List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
+        for (MerchantBean m:merchantBeanList){
+           setUpForGMaps(m);
+        }
         model.addAttribute("merchants", merchantBeanList);
         return "merchants";
     }
@@ -109,6 +116,8 @@ public class ClientMerchantsController {
     public String merchantDetails(@PathVariable Integer shopId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         MerchantBean merchant = merchantsProxy.showShop(shopId);
+        setUpForGMaps(merchant);
+        //prepare reward card for merchant
         RewardBean rewardCard = new RewardBean();
         rewardCard.setIdMerchant(merchant.getId());
         rewardCard.setMaxPoints(merchant.getMaxPoints());

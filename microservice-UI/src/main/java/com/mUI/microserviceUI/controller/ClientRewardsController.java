@@ -5,6 +5,7 @@ import com.mUI.microserviceUI.beans.RewardBean;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
+import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+
+import static com.mUI.microserviceUI.utils.MapsUtils.setUpForGMaps;
 
 /**
  * <h2>Controller linking with microservice-rewards</h2>
@@ -72,6 +75,7 @@ public class ClientRewardsController {
         List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
         for(MerchantBean shop:merchantBeanList){
             if(shop.getId() == reward.getIdMerchant()){
+                setUpForGMaps(shop);
                 merchantBean = shop;
             }
         }
@@ -126,6 +130,14 @@ public class ClientRewardsController {
             toBeReturned="redirect:/Accueil";
         }*/
         return toBeReturned;
+    }
+
+
+    @GetMapping ("/CarteFidelites/{id}/successPointAdded")
+    public String successPointAdded(@PathVariable("id") Integer id, HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        model.addAttribute("cardId", id);
+        return "successPointAdded";
     }
 
     /*

@@ -4,19 +4,40 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Nos Marchands</title>
+
+    <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-    <div class="row offset-md-1 ">
-        <div th:each="merchant : ${merchants}" class="card col-md-3 mt-5 mr-5 ml-5">
-           <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
-               <div  class="card-header  bg-secondary text-capitalize text-white" th:text= "${merchant.merchantName}" />
-               <div th:text="${merchant.address}" />
-               <div class="card-footer text-capitalize" th:text="${merchant.getCategory()}"/>
-            </a>
+        <div class="row offset-md-1 ">
+            <div th:each="merchant : ${merchants}" class="card col-md-5 mb-3 mt-5 mr-5 ml-5">
+                <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
+                    <!--Card-->
+                    <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
+                        <div class="row ml-2">
+                                <img th:src="${merchant.getIconLink()}" th:style="'width:30px'">
+                                <h4 class="ml-2" th:text= "${merchant.merchantName}" />
+                        </div>
+                    </div>
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Google map-->
+                        <div class="embed-responsive embed-responsive-4by3">
+                            <img style="border: 0" class="embed-responsive-item" th:src="${merchant.getMapsAddress()}"/>
+                        </div>
+                    </div>
+                    <!--/.Card content-->
+                    <div class="card-footer text-capitalize bg-dark text-white mb-1">
+                        <p th:text="${merchant.getCategory()}"/>
+                        <p th:text="${merchant.address}"/>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
     </div>
 </div>
 </body>

@@ -9,8 +9,26 @@ public class MerchantBean {
     private String address;
     private Integer userId;
     private Integer maxPoints;
+    private String mapsAddress;
+    private String iconLink;
 
     public MerchantBean() {
+    }
+
+    public String getIconLink() {
+        return iconLink;
+    }
+
+    public void setIconLink(String iconLink) {
+        this.iconLink = iconLink;
+    }
+
+    public String getMapsAddress() {
+        return mapsAddress;
+    }
+
+    public void setMapsAddress(String mapsAddress) {
+        this.mapsAddress = mapsAddress;
     }
 
     public Integer getMaxPoints() {

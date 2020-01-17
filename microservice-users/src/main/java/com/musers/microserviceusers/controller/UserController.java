@@ -44,7 +44,7 @@ public class UserController {
     @PostMapping(value = "/Utilisateurs/add-user")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         if(userDao.findFirstByEmail(user.getEmail()).isPresent()){
-            throw new CannotAddException("User03");
+            throw new CannotAddException("UniqueFail");
         }
         user.setPassword(Encryption.encrypt(user.getPassword()));
         if(user.isMerchantOrNot() == true){
@@ -54,7 +54,7 @@ public class UserController {
             user.setUserRole(roleDao.getOne(2));
         }
         User userAdded =  userDao.save(user);
-        if (userAdded == null) {throw new CannotAddException("User04");}
+        if (userAdded == null) {throw new CannotAddException("AddFail");}
         return new ResponseEntity<User>(userAdded, HttpStatus.CREATED);
     }
 
@@ -82,11 +82,11 @@ public class UserController {
     @PostMapping(value = "/Utilisateurs/log-user")
     public ResponseEntity<User> logUser(@RequestParam String email, @RequestParam String password) {
         User userLogged =  userDao.findByEmail(email);
-        if (userLogged == null) {throw new BadLoginPasswordException("User01");}
+        if (userLogged == null) {throw new BadLoginPasswordException("NotFound");}
 
         String loginPassword = Encryption.encrypt(password);
         if (!loginPassword.equals(userLogged.getPassword())) {
-            throw new BadLoginPasswordException("User02");
+            throw new BadLoginPasswordException("LoginPassword");
         }
         return new ResponseEntity<User>(userLogged, HttpStatus.OK);
     }

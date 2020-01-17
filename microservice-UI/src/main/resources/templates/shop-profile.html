@@ -8,24 +8,45 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' '+${merchant.category}" />
+        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' - '+${merchant.category}" />
         <h2 class="text-center mb-5 text-capitalize" th:text= "${merchant.address}" />
-        <div th:if="${sessionId == merchant.getUserId()}">
-        <div class="row mt-5">
-            <h2 th:text="'Mes utilisateurs'" class="mb-5 mx-auto"/>
-        </div>
-        <div class="row mt-5">
 
-        </div>
-        <form th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
-            <div class="col-sm-6 col-sm-offset-3  mx-auto">
-                <input type="submit"
-                       class="form-control btn btn-lg btn-danger"
-                       value="Suppression de boutique">
+        <div class="card col-md-5 mb-3 mt-5 mx-auto">
+            <div class="card-body">
+                <!--Google map-->
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img style="border: 0" class="embed-responsive-item" th:src="${merchant.getMapsAddress()}"/>
+                </div>
             </div>
-        </form>
         </div>
 
+        <!-- IF no session -->
+        <div th:if="${sessionId == null}">
+            <div class="row">
+                <div class="mx-auto mt-5 mb-5">
+                    <a class="btn-lg btn-secondary" th:text="'Connectez vous pour prendre une carte fidélité'" th:href="@{/Utilisateurs/connexion}" />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- IF User in session is  owner of shop -->
+        <div th:if="${sessionId == merchant.getUserId()}">
+            <div class="row mt-5">
+                <h2 th:text="'Mes utilisateurs'" class="mb-5 mx-auto"/>
+            </div>
+            <div class="row mt-5">
+            </div>
+            <form th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
+                <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                    <input type="submit"
+                           class="form-control btn btn-lg btn-danger"
+                           value="Suppression de boutique">
+                </div>
+            </form>
+        </div>
+
+        <!-- IF Session exists AND User in session is NOT owner of shop-->
         <div th:if="${sessionId != merchant.getUserId() && sessionId != null}">
             <form th:action="@{/CarteFidelites/add-account}" method="post" th:object="${rewardCard}">
                 <input type="hidden" name="idMerchant" th:value="${merchant.id}" />

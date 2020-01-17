@@ -9,6 +9,7 @@ import com.mUI.microserviceUI.proxies.MicroserviceMailingProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
+import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -153,7 +154,9 @@ public class ClientUsersController {
         if(!userRewards.isEmpty()) {
             List<MerchantBean> myRewardingShops = new ArrayList<>();
             for (RewardBean r : userRewards) {
-                myRewardingShops.add(merchantsProxy.showShop(r.getIdMerchant()));
+                MerchantBean m = merchantsProxy.showShop(r.getIdMerchant());
+                m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m));
+                myRewardingShops.add(m);
             }
             model.addAttribute("shops", myRewardingShops);
         }

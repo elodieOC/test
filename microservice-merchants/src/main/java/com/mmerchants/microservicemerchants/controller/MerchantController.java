@@ -37,10 +37,10 @@ public class MerchantController {
     @PostMapping(value = "/Marchands/add-shop")
     public ResponseEntity<Merchant> addMerchant(@RequestBody Merchant merchant) {
         if(merchantDao.findFirstByMerchantName(merchant.getMerchantName()).isPresent()){
-            throw new CannotAddException("Merchant04");
+            throw new CannotAddException("UniqueFail");
         }
         Merchant merchantAdded =  merchantDao.save(merchant);
-        if (merchantAdded == null) {throw new CannotAddException("Merchant03");}
+        if (merchantAdded == null) {throw new CannotAddException("AddFail");}
         return new ResponseEntity<Merchant>(merchantAdded, HttpStatus.CREATED);
     }
 

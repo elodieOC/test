@@ -16,9 +16,22 @@
             <a th:href="@{/CarteFidelites/__${account.getId()}__}" th:style="|text-decoration:none;|">
                 <div th:each="shop:${shops}">
                     <div th:if="${shop.getId() == account.getIdMerchant()}" class="card col-md-3 mt-5 mr-5 ml-5 mx-auto">
-                        <div  class="card-header  bg-secondary text-capitalize text-white" th:text= "${shop.getMerchantName()}" />
-                        <div th:text="${shop.address}" />
-                        <div class="card-footer text-capitalize" th:text="${shop.getCategory()}"/>
+                        <div class="card-header text-center bg-dark text-white mb-1">
+                            <h4 th:text= "${#strings.capitalize(shop.merchantName)}" />
+                        </div>
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Google map-->
+                            <div class="embed-responsive embed-responsive-4by3">
+                                <!--  <img style="border: 0" class="embed-responsive-item" src="https://maps.googleapis.com/maps/api/staticmap?center=37+RUE+GODEFROY+92800+PUTEAUX&zoom=18&size=400x400&markers=37+RUE+GODEFROY+92800+PUTEAUX&key=AIzaSyC3StaLZTw1Tb8vj9COuE1sMMBNh9OEtZ4" />-->
+                                <img style="border: 0" class="embed-responsive-item" th:src="${shop.getMapsAddress()}"/>
+                            </div>
+                        </div>
+                        <!--/.Card content-->
+                        <div class="card-footer text-capitalize">
+                            <p th:text="${shop.getCategory()}"/>
+                            <p th:text="${shop.address}"/>
+                        </div>
                     </div>
                 </div>
             </a>

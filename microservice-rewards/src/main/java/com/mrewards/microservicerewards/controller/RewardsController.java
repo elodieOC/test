@@ -52,7 +52,7 @@ public class RewardsController {
     @PostMapping(value = "/CarteFidelites/add-account")
     public ResponseEntity<Reward> addReward(@RequestBody Reward reward) {
         Reward rewardAdded =  rewardDao.save(reward);
-        if (rewardAdded == null) {throw new CannotAddException("Reward03");}
+        if (rewardAdded == null) {throw new CannotAddException("AddFail");}
 
         return new ResponseEntity<Reward>(rewardAdded, HttpStatus.CREATED);
     }
