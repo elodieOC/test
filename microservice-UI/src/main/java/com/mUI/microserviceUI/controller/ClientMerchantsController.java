@@ -140,6 +140,7 @@ public class ClientMerchantsController {
         List<MerchantBean> list = new ArrayList<>();
         for(MerchantBean shop:allShops){
             if(loggedInUserId.equals(shop.getUserId())){
+                setUpForGMaps(shop);
                 list.add(shop);
             }
         }
