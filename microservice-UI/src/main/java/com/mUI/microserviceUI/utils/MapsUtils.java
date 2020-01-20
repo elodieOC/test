@@ -44,7 +44,7 @@ public class MapsUtils {
             StringBuilder sb = new StringBuilder(getConfigProprety("api.placesearch.fromtext.url"));
             String cityUrlEncoded = getConfigProprety("api.maps.city").replace("+", "%25");
             sb.append(text+cityUrlEncoded);
-            sb.append(getConfigProprety("api.placesearch.fromtext.params"));
+            sb.append(getConfigProprety("api.placesearch.params"));
             sb.append(getConfigProprety("api.maps.key"));
 
             URL url = new URL(sb.toString());

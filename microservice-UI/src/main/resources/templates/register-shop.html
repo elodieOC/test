@@ -4,6 +4,10 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Login</title>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3StaLZTw1Tb8vj9COuE1sMMBNh9OEtZ4&libraries=places&callback=initAutocomplete"
+            async defer></script>
+    <script type="text/javascript" th:src="@{/js/gmapsauto.js}"></script>
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
@@ -54,6 +58,7 @@
                                name="address"
                                class="form-control"
                                autofocus="autofocus"
+                               onFocus="geolocate()"
                                placeholder="Adresse">
                     </div>
                     <div class="form-group">
