@@ -4,6 +4,7 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Login</title>
+    <script type="text/javascript" th:src="@{/js/togglepassword.js}"></script>
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
@@ -20,7 +21,7 @@
                         </div>
                     </td>
                     <div class="form-group">
-                        <label for="email">Email</label>:
+                        <label for="email">Email:</label>
                         <input type="email"
                                id="email"
                                name="email"
@@ -29,12 +30,20 @@
                                placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="password">Mot de Passe</label>:
+                        <label for="password">Mot de Passe:</label>
+                    <div class="input-group">
+                        <br>
                         <input type="password"
                                id="password"
                                name="password"
                                class="form-control"
                                placeholder="Mot de passe">
+                        <div class="input-group-btn">
+                            <button id="password-eye"  class="btn btn-default" type="submit">
+                                <a href="#" class="text-decoration-none text-dark"><i id="eye-icon" class="glyphicon glyphicon-eye-close"></i></a>
+                            </button>
+                        </div>
+                    </div>
                     </div>
                     <div class="form-group mt-5">
                         <div class="row">
