@@ -4,6 +4,7 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Ma carte fidélité</title>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright&display=swap" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
@@ -21,9 +22,18 @@
             </div>
         </div>
 
-        <div class="text-center mt-5" th:text="'Mes points: '+${reward.getPoints()}" />
-        <div class="text-center mt-5" th:text="'Points avant récompense: '+${reward.getMaxPoints()}" />
         <div class="text-center mt-5" th:text="'Mes récompenses: '+${reward.getRewardsNbr()}" />
+
+
+        <div class="row mt-5 mb-5">
+            <div class="col-sm-4 fidelity-card rounded mx-auto p-5">
+                <h3 class="text-white mb-3" id="fidelity-card-title">Carte fidélité</h3>
+                <ul class="list-unstyled mb-3 mt-5 score">
+                    <li th:each="point, iStat : ${#numbers.sequence(1, reward.getMaxPoints())}" th:class="${iStat.count<=pointsOn ? 'points-on':'points-off'}">
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <div th:if="${reward.getRewardsNbr() == 1}">
             <form th:action="@{/CarteFidelites/{id}/redeem(id=${reward.getId()})}" method="post" th:object="${reward}">
@@ -46,10 +56,10 @@
 
         <!-- / TEST LOCAL-->
 
-        <div class="text-center mt-5">
+        <div class="text-center mt-5 mb-5">
         <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
         </div>
-        <form th:action="@{/CarteFidelites/delete/{id}(id=${reward.getId()})}" method="post" th:object="${reward}">
+        <form class="mb-5" th:action="@{/CarteFidelites/delete/{id}(id=${reward.getId()})}" method="post" th:object="${reward}">
             <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5 mb-5">
                 <input type="submit"
                        class="form-control btn btn-lg btn-danger"

@@ -84,6 +84,7 @@ public class ClientMerchantsController {
     @PostMapping("/Marchands/add-shop")
     public String saveMerchant(@ModelAttribute("addShopDTO")AddShopDTO addShopDTO, ModelMap model) {
         String toBeReturned;
+        System.out.println(addShopDTO.getAddress());
         try {
             Integer maxP = Integer.parseInt(addShopDTO.getMaxPoints());
             MerchantBean theMerchant = new MerchantBean();

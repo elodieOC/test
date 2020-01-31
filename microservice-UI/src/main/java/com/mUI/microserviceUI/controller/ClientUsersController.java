@@ -105,7 +105,6 @@ public class ClientUsersController {
         return "login";
     }
 
-//TODO badloginpassword not thrown : status 400 reading MicroserviceUsersProxy#logUser(String,String) instead
     @RequestMapping("/Utilisateurs/log-user")
     public String logUser(@ModelAttribute("user") UserBean userBean, ModelMap model, HttpServletRequest request) {
         String toBeReturned;

@@ -1,5 +1,5 @@
 // Total seconds to wait
-var seconds = 12;
+var seconds = 8;
 function countdown() {
     seconds = seconds - 1;
     if (seconds < 0) {

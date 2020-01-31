@@ -73,6 +73,37 @@ h2 {
     margin-bottom: 5em;
 }
 
+/*FIDELITY CARDS*/
+.fidelity-card{
+    background-color: gray;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
+}
+#fidelity-card-title{
+    font-family: 'Cormorant Upright', serif;
+    font-size: xx-large;
+}
+/*.score{*/
+    /*min-height: 150px;*/
+/*}*/
+.points-off {
+    width: 40px;
+    height: 40px;
+    background-color: lightgray;
+    border-radius: 50%;
+    margin: 8px;
+    display: inline-block;
+}
+
+.points-on {
+    width: 40px;
+    height: 40px;
+    background-color: #0069D9;
+    border-radius: 50%;
+    margin: 8px;
+    display: inline-block;
+}
+
+
 /*MOBILE*/
 @media only screen and (max-width: 768px) {
     h1{

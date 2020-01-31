@@ -81,6 +81,7 @@ public class ClientRewardsController {
         }
         model.addAttribute("reward", reward);
         model.addAttribute("merchant", merchantBean);
+        model.addAttribute("pointsOn", reward.getPoints());
         model.addAttribute("sessionId", session.getAttribute("loggedInUserId"));
         model.addAttribute("sessionRole", session.getAttribute("loggedInUserRole"));
         return "card-profile";
@@ -99,6 +100,7 @@ public class ClientRewardsController {
      * @param request servlet request
      * @return success or home page
      */
+    //TODO changer pour avoir profil id et non pas add-point (ajouter fonciton add-point sur merchant controller)
     @PostMapping(value = "/CarteFidelites/{id}/add-point")
     public String addPoint(@PathVariable("id") Integer id, HttpServletRequest request){
         String toBeReturned;
