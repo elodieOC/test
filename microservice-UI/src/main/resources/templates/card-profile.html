@@ -9,56 +9,70 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}" />
-        <h2 class="text-center" th:text="${merchant.category}" />
-        <h2 class="text-center" th:text="${merchant.address}" />
-
-        <div class="card col-md-5 mb-3 mt-5 mx-auto">
-            <div class="card-body">
-                <!--Google map-->
-                <div class="embed-responsive embed-responsive-4by3">
-                    <img style="border: 0" class="embed-responsive-item" th:src="${merchant.getMapsAddress()}"/>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-5" th:text="'Mes récompenses: '+${reward.getRewardsNbr()}" />
-
-
+        <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
+            <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}" />
+        </a>
+        <!-- Mini nav to choose fidelity card or qr code -->
         <div class="row mt-5 mb-5">
-            <div class="col-sm-4 fidelity-card rounded mx-auto p-5">
-                <h3 class="text-white mb-3" id="fidelity-card-title">Carte fidélité</h3>
-                <ul class="list-unstyled mb-3 mt-5 score">
-                    <li th:each="point, iStat : ${#numbers.sequence(1, reward.getMaxPoints())}" th:class="${iStat.count<=pointsOn ? 'points-on':'points-off'}">
+            <div class="text-center mx-auto">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a th:href="@{/CarteFidelites/__${reward.getId()}__}">
+                            <input type="submit"
+                                   th:class="${#strings.contains(#httpServletRequest.requestURI, 'code')?'form-control btn btn-lg btn-primary':'form-control btn btn-lg btn-secondary'}"
+                                   value="Carte Fidélité">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a th:href="@{/CarteFidelites/__${reward.getId()}__/code}">
+                            <input type="submit"
+                                   th:class="${#strings.contains(#httpServletRequest.requestURI, 'code')?'form-control btn btn-lg btn-secondary':'form-control btn btn-lg btn-primary'}"
+                                   value="QR Code">
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div th:if="${reward.getRewardsNbr() == 1}">
-            <form th:action="@{/CarteFidelites/{id}/redeem(id=${reward.getId()})}" method="post" th:object="${reward}">
+        <!-- Fidelity Card -->
+        <div th:unless="${#strings.contains(#httpServletRequest.requestURI, 'code')}">
+            <div class="row mt-5 mb-5">
+                <div class="col-sm-4 fidelity-card rounded mx-auto p-5">
+                    <h3 class="text-white mb-3" id="fidelity-card-title">Carte fidélité</h3>
+                    <ul class="list-unstyled mb-3 mt-5 score">
+                        <li th:each="point, iStat : ${#numbers.sequence(1, reward.getMaxPoints())}" th:class="${iStat.count<=pointsOn ? 'points-on':'points-off'}">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Reward -->
+            <div class="text-center mt-5" th:text="'Mes récompenses: '+${reward.getRewardsNbr()}" />
+            <div th:if="${reward.getRewardsNbr() == 1}">
+                <form th:action="@{/CarteFidelites/{id}/redeem(id=${reward.getId()})}" method="post" th:object="${reward}">
+                    <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
+                        <input type="submit"
+                               class="form-control btn btn-lg btn-success"
+                               value="Récupérer la récompense">
+                    </div>
+                </form>
+            </div>
+            <!--TEST LOCAL-->
+            <form th:action="@{/CarteFidelites/{id}/add-point(id=${reward.getId()})}" method="post" th:object="${reward}">
                 <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
                     <input type="submit"
-                           class="form-control btn btn-lg btn-success"
-                           value="Récupérer la récompense">
+                           class="form-control btn btn-lg btn-primary"
+                           value="Ajouter un point (TEST LOCAL)">
                 </div>
             </form>
+            <!-- / TEST LOCAL-->
         </div>
-
-        <!--TEST LOCAL-->
-        <form th:action="@{/CarteFidelites/{id}/add-point(id=${reward.getId()})}" method="post" th:object="${reward}">
-            <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
-                <input type="submit"
-                       class="form-control btn btn-lg btn-primary"
-                       value="Ajouter un point (TEST LOCAL)">
+        <!-- QR CODE -->
+        <div th:if="${#strings.contains(#httpServletRequest.requestURI, 'code')}">
+            <div class="text-center mt-5 mb-5">
+                <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
             </div>
-        </form>
-
-        <!-- / TEST LOCAL-->
-
-        <div class="text-center mt-5 mb-5">
-        <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
         </div>
+        <!-- Delete account -->
         <form class="mb-5" th:action="@{/CarteFidelites/delete/{id}(id=${reward.getId()})}" method="post" th:object="${reward}">
             <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5 mb-5">
                 <input type="submit"
