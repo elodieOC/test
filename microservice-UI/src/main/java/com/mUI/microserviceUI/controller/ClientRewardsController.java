@@ -67,7 +67,7 @@ public class ClientRewardsController {
      * @param model
      * @return reward-details.html
      */
-    @RequestMapping(value={"/CarteFidelites/{cardId}", "/CarteFidelites/{cardId}/code"})
+    @RequestMapping(value={"/CarteFidelites/{cardId}", "/CarteFidelites/{cardId}/code", "/CarteFidelites/{cardId}/reward"})
     public String rewardDetails(@PathVariable Integer cardId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         RewardBean reward = rewardsProxy.showReward(cardId);

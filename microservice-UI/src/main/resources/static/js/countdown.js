@@ -1,7 +1,6 @@
 // Total seconds to wait
-var seconds = 8;
+var seconds = 6;
 function countdown() {
-    seconds = seconds - 1;
     if (seconds < 0) {
         window.location = "/CarteFidelites/"+document.getElementById("cardId").value;
     } else {

@@ -84,9 +84,7 @@ h2 {
     font-family: 'Cormorant Upright', serif;
     font-size: xx-large;
 }
-/*.score{*/
-    /*min-height: 150px;*/
-/*}*/
+
 .points-off {
     width: 40px;
     height: 40px;
@@ -105,7 +103,25 @@ h2 {
     display: inline-block;
 }
 
-
+.reward-img{
+    width: 100%;
+    margin: 10px;
+}
+.row-img::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.column-img{
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+.btn-active{
+    -webkit-box-shadow: inset 1px 1px 10px #333;
+    -moz-box-shadow:    inset 1px 1px 10px #333;
+    box-shadow:         inset 1px 1px 10px #333;
+}
 /*MOBILE*/
 @media only screen and (max-width: 768px) {
     h1{
