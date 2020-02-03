@@ -1,10 +1,12 @@
 package com.musers.microserviceusers.controller;
 
+import com.musers.microserviceusers.dao.NewsletterDao;
 import com.musers.microserviceusers.dao.RoleDao;
 import com.musers.microserviceusers.dao.UserDao;
 import com.musers.microserviceusers.exceptions.BadLoginPasswordException;
 import com.musers.microserviceusers.exceptions.CannotAddException;
 import com.musers.microserviceusers.exceptions.NotFoundException;
+import com.musers.microserviceusers.model.Newsletter;
 import com.musers.microserviceusers.model.User;
 import com.musers.microserviceusers.utils.Encryption;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class UserController {
     private UserDao userDao;
     @Autowired
     private RoleDao roleDao;
+    @Autowired
+    private NewsletterDao newsletterDao;
 
     /**
      * <p>Lists all users</p>
@@ -34,6 +38,14 @@ public class UserController {
     @GetMapping(value="/Utilisateurs")
     public List<User> listUsers() {
         return userDao.findAll();
+    }  /**
+
+     * <p>Lists all newsletter suscribers</p>
+     * @return a list
+     */
+    @GetMapping(value="/Newsletters")
+    public List<Newsletter> listNewsletters() {
+        return newsletterDao.findAll();
     }
 
     /**
@@ -73,6 +85,7 @@ public class UserController {
         return user;
     }
 
+
     /**
      * <p>method to log users</p>
      * @param email from form
@@ -89,6 +102,24 @@ public class UserController {
             throw new BadLoginPasswordException("LoginPassword");
         }
         return new ResponseEntity<User>(userLogged, HttpStatus.OK);
+    }
+
+    /**
+     * Adds a new suscriber to the newsletter
+     * @param newsletter
+     * @return Newsletter
+     */
+    @PostMapping(value = "/Utilisateurs/suscribe")
+    public ResponseEntity<Newsletter> addUsertoNewsletter(@RequestBody Newsletter newsletter){
+        Optional<User> user = userDao.findFirstByEmail(newsletter.getEmail());
+        if(user.isPresent()) {
+         User userToSuscribe = userDao.findByEmail(newsletter.getEmail());
+         userToSuscribe.setNewsletterSuscriber(true);
+         userDao.save(userToSuscribe);
+        }
+        Newsletter news =  newsletterDao.save(newsletter);
+        if (news == null) {throw new CannotAddException("AddFail");}
+        return new ResponseEntity<Newsletter>(news, HttpStatus.CREATED);
     }
 
     /**

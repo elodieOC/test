@@ -38,7 +38,4 @@ public class ClientController {
         model.addAttribute("session", session);
         return "about";
     }
-
-
-
 }

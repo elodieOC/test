@@ -2,9 +2,11 @@ package com.mUI.microserviceUI.controller;
 
 import com.mUI.microserviceUI.beans.MerchantBean;
 import com.mUI.microserviceUI.beans.RewardBean;
+import com.mUI.microserviceUI.beans.UserBean;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
+import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.mUI.microserviceUI.utils.MapsUtils.setUpForGMaps;

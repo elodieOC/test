@@ -10,8 +10,17 @@ public class UserBean {
     private RoleBean userRole;
     private String resetToken;
     private boolean merchantOrNot;
+    private boolean newsletterSuscriber;
 
     public UserBean() {
+    }
+
+    public boolean isNewsletterSuscriber() {
+        return newsletterSuscriber;
+    }
+
+    public void setNewsletterSuscriber(boolean newsletterSuscriber) {
+        this.newsletterSuscriber = newsletterSuscriber;
     }
 
     public boolean isMerchantOrNot() {

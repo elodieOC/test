@@ -1,5 +1,6 @@
 package com.mUI.microserviceUI.proxies;
 
+import com.mUI.microserviceUI.beans.NewsletterBean;
 import com.mUI.microserviceUI.beans.UserBean;
 import com.mUI.microserviceUI.config.FeignConfig;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
@@ -16,6 +17,9 @@ import java.util.List;
 public interface MicroserviceUsersProxy {
     @GetMapping(value = "microservice-users/Utilisateurs")
     List<UserBean> listUsers();
+
+    @GetMapping(value = "microservice-users/Newsletters")
+    List<NewsletterBean> listNewsletters();
 
     @PostMapping(value = "microservice-users/Utilisateurs/add-user")
     UserBean addUser(@RequestBody UserBean userBean);
@@ -34,6 +38,9 @@ public interface MicroserviceUsersProxy {
 
     @GetMapping( value = "microservice-users/Utilisateurs/MonProfil/{id}")
     UserBean showUser(@PathVariable("id") Integer id);
+
+    @PostMapping(value = "microservice-users/Utilisateurs/suscribe")
+    NewsletterBean addUserToNewsletter(@RequestBody NewsletterBean newsletterBean);
 
     @PostMapping(value = "microservice-users/Utilisateurs/delete/{id}")
     void deleteUser(@PathVariable("id") Integer id);

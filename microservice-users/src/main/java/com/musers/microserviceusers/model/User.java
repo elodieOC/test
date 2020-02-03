@@ -41,6 +41,9 @@ public class User {
     @Column(name = "token_date")
     private Timestamp tokenDate;
 
+    @Column(name = "newsletter")
+    private boolean newsletterSuscriber;
+
     @JsonSerialize(using = RoleSerializer.class)
     @ManyToOne //plusieurs user pour un seul role
     @JoinColumn(name = "id_role")
@@ -50,6 +53,14 @@ public class User {
     private boolean merchantOrNot;
 
     public User() {
+    }
+
+    public boolean isNewsletterSuscriber() {
+        return newsletterSuscriber;
+    }
+
+    public void setNewsletterSuscriber(boolean newsletterSuscriber) {
+        this.newsletterSuscriber = newsletterSuscriber;
     }
 
     public boolean isMerchantOrNot() {

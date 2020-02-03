@@ -14,7 +14,7 @@
 
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Marchands' ? 'active':''}"><a class="nav-link" th:href="@{/Marchands}">Les Marchands</a></li>
                    <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Contact' ? 'active':''}">
-                        <a class="nav-link js-scroll-trigger" href="#" />Contact</a>
+                        <a class="nav-link js-scroll-trigger" th:href="@{/contact}" />Contact</a>
                     </li>
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/APropos' ? 'active':''}">
                         <a class="nav-link js-scroll-trigger" th:href="@{/APropos}"/>A Propos</a>

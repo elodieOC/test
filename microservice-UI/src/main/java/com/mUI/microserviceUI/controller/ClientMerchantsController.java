@@ -6,6 +6,7 @@ import com.mUI.microserviceUI.beans.Place;
 import com.mUI.microserviceUI.beans.RewardBean;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
+import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,8 @@ public class ClientMerchantsController {
 
     @Autowired
     private MicroserviceMerchantsProxy merchantsProxy;
+    @Autowired
+    private MicroserviceRewardsProxy rewardsProxy;
 
 
     /*
@@ -84,7 +87,6 @@ public class ClientMerchantsController {
     @PostMapping("/Marchands/add-shop")
     public String saveMerchant(@ModelAttribute("addShopDTO")AddShopDTO addShopDTO, ModelMap model) {
         String toBeReturned;
-        System.out.println(addShopDTO.getAddress());
         try {
             Integer maxP = Integer.parseInt(addShopDTO.getMaxPoints());
             MerchantBean theMerchant = new MerchantBean();
@@ -124,6 +126,13 @@ public class ClientMerchantsController {
         rewardCard.setMaxPoints(merchant.getMaxPoints());
         Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
         rewardCard.setIdUser(userId);
+        for(RewardBean r:rewardsProxy.listRewards()){
+            if(r.getIdUser() == rewardCard.getIdUser()){
+                if (r.getIdMerchant() == rewardCard.getIdMerchant()){
+                    model.addAttribute("errorMessage", "Vous avez déjà une carte fidélité chez ce marchand :)");
+                }
+            }
+        }
         model.addAttribute("merchant", merchant);
         model.addAttribute("rewardCard", rewardCard);
         model.addAttribute("sessionId", session.getAttribute("loggedInUserId"));

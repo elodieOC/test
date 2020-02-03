@@ -1,6 +1,7 @@
 package com.mUI.microserviceUI.controller;
 
 import com.mUI.microserviceUI.beans.MerchantBean;
+import com.mUI.microserviceUI.beans.NewsletterBean;
 import com.mUI.microserviceUI.beans.RewardBean;
 import com.mUI.microserviceUI.beans.UserBean;
 import com.mUI.microserviceUI.exceptions.BadLoginPasswordException;
@@ -11,6 +12,7 @@ import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -46,8 +48,6 @@ public class ClientUsersController {
      * User register
      * ************************************
      */
-
-
     /**
      * <p>Page that displays a form to register a user</p>
      * @param model attribute passed to jsp page
@@ -164,6 +164,51 @@ public class ClientUsersController {
         model.addAttribute("sessionRole", session.getAttribute("loggedInUserRole"));
         return "user-profile";
     }
+
+    /*
+     **************************************
+     * Register to Newsletter
+     * ************************************
+     */
+
+    /**
+     * Contact page and newsletter subscription
+     * @param model
+     * @return
+     */
+    @GetMapping("/contact")
+    public String contact(Model model){
+        UserBean userBean = new UserBean();
+        model.addAttribute("user", userBean);
+        return "contact";
+    }
+
+    /**
+     * Process called after user registers for newsletter
+     * @return contact page
+     */
+    @RequestMapping(value = "/contact")
+    public String registerNewsletter(@ModelAttribute("newsletter") NewsletterBean newsletter, Model model) {
+        List<NewsletterBean> newsletterBeanList = usersProxy.listNewsletters();
+        for(NewsletterBean n:newsletterBeanList){
+            if(newsletter.getEmail().equals(n.getEmail())){
+                    model.addAttribute("infoMessage", "Vous êtes déjà inscrit à la newsletter");
+                    return "contact";
+            }
+        }
+        try{
+            NewsletterBean newsletterBean = usersProxy.addUserToNewsletter(newsletter);
+            String successMessage = "Vous êtes inscrit à la Newsletter";
+            model.addAttribute("successMessage", successMessage);
+        }catch (Exception e){
+            model.addAttribute("errorMessage", e.getMessage());
+        }
+        return "contact";
+    }
+
+
+
+
     /*
      **************************************
      * User logout

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Ma carte fidélité</title>
@@ -12,6 +12,7 @@
         <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
             <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}" />
         </a>
+
         <!-- Mini nav to choose fidelity card or qr code -->
         <div class="row mt-5 mb-5">
             <div class="text-center mx-auto">
@@ -37,9 +38,10 @@
                     </li>
                     <li class="list-inline-item">
                         <a th:href="@{/CarteFidelites/__${reward.getId()}__/reward}">
-                            <input type="submit"
-                                   th:class="${#strings.contains(#httpServletRequest.requestURI, 'reward')?'form-control btn btn-lg btn-secondary btn-active':'form-control btn btn-lg btn-primary'}"
-                                   value="Mes récompenses">
+                            <button type="submit"
+                                   th:class="${#strings.contains(#httpServletRequest.requestURI, 'reward')?'form-control btn btn-lg btn-secondary btn-active':'form-control btn btn-lg btn-primary'}">
+                                Mes récompenses <span class="badge badge-light" th:text="${reward.getRewardsNbr()}"></span>
+                            </button>
                         </a>
                     </li>
                 </ul>
@@ -91,7 +93,7 @@
                     <form th:action="@{/CarteFidelites/{id}/redeem(id=${reward.getId()})}" method="post" th:object="${reward}">
                         <div class="mx-auto mt-5">
                             <input type="submit"
-                                   class="form-control btn btn-lg btn-success"
+                                   class="form-control btn btn-lg btn-primary mt-5"
                                    value="Récupérer une récompense">
                         </div>
                     </form>
