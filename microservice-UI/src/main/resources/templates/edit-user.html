@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Inscription</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+        <div class="row mt-5">
+            <h1 class="mb-3 mt-3 mx-auto">Editer les informations</h1>
+        </div>
+        <div class="row">
+            <div class="mx-auto col-md-6 mt-4">
+                <form th:action="@{/Utilisateurs/edit}" method="post" th:object="${user}">
+                    <td th:if="${errorMessage ne null}">
+                        <div class="alert alert-danger">
+                            <span  th:text="${errorMessage}"/>
+                        </div>
+                    </td>
+                    <div class="form-group">
+                        <input type="hidden" name="id" th:value="${user.id}" />
+                        <label for="email">Email</label>:
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               class="form-control  form-control-lg  "
+                               autofocus="autofocus"
+                               th:placeholder="${user.email}">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">Prénom</label>:
+                        <input type="text"
+                               id="firstName"
+                               name="firstName"
+                               class="form-control form-control-lg  "
+                               autofocus="autofocus"
+                               th:placeholder="${user.firstName}">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Nom</label>:
+                        <input type="text"
+                               id="lastName"
+                               name="lastName"
+                               class="form-control form-control-lg  "
+                               autofocus="autofocus"
+                               th:placeholder="${user.lastName}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de Passe</label>:
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               class="form-control form-control-lg "
+                               placeholder="mot de passe">
+                    </div>
+                    <div class="form-group mt-5">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                                <input type="submit"
+                                       name="login-submit"
+                                       id="login-submit"
+                                       class="form-control btn btn-lg btn-info"
+                                       value="Valider les informations">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

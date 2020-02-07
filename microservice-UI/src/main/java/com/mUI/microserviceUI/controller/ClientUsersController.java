@@ -1,9 +1,6 @@
 package com.mUI.microserviceUI.controller;
 
-import com.mUI.microserviceUI.beans.MerchantBean;
-import com.mUI.microserviceUI.beans.NewsletterBean;
-import com.mUI.microserviceUI.beans.RewardBean;
-import com.mUI.microserviceUI.beans.UserBean;
+import com.mUI.microserviceUI.beans.*;
 import com.mUI.microserviceUI.exceptions.BadLoginPasswordException;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMailingProxy;
@@ -12,15 +9,11 @@ import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -129,7 +122,7 @@ public class ClientUsersController {
      * @param model
      * @return user-details.html
      */
-    @RequestMapping("/Utilisateurs/MonProfil/{userId}")
+    @RequestMapping(value = {"/Utilisateurs/MonProfil/{userId}", "/Utilisateurs/MonProfil/{userId}/mescartes"})
     public String userDetails(@PathVariable Integer userId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         UserBean user = usersProxy.showUser(userId);
@@ -167,10 +160,59 @@ public class ClientUsersController {
 
     /*
      **************************************
-     * Register to Newsletter
+     * Edit User
      * ************************************
      */
+    @GetMapping("/Utilisateurs/MonProfil/edit/{id}")
+    public String editUserPage(@PathVariable Integer id, Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        UserBean user = usersProxy.showUser(id);
+        //session is always checked, here check if user editing profile is owner of profile
+        if(!session.getAttribute("loggedInUserId").equals(id)){
+            System.out.println("User trying to edit profile is not the owner of the profile");
+            System.out.println("User is: [id:"
+                    +session.getAttribute("loggedInUserId")+ ", email:"
+                    +session.getAttribute("loggedInUserEmail")+", role:"
+                    +session.getAttribute("loggedInUserRole")+"]");
+            return "redirect:/Accueil";
+        }
+        model.addAttribute("user", user);
+        model.addAttribute("userId", user.getId());
+        return "edit-user";
+    }
 
+    @RequestMapping("/Utilisateurs/edit")
+    public String editUser(@ModelAttribute("user") EditUserDTO editUserDTO, ModelMap model, HttpServletRequest request){
+        String toBeReturned;
+        HttpSession session = request.getSession();
+        UserBean user = usersProxy.showUser(editUserDTO.getId());
+        if(!editUserDTO.getEmail().isEmpty()){
+            user.setEmail(editUserDTO.getEmail());
+        }if(!editUserDTO.getPassword().isEmpty()){
+            user.setPassword(editUserDTO.getPassword());
+        }if(!editUserDTO.getFirstName().isEmpty()){
+            user.setFirstName(editUserDTO.getFirstName());
+        }if(!editUserDTO.getLastName().isEmpty()){
+            user.setLastName(editUserDTO.getLastName());
+        }
+        try{
+            UserBean userToEdit = usersProxy.editUser(user);
+            toBeReturned = setSessionAttributes(userToEdit, session);
+        }catch (Exception e){
+            e.printStackTrace();
+            model.addAttribute("errorMessage", "ERREUR ERREUR");
+            toBeReturned = "redirect:/Utilisateurs/MonProfil/edit/"+editUserDTO.getId();
+        }
+        return toBeReturned;
+    }
+
+
+    /*
+     **************************************
+     * Newsletter
+     * ************************************
+     */
+//TODO scheduledTask for newsletter boolean
     /**
      * Contact page and newsletter subscription
      * @param model
@@ -206,6 +248,31 @@ public class ClientUsersController {
         return "contact";
     }
 
+    /**
+     * From user profile, adds user to Newsletter
+     * @param userId
+     * @return profile
+     */
+    @RequestMapping("/Utilisateurs/MonProfil/{userId}/suscribe")
+    public String suscribeUserFromProfile(@PathVariable Integer userId){
+        UserBean user = usersProxy.showUser(userId);
+        NewsletterBean newsletterBean = new NewsletterBean();
+        newsletterBean.setEmail(user.getEmail());
+        usersProxy.addUserToNewsletter(newsletterBean);
+        return "redirect:/Utilisateurs/MonProfil/"+userId;
+    }
+
+    /**
+     * From user profile, unsuscribes user from Newsletter
+     * @param userId
+     * @return profile
+     */
+    @RequestMapping("/Utilisateurs/MonProfil/{userId}/unsuscribe")
+    public String unsuscribeUserFromProfile(@PathVariable Integer userId){
+        UserBean user = usersProxy.showUser(userId);
+        UserBean updatedUser = usersProxy.unsuscribe(user);
+        return "redirect:/Utilisateurs/MonProfil/"+updatedUser.getId();
+    }
 
 
 

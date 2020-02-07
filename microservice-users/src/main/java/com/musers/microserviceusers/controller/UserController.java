@@ -104,6 +104,25 @@ public class UserController {
         return new ResponseEntity<User>(userLogged, HttpStatus.OK);
     }
 
+    @PostMapping(value = "/Utilisateurs/edit")
+    ResponseEntity<User> editUser(@RequestBody User user)  {
+        User originalUser = userDao.getOne(user.getId());
+        if(!originalUser.getEmail().equals(user.getEmail())){
+            originalUser.setEmail(user.getEmail());
+        }
+        if(!originalUser.getFirstName().equals(user.getFirstName())){
+            originalUser.setFirstName(user.getFirstName());
+        }
+        if(!originalUser.getLastName().equals(user.getLastName())){
+            originalUser.setLastName(user.getLastName());
+        }
+        if(!originalUser.getPassword().equals(user.getPassword())){
+            originalUser.setPassword( Encryption.encrypt(user.getPassword()));
+        }
+        userDao.save(originalUser);
+        return new ResponseEntity<User>(originalUser, HttpStatus.OK);
+    }
+
     /**
      * Adds a new suscriber to the newsletter
      * @param newsletter
@@ -122,6 +141,24 @@ public class UserController {
         return new ResponseEntity<Newsletter>(news, HttpStatus.CREATED);
     }
 
+    /**
+     * Unsuscribe a user from the newsletter
+     * @param user
+     * @return user
+     */
+    @PostMapping(value = "/Utilisateurs/unsuscribe")
+    public ResponseEntity<User> unsuscribe(@RequestBody User user){
+        Optional<User> userToFind = userDao.findById(user.getId());
+        if(!userToFind.isPresent()) {
+            throw new NotFoundException("NotFound");
+        }
+        User userToUnsuscribe = userDao.getOne(user.getId());
+        userToUnsuscribe.setNewsletterSuscriber(false);
+        userDao.save(userToUnsuscribe);
+        Newsletter news = newsletterDao.findByEmail(userToUnsuscribe.getEmail());
+        newsletterDao.delete(news);
+        return new ResponseEntity<User>(userToUnsuscribe, HttpStatus.OK);
+    }
     /**
      * <p>finds a user by mail to reset a password (sets a token in db)</p>
      * @param email from form
@@ -195,6 +232,7 @@ public class UserController {
             throw new NotFoundException("L'utilisateur avec l'id " + id + " est INTROUVABLE.");
         }
         User userToDelete = userDao.getOne(id);
+
         userDao.delete(userToDelete);
     }
 

@@ -45,4 +45,10 @@ public interface MicroserviceUsersProxy {
     @PostMapping(value = "microservice-users/Utilisateurs/delete/{id}")
     void deleteUser(@PathVariable("id") Integer id);
 
+    @PostMapping(value = "microservice-users/Utilisateurs/edit")
+    UserBean editUser(@RequestBody UserBean userBean);
+
+    @PostMapping(value="microservice-users/Utilisateurs/unsuscribe")
+    UserBean unsuscribe(@RequestBody UserBean userBean);
+
 }
