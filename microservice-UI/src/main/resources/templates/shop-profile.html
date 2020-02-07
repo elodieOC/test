@@ -33,7 +33,10 @@
         <!-- IF User in session is  owner of shop -->
         <div class="mb-5" th:if="${sessionId == merchant.getUserId()}">
             <div class="row mt-5">
-                <h2 th:text="'Mes utilisateurs'" class="mb-5 mx-auto"/>
+                <h2 th:text="'Cartes fidélités'" class="mb-5 mx-auto"/>
+            </div>
+            <div th:each="card, iStat :${cards}" class="mb-5">
+                <p th:text="${'carte '+iStat.count+': '+card.getPoints()+' points et '+ card.getRewardsNbr()+' rewards'}"></p>
             </div>
             <div class="row mt-5">
             </div>

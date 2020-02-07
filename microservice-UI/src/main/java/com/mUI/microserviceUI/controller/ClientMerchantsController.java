@@ -1,12 +1,10 @@
 package com.mUI.microserviceUI.controller;
 
-import com.mUI.microserviceUI.beans.AddShopDTO;
-import com.mUI.microserviceUI.beans.MerchantBean;
-import com.mUI.microserviceUI.beans.Place;
-import com.mUI.microserviceUI.beans.RewardBean;
+import com.mUI.microserviceUI.beans.*;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
+import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import com.mUI.microserviceUI.utils.MapsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +33,8 @@ public class ClientMerchantsController {
     private MicroserviceMerchantsProxy merchantsProxy;
     @Autowired
     private MicroserviceRewardsProxy rewardsProxy;
+    @Autowired
+    private MicroserviceUsersProxy usersProxy;
 
 
     /*
@@ -132,6 +132,19 @@ public class ClientMerchantsController {
                     model.addAttribute("errorMessage", "Vous avez déjà une carte fidélité chez ce marchand :)");
                 }
             }
+        }
+        //TODO afficher total des récompenses en attentes et distribuées???
+        //if user in session is owner of shops, show the users with cards of the shops
+        if(merchant.getUserId() == userId){
+            //search if shop has active fidelity cards
+            List<RewardBean>rewards = rewardsProxy.listRewards();
+            List<RewardBean>shopRewards = new ArrayList<>();
+            for (RewardBean r:rewards){
+                if(r.getIdMerchant()==shopId){
+                    shopRewards.add(r);
+                }
+            }
+            model.addAttribute("cards", shopRewards);
         }
         model.addAttribute("merchant", merchant);
         model.addAttribute("rewardCard", rewardCard);

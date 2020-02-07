@@ -21,29 +21,32 @@
             </a>
         </div>
     </div>
-    <div th:each="shop : ${shopList}" class="card col-md-3 mt-5 mr-5 ml-5">
-        <a th:href="@{/Marchands/__${shop.id}__}" th:style="|text-decoration:none;|">
-            <!--Card-->
-            <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
-                <div class="row ml-2">
-                    <img th:src="${shop.getIconLink()}" th:style="'width:30px'">
-                    <h4 class="ml-2" th:text= "${shop.merchantName}" />
+    <div class="row">
+        <div th:each="shop : ${shopList}" class="card col-md-3 mt-5 mr-5 ml-5">
+            <a th:href="@{/Marchands/__${shop.id}__}" th:style="|text-decoration:none;|">
+                <!--Card-->
+                <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
+                    <div class="row ml-2">
+                        <img th:src="${shop.getIconLink()}" th:style="'width:30px'">
+                        <h4 class="ml-2" th:text= "${shop.merchantName}" />
+                    </div>
                 </div>
-            </div>
-            <!--Card content-->
-            <div class="card-body">
-                <!--Google map-->
-                <div class="embed-responsive embed-responsive-4by3">
-                    <img style="border: 0" class="embed-responsive-item" th:src="${shop.getMapsAddress()}"/>
+                <!--Card content-->
+                <div class="card-body">
+                    <!--Google map-->
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <img style="border: 0" class="embed-responsive-item" th:src="${shop.getMapsAddress()}"/>
+                    </div>
                 </div>
-            </div>
-            <!--/.Card content-->
-            <div class="card-footer text-capitalize bg-dark text-white mb-1">
-                <p th:text="${shop.getCategory()}"/>
-                <p th:text="${shop.address}"/>
-            </div>
-        </a>
+                <!--/.Card content-->
+                <div class="card-footer text-capitalize bg-dark text-white mb-1">
+                    <p th:text="${shop.getCategory()}"/>
+                    <p th:text="${shop.address}"/>
+                </div>
+            </a>
+        </div>
     </div>
+    <div class="mb-5"></div>
 </div>
 </body>
 </html>
