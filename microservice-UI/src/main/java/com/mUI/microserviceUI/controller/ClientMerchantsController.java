@@ -133,7 +133,7 @@ public class ClientMerchantsController {
                 }
             }
         }
-        //TODO afficher total des récompenses en attentes et distribuées???
+        //TODO total des récompenses distribuées???
         //if user in session is owner of shops, show the users with cards of the shops
         if(merchant.getUserId() == userId){
             //search if shop has active fidelity cards
@@ -144,7 +144,14 @@ public class ClientMerchantsController {
                     shopRewards.add(r);
                 }
             }
+            //search number of total rewards in waiting
+            int rewardsInWaiting = 0;
+            for(RewardBean r: shopRewards){
+                int cardRewards = r.getRewardsNbr();
+                rewardsInWaiting += cardRewards;
+            }
             model.addAttribute("cards", shopRewards);
+            model.addAttribute("rewardsTot", rewardsInWaiting);
         }
         model.addAttribute("merchant", merchant);
         model.addAttribute("rewardCard", rewardCard);

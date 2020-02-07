@@ -11,6 +11,19 @@
         <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' - '+${merchant.category}" />
         <h2 class="text-center mb-5 text-capitalize" th:text= "${merchant.address}" />
 
+
+        <!-- IF User in session is  owner of shop -->
+        <div class="mb-5" th:if="${sessionId == merchant.getUserId()}">
+            <div class="row">
+                <div class="card col-md-5 mt-5 mr-5 ml-5 fidelity-card mx-auto">
+                    <div class="card-body text-white">
+                        <p th:text="${'Nombre de cartes fidélité: '+cards.size()}"></p>
+                        <p th:text="${'Nombre de récompenses en attente: '+rewardsTot}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--For everyone to see -->
         <div class="card col-md-5 mb-3 mt-5 mb-5 mx-auto">
             <div class="card-body">
                 <!--Google map-->
@@ -27,26 +40,6 @@
                     <a class="btn-lg btn-secondary" th:text="'Connectez vous'" th:href="@{/Utilisateurs/connexion}" />
                 </div>
             </div>
-        </div>
-
-
-        <!-- IF User in session is  owner of shop -->
-        <div class="mb-5" th:if="${sessionId == merchant.getUserId()}">
-            <div class="row mt-5">
-                <h2 th:text="'Cartes fidélités'" class="mb-5 mx-auto"/>
-            </div>
-            <div th:each="card, iStat :${cards}" class="mb-5">
-                <p th:text="${'carte '+iStat.count+': '+card.getPoints()+' points et '+ card.getRewardsNbr()+' rewards'}"></p>
-            </div>
-            <div class="row mt-5">
-            </div>
-            <form th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
-                <div class="col-sm-6 col-sm-offset-3  mx-auto">
-                    <input type="submit"
-                           class="form-control btn btn-lg btn-danger"
-                           value="Suppression de boutique">
-                </div>
-            </form>
         </div>
 
         <!-- IF Session exists AND User in session is NOT owner of shop-->
@@ -68,6 +61,19 @@
                 <span  th:text="${errorMessage}"/>
             </div>
         </td>
+
+        <!-- IF User in session is  owner of shop -->
+        <div class="mb-5" th:if="${sessionId == merchant.getUserId()}">
+            <div class="row mt-5">
+            </div>
+            <form th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
+                <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                    <input type="submit"
+                           class="form-control btn btn-lg btn-danger"
+                           value="Suppression de boutique">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>
