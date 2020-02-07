@@ -232,7 +232,6 @@ public class UserController {
             throw new NotFoundException("L'utilisateur avec l'id " + id + " est INTROUVABLE.");
         }
         User userToDelete = userDao.getOne(id);
-
         userDao.delete(userToDelete);
     }
 

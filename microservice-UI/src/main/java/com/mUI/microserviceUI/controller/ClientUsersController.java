@@ -389,7 +389,42 @@ public class ClientUsersController {
     @RequestMapping(value = "/Utilisateurs/delete/{id}", method = RequestMethod.POST)
     public String deleteUser(@PathVariable("id") Integer id, HttpServletRequest request){
         HttpSession session = request.getSession();
-        usersProxy.deleteUser(id);
+        UserBean user = usersProxy.showUser(id);
+        List<MerchantBean> userShops=new ArrayList<>();
+        List<RewardBean> userCards=new ArrayList<>();
+        //If user to delete is merchant, search for possible shops to delete as well
+        if(user.getUserRole().getId()==3){
+            List<MerchantBean> allShops = merchantsProxy.listMerchants();
+            for (MerchantBean m :allShops) {
+                if(m.getUserId() == user.getId()){
+                    userShops.add(m);
+                }
+            }
+        }
+        //search for fidelity cards to delete as well
+        List<RewardBean> allRewards = rewardsProxy.listRewards();
+        for(RewardBean r: allRewards){
+            if(r.getIdUser() == user.getId()){
+                userCards.add(r);
+            }
+        }
+        try {
+            usersProxy.deleteUser(id);
+            //if user owns shops, delete shops
+            if (!userShops.isEmpty()){
+                for(MerchantBean m:userShops){
+                    merchantsProxy.deleteShop(m.getId());
+                }
+            }
+            //if user owns cards, delete cards
+            if(!userCards.isEmpty()){
+                for (RewardBean r:userCards){
+                    rewardsProxy.deleteAccount(r.getId());
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         session.invalidate();
         return "redirect:/Accueil";
     }
