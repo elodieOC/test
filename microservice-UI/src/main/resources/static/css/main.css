@@ -68,8 +68,16 @@ h2 {
 .form-group input{
     padding: 1em 0.5em 1em 0.5em;
 }
+.user-info{
+    background-color: white!important;
+}
+.no-style-link, .no-style-link:hover, .no-style-link:visited{
+    text-decoration: none;
+}
+
 #password-eye{
     padding: 0.5em;
+    font-size: larger;
 }
 .card-group{
     margin-bottom: 5em;
@@ -143,5 +151,14 @@ h2 {
     }
     .card-group{
         align-items: center;
+    }
+
+    .points-on,.points-off{
+        margin: 1px;
+        height: 38px;
+        width: 38px;
+    }
+    .fidelity-card{
+        width: 96%;
     }
 }

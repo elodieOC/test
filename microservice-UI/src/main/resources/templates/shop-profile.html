@@ -24,14 +24,14 @@
         <div th:if="${sessionId == null}">
             <div class="row">
                 <div class="mx-auto mt-5 mb-5">
-                    <a class="btn-lg btn-secondary" th:text="'Connectez vous pour prendre une carte fidélité'" th:href="@{/Utilisateurs/connexion}" />
+                    <a class="btn-lg btn-secondary" th:text="'Connectez vous'" th:href="@{/Utilisateurs/connexion}" />
                 </div>
             </div>
         </div>
 
 
         <!-- IF User in session is  owner of shop -->
-        <div th:if="${sessionId == merchant.getUserId()}">
+        <div class="mb-5" th:if="${sessionId == merchant.getUserId()}">
             <div class="row mt-5">
                 <h2 th:text="'Mes utilisateurs'" class="mb-5 mx-auto"/>
             </div>
@@ -47,7 +47,7 @@
         </div>
 
         <!-- IF Session exists AND User in session is NOT owner of shop-->
-        <div th:if="${sessionId != merchant.getUserId() && sessionId != null && errorMessage == null}">
+        <div class="mb-5" th:if="${sessionId != merchant.getUserId() && sessionId != null && errorMessage == null}">
             <form th:action="@{/CarteFidelites/add-account}" method="post" th:object="${rewardCard}">
                 <input type="hidden" name="idMerchant" th:value="${merchant.id}" />
                 <input type="hidden" name="idUser" th:value="${sessionId}" />
@@ -58,6 +58,7 @@
                 </div>
             </form>
         </div>
+        <div class="mb-5"></div>
         <!-- IF Session exists AND User in session is NOT owner of shop BUT has already the card-->
         <td th:if="${errorMessage ne null}">
             <div class="alert alert-info col-md-6 mx-auto">

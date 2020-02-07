@@ -13,7 +13,7 @@
             <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}" />
         </a>
 
-        <!-- Mini nav to choose fidelity card or qr code -->
+        <!-- Mini nav to choose fidelity card or qr code or rewards-->
         <div class="row mt-5 mb-5">
             <div class="text-center mx-auto">
                 <ul class="list-inline">
@@ -22,11 +22,11 @@
                             <input  th:if="${#strings.contains(#httpServletRequest.requestURI, 'code') or #strings.contains(#httpServletRequest.requestURI, 'reward')}"
                                     type="submit"
                                     class="form-control btn btn-lg btn-primary "
-                                    value="Carte Fidélité">
+                                    value="Ma carte">
                             <input  th:unless="${#strings.contains(#httpServletRequest.requestURI, 'code') or #strings.contains(#httpServletRequest.requestURI, 'reward')}"
                                     type="submit"
                                     class="form-control btn btn-lg btn-secondary btn-active"
-                                    value="Carte Fidélité">
+                                    value="Ma carte">
                         </a>
                     </li>
                     <li class="list-inline-item">
@@ -39,8 +39,8 @@
                     <li class="list-inline-item">
                         <a th:href="@{/CarteFidelites/__${reward.getId()}__/reward}">
                             <button type="submit"
-                                   th:class="${#strings.contains(#httpServletRequest.requestURI, 'reward')?'form-control btn btn-lg btn-secondary btn-active':'form-control btn btn-lg btn-primary'}">
-                                Mes récompenses <span class="badge badge-light" th:text="${reward.getRewardsNbr()}"></span>
+                                   th:class="${#strings.contains(#httpServletRequest.requestURI, 'reward')?'form-control btn btn-lg btn-secondary btn-active':'form-control btn  btn-lg btn-primary'}">
+                                Rewards <span class="badge badge-light" th:text="${reward.getRewardsNbr()}"></span>
                             </button>
                         </a>
                     </li>
@@ -51,7 +51,7 @@
         <!-- Fidelity Card -->
         <div th:unless="${#strings.contains(#httpServletRequest.requestURI, 'code') or #strings.contains(#httpServletRequest.requestURI, 'reward')}">
             <div class="row mt-5 mb-5">
-                <div class="col-sm-4 fidelity-card rounded mx-auto p-5">
+                <div class="col-md-4 fidelity-card rounded mx-auto p-5">
                     <h3 class="text-white mb-3" id="fidelity-card-title">Carte fidélité</h3>
                     <ul class="list-unstyled mb-3 mt-5 score">
                         <li th:each="point, iStat : ${#numbers.sequence(1, reward.getMaxPoints())}" th:class="${iStat.count<=pointsOn ? 'points-on':'points-off'}">
@@ -78,6 +78,12 @@
                 </div>
             </form>
         </div>
+        <!-- QR CODE -->
+        <div th:if="${#strings.contains(#httpServletRequest.requestURI, 'code')}">
+            <div class="row text-center mt-5 mb-5">
+                <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
+            </div>
+        </div>
         <!-- Reward -->
         <div class="row mt-5 mb-5">
             <div class="mx-auto" th:if="${#strings.contains(#httpServletRequest.requestURI, 'reward')}">
@@ -98,12 +104,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-        <!-- QR CODE -->
-        <div th:if="${#strings.contains(#httpServletRequest.requestURI, 'code')}">
-            <div class="text-center mt-5 mb-5">
-                <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
             </div>
         </div>
     </div>
