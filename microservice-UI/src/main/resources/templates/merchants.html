@@ -14,7 +14,7 @@
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
         <div class="row offset-md-1 ">
-            <div th:each="merchant : ${merchants}" class="card col-md-5 mb-3 mt-5 mr-5 ml-5">
+            <div th:each="merchant : ${merchants}" class="card col-md-5 mb-3 mt-5 mr-5 ml-5 mx-auto">
                 <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
                     <!--Card-->
                     <div class="card-header text-center text-capitalize bg-dark text-white mb-1">

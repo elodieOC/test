@@ -87,11 +87,18 @@ public class ClientMerchantsController {
     @PostMapping("/Marchands/add-shop")
     public String saveMerchant(@ModelAttribute("addShopDTO")AddShopDTO addShopDTO, ModelMap model) {
         String toBeReturned;
+        String[] longAddress = addShopDTO.getAddress().split(",", addShopDTO.getAddress().length());
+        String address=longAddress[0];
+        String city = longAddress[1].replaceAll("\\s+","");
+        if (!city.equals("Puteaux")){
+            model.addAttribute("errorMessage", "Cette application supporte actuellement les commerces de Puteaux uniquement");
+            return "register-shop";
+        }
         try {
             Integer maxP = Integer.parseInt(addShopDTO.getMaxPoints());
             MerchantBean theMerchant = new MerchantBean();
             theMerchant.setUserId(addShopDTO.getUserId());
-            theMerchant.setAddress(addShopDTO.getAddress());
+            theMerchant.setAddress(address+", "+city);
             theMerchant.setCategory(addShopDTO.getCategory());
             theMerchant.setEmail(addShopDTO.getEmail());
             theMerchant.setMaxPoints(maxP);

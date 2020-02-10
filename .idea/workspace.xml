@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ca31c92-415f-4045-8aa9-dfa1078cf13a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/static/js/gmapsauto.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/static/js/gmapsauto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/microservice-rewards/target/" />
     <ignored path="$PROJECT_DIR$/microservice-merchants/target/" />
@@ -73,10 +73,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="135" column="37" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
+            <state relative-caret-position="98">
+              <caret line="93" column="123" selection-start-line="93" selection-start-column="123" selection-end-line="93" selection-end-column="123" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -165,12 +177,9 @@
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/ConfigUtils.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/Place.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html" />
         <option value="$PROJECT_DIR$/microservice-UI/pom.xml" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/config.properties" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/static/js/gmapsauto.js" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/bootstrap.properties" />
         <option value="$PROJECT_DIR$/zuul-server/src/main/resources/bootstrap.properties" />
         <option value="$PROJECT_DIR$/eureka-server/src/main/resources/bootstrap.properties" />
@@ -208,8 +217,11 @@
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/card-profile.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/static/js/gmapsauto.js" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
       </list>
     </option>
   </component>
@@ -340,6 +352,15 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
@@ -706,7 +727,7 @@
       <workItem from="1580147418884" duration="1098000" />
       <workItem from="1580389227312" duration="32968000" />
       <workItem from="1580755900817" duration="23944000" />
-      <workItem from="1581087772062" duration="1534000" />
+      <workItem from="1581087772062" duration="4369000" />
     </task>
     <servers />
   </component>
@@ -743,7 +764,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225980000" />
+    <option name="totallyTimeSpent" value="228815000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -756,7 +777,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49382716" visible="true" weight="0.22768533" />
       <window_info id="Structure" order="1" sideWeight="0.50617284" side_tool="true" weight="0.2677761" />
@@ -782,7 +802,7 @@
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Duplicate detector" order="14" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.46972176" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.46972176" />
       <window_info anchor="bottom" id="Thumbnails" order="17" weight="0.3289689" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -858,13 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="109" column="43" lean-forward="true" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/static/js/gmapsauto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
         </state>
       </provider>
     </entry>
@@ -981,16 +994,6 @@
           <caret line="104" column="7" selection-start-line="104" selection-start-column="7" selection-end-line="104" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1161,13 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
@@ -1182,30 +1178,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="135" column="37" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/card-profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="15" column="45" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="425" column="32" selection-start-line="425" selection-start-column="32" selection-end-line="425" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1225,8 +1201,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="140" selection-start-line="7" selection-start-column="140" selection-end-line="7" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/static/js/gmapsauto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="48" column="63" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="425" column="32" selection-start-line="425" selection-start-column="32" selection-end-line="425" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="93" column="123" selection-start-line="93" selection-start-column="123" selection-end-line="93" selection-end-column="123" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
