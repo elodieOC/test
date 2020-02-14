@@ -21,6 +21,11 @@
                         <div class="row ml-2">
                                 <img th:src="${merchant.getIconLink()}" th:style="'width:30px'">
                                 <h4 class="ml-2" th:text= "${merchant.merchantName}" />
+                                <span class="ml-5">
+                                    <i class="ml-2 fas fa-walking"></i>
+                                    <h4 th:if="${userId eq null}" class="ml-2 d-inline-block"> km/min</h4>
+                                    <h4 th:if="${userId ne null}" class="ml-1 d-inline-block" th:text="${merchant.dm.getDistanceText()+' / '+merchant.dm.getDurationText()}" />
+                                </span>
                         </div>
                     </div>
                     <!--Card content-->

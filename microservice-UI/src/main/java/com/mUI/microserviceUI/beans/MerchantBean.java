@@ -13,8 +13,17 @@ public class MerchantBean {
     private String iconLink;
     private String longitude;
     private String latitude;
+    private DistanceMatrix dm;
 
     public MerchantBean() {
+    }
+
+    public DistanceMatrix getDm() {
+        return dm;
+    }
+
+    public void setDm(DistanceMatrix dm) {
+        this.dm = dm;
     }
 
     public String getLongitude() {

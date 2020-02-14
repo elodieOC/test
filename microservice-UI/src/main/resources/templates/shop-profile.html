@@ -11,6 +11,13 @@
         <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' - '+${merchant.category}" />
         <h2 class="text-center mb-5 text-capitalize" th:text= "${merchant.address}" />
 
+        <div class="row">
+            <div class="mx-auto">
+                <i class="ml-2 fas fa-walking"></i>
+                <h4 th:if="${sessionId eq null}" class="ml-2 d-inline-block"> km/min</h4>
+                <h4 th:if="${sessionId ne null}" class="ml-1 d-inline-block" th:text="${merchant.dm.getDistanceText()+' / '+merchant.dm.getDurationText()}" />
+            </div>
+        </div>
 
         <!-- IF User in session is  owner of shop -->
         <div class="mb-5" th:if="${sessionId == merchant.getUserId()}">

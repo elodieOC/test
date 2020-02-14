@@ -1,5 +1,6 @@
 package com.mUI.microserviceUI.utils;
 
+import com.mUI.microserviceUI.beans.DistanceMatrix;
 import com.mUI.microserviceUI.beans.MerchantBean;
 import com.mUI.microserviceUI.beans.Place;
 import com.mUI.microserviceUI.beans.UserBean;
@@ -111,16 +112,64 @@ public class MapsUtils {
     /**
      * Finds nearest location
      */
-    public static void nearestOption(UserBean user){
-        user.setMapsAddress(setUrlAddressForMapsAPI(user.getAddress()));
-        try{
-            String search = URLEncoder.encode(user.getAddress(), "UTF-8");
-            Place place = searchPlaceFromText(search);
-        }catch (UnsupportedEncodingException e){
+    public static DistanceMatrix getDistanceDuration(UserBean user, MerchantBean shop) {
+        String userLong = user.getLongitude();
+        String userLat = user.getLatitude();
+        DistanceMatrix distanceMatrix = new DistanceMatrix();
+        HttpURLConnection conn = null;
+        StringBuilder jsonResults = new StringBuilder();
+        try {
+            StringBuilder sb = new StringBuilder(getConfigProprety("api.distance"));
+            sb.append("&origins=" + userLat + "," + userLong);
+            sb.append("&destinations=" + shop.getLatitude() + "," + shop.getLongitude());
+            sb.append(getConfigProprety("api.distance.key"));
+
+            URL url = new URL(sb.toString());
+            conn = (HttpURLConnection) url.openConnection();
+            InputStreamReader in = new InputStreamReader(conn.getInputStream());
+            int read;
+            char[] buff = new char[1024];
+            while ((read = in.read(buff)) != -1) {
+                jsonResults.append(buff, 0, read);
+            }
+        } catch (MalformedURLException e) {
+            e.getMessage();
+            System.out.println("catched MalformedURLException");
+        } catch (IOException e) {
+            e.getMessage();
+            System.out.println("catched IOException" + "\n" + e.getMessage());
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
+        }
+
+        try {
+            // Create a JSON object hierarchy from the results
+            JSONObject jsonObj = new JSONObject(jsonResults.toString());
+            JSONArray predsJsonArray = jsonObj.getJSONArray("rows");
+
+            // Extract the Place descriptions from the results
+            for (int i = 0; i < predsJsonArray.length(); i++) {
+                JSONArray elementsArray = predsJsonArray.getJSONObject(i).getJSONArray("elements");
+                for(int j=0;j<elementsArray.length();j++){
+                    distanceMatrix.setDistanceText(elementsArray.getJSONObject(j).getJSONObject("distance").getString("text"));
+                    distanceMatrix.setDistanceValue(elementsArray.getJSONObject(j).getJSONObject("distance").getInt("value"));
+                    distanceMatrix.setDurationText(elementsArray.getJSONObject(j).getJSONObject("duration").getString("text"));
+                    distanceMatrix.setDurationValue(elementsArray.getJSONObject(j).getJSONObject("duration").getInt("value"));
+                }
+            }
+        } catch (JSONException e) {
             e.getMessage();
         }
+        return distanceMatrix;
     }
 
+    /**
+     * Geocodes address from string
+     * @param address
+     * @return array of string containing longitude and latitude
+     */
     public static ArrayList<String> geocodeFromString(String address){
         ArrayList<String> longLat = new ArrayList<>();
         try{

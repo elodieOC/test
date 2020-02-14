@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mUI.microserviceUI.utils.MapsUtils.getDistanceDuration;
 import static com.mUI.microserviceUI.utils.MapsUtils.setUpForGMaps;
 
 
@@ -49,12 +48,19 @@ public class ClientMerchantsController {
      * @return merchants.html
      */
     @GetMapping("/Marchands")
-    public String listMerchants(Model model){
+    public String listMerchants(Model model,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
         List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
         for (MerchantBean m:merchantBeanList){
            setUpForGMaps(m);
+           //if a user is logged in, sets up DistanceMatrix attributes from the user's address
+           if(userId!=null) {
+               m.setDm(getDistanceDuration(usersProxy.showUser(userId),m));
+           }
         }
         model.addAttribute("merchants", merchantBeanList);
+        model.addAttribute("userId", userId);
         return "merchants";
     }
     /*
@@ -142,6 +148,10 @@ public class ClientMerchantsController {
                     model.addAttribute("errorMessage", "Vous avez déjà une carte fidélité chez ce marchand :)");
                 }
             }
+        }
+        //if a user is logged in, sets up DistanceMatrix attributes from the user's address
+        if(userId!=null) {
+            merchant.setDm(getDistanceDuration(usersProxy.showUser(userId),merchant));
         }
         //TODO total des récompenses distribuées???
         //if user in session is owner of shops, show the users with cards of the shops
