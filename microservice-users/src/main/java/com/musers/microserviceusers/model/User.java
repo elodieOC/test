@@ -44,6 +44,15 @@ public class User {
     @Column(name = "newsletter")
     private boolean newsletterSuscriber;
 
+    @Column(name="address")
+    private String address;
+
+    @Column(name="longitude")
+    private String longitude;
+
+    @Column(name="latitude")
+    private String latitude;
+
     @JsonSerialize(using = RoleSerializer.class)
     @ManyToOne //plusieurs user pour un seul role
     @JoinColumn(name = "id_role")
@@ -53,6 +62,30 @@ public class User {
     private boolean merchantOrNot;
 
     public User() {
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public boolean isNewsletterSuscriber() {
@@ -143,6 +176,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" +email+ '\''+
+                ", adress='" +address+ '\''+
                 '}';
     }
 }

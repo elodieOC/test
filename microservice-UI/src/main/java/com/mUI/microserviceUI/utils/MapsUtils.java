@@ -2,6 +2,7 @@ package com.mUI.microserviceUI.utils;
 
 import com.mUI.microserviceUI.beans.MerchantBean;
 import com.mUI.microserviceUI.beans.Place;
+import com.mUI.microserviceUI.beans.UserBean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,16 +13,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import static com.mUI.microserviceUI.utils.ConfigUtils.getConfigProprety;
 
 public class MapsUtils {
 
-    public static String setUrlAddressForMapsAPI(MerchantBean m){
+    /**
+     * Enoodes an address for an url search
+     * @param address
+     * @return url encoded address
+     */
+    public static String setUrlAddressForMapsAPI(String address){
         String mCity = getConfigProprety("api.maps.city");
 
         String apiMapsAddress = getConfigProprety("api.maps.url");
-        String mAddressForMaps = m.getAddress().replaceAll(" ", "+");
+        String mAddressForMaps = address.replaceAll(" ", "+");
         String addressForMaps = getConfigProprety("api.maps.center")+mAddressForMaps+mCity;
 
         String paramsForMaps = getConfigProprety("api.maps.zoom")+getConfigProprety("api.maps.size");
@@ -31,6 +38,11 @@ public class MapsUtils {
         return url;
     }
 
+    /**
+     * Searches address in google api maps from a String address
+     * @param text
+     * @return place
+     */
     public static Place searchPlaceFromText(String text) {
         Place place = new Place();
         HttpURLConnection conn = null;
@@ -81,8 +93,12 @@ public class MapsUtils {
     }
 
 
+    /**
+     * sets up parameters to produce ggogle map from a given address
+     * @param m
+     */
     public static void setUpForGMaps(MerchantBean m){
-        m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m));
+        m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m.getAddress()));
         try{
             String search = URLEncoder.encode(m.getMerchantName()+" "+m.getAddress(), "UTF-8");
             Place place =  MapsUtils.searchPlaceFromText(search);
@@ -91,4 +107,51 @@ public class MapsUtils {
             e.getMessage();
         }
     }
+
+    /**
+     * Finds nearest location
+     */
+    public static void nearestOption(UserBean user){
+        user.setMapsAddress(setUrlAddressForMapsAPI(user.getAddress()));
+        try{
+            String search = URLEncoder.encode(user.getAddress(), "UTF-8");
+            Place place = searchPlaceFromText(search);
+        }catch (UnsupportedEncodingException e){
+            e.getMessage();
+        }
+    }
+
+    public static ArrayList<String> geocodeFromString(String address){
+        ArrayList<String> longLat = new ArrayList<>();
+        try{
+            HttpURLConnection conn = null;
+            StringBuilder sb = new StringBuilder(getConfigProprety("api.maps.geocode"));
+            String addressUrlEncoded = address.replace(" ", "%25");
+            sb.append(addressUrlEncoded);
+            sb.append(getConfigProprety("api.maps.key"));
+            URL url = new URL(sb.toString());
+            conn = (HttpURLConnection) url.openConnection();
+            InputStreamReader isr = new InputStreamReader(conn.getInputStream());
+            StringBuffer sbLocation = new StringBuffer();
+
+            for (int i=0; i != -1; i = isr.read()){
+                sbLocation.append((char)i);
+            }
+            String getContent = sbLocation.toString().trim();
+            if(getContent.contains("results")){
+                String temp = getContent.substring(getContent.indexOf("["));
+                JSONArray JSONArrayForAll = new JSONArray(temp);
+                String lng = JSONArrayForAll.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lng").toString();
+                String lat = JSONArrayForAll.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").get("lat").toString();
+                longLat.add(lng);
+                longLat.add(lat);
+            }
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return longLat;
+    }
+
 }

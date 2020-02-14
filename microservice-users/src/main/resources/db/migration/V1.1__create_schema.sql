@@ -25,8 +25,11 @@ CREATE TABLE public.users(
                                last_name     VARCHAR (50) NOT NULL ,
                                reset_token varchar(36) default null,
                                token_date timestamp default null,
-                               email   VARCHAR (100) ,
-                               password   VARCHAR (100)   ,
+                               email   VARCHAR (100) NOT NULL,
+                               address   VARCHAR (100) NOT  NULL,
+                               longitude   VARCHAR (100) NOT  NULL,
+                               latitude   VARCHAR (100) NOT  NULL,
+                               password   VARCHAR (100)  NOT NULL ,
                                id_role   INT  NOT NULL  ,
                                CONSTRAINT users_PK PRIMARY KEY (id) ,
                                CONSTRAINT roles_FK FOREIGN KEY (id_role) REFERENCES public.roles(id)

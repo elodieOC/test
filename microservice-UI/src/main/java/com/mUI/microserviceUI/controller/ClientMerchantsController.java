@@ -103,6 +103,9 @@ public class ClientMerchantsController {
             theMerchant.setEmail(addShopDTO.getEmail());
             theMerchant.setMaxPoints(maxP);
             theMerchant.setMerchantName(addShopDTO.getMerchantName());
+            ArrayList<String>longlat=MapsUtils.geocodeFromString(theMerchant.getAddress());
+            theMerchant.setLongitude(longlat.get(0));
+            theMerchant.setLatitude(longlat.get(1));
             MerchantBean merchantToRegister = merchantsProxy.addShop(theMerchant);
             toBeReturned = "redirect:/Marchands/"+merchantToRegister.getId();
         }

@@ -29,6 +29,14 @@ public class Merchant {
     @Column(name="address")
     private String address;
 
+    @NotEmpty
+    @Column(name="longitude")
+    private String longitude;
+    @NotEmpty
+    @Column(name="latitude")
+    private String latitude;
+
+
     @Column(name = "userId")
     private Integer userId;
 
@@ -36,6 +44,22 @@ public class Merchant {
     @Column(name="max_points")
     private Integer maxPoints;
     public Merchant() {
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
     public Integer getMaxPoints() {

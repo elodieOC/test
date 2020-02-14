@@ -1,7 +1,5 @@
 package com.mUI.microserviceUI.beans;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 public class EditUserDTO {
 
     private Integer id;
@@ -9,9 +7,18 @@ public class EditUserDTO {
     private String lastName;
     private String email;
     private String password;
+    private String address;
     private boolean newsletterSuscriber;
 
     public EditUserDTO() {
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public boolean isNewsletterSuscriber() {

@@ -11,12 +11,48 @@ public class UserBean {
     private String resetToken;
     private boolean merchantOrNot;
     private boolean newsletterSuscriber;
+    private String mapsAddress;
+    private String address;
+    private String longitude;
+    private String latitude;
 
     public UserBean() {
     }
 
     public boolean isNewsletterSuscriber() {
         return newsletterSuscriber;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMapsAddress() {
+        return mapsAddress;
+    }
+
+    public void setMapsAddress(String mapsAddress) {
+        this.mapsAddress = mapsAddress;
     }
 
     public void setNewsletterSuscriber(boolean newsletterSuscriber) {

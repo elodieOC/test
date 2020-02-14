@@ -11,8 +11,26 @@ public class MerchantBean {
     private Integer maxPoints;
     private String mapsAddress;
     private String iconLink;
+    private String longitude;
+    private String latitude;
 
     public MerchantBean() {
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
     public String getIconLink() {

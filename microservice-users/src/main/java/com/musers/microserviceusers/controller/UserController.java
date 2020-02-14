@@ -119,6 +119,9 @@ public class UserController {
         if(!originalUser.getPassword().equals(user.getPassword())){
             originalUser.setPassword( Encryption.encrypt(user.getPassword()));
         }
+        if(!originalUser.getAddress().equals(user.getAddress())){
+            originalUser.setAddress( user.getAddress());
+        }
         userDao.save(originalUser);
         return new ResponseEntity<User>(originalUser, HttpStatus.OK);
     }

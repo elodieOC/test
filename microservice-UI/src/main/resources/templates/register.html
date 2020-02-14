@@ -4,6 +4,11 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Inscription</title>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3StaLZTw1Tb8vj9COuE1sMMBNh9OEtZ4&libraries=places&callback=initAutocomplete"
+            async defer></script>
+    <script type="text/javascript" th:src="@{/js/gmapsauto.js}"></script>
+</head>
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
@@ -46,6 +51,18 @@
                                autofocus="autofocus"
                                placeholder="Nom">
                     </div>
+                    <div class="form-group">
+                        <label for="address">Adresse (à Puteaux)</label>:
+                        <input type="text"
+                               id="address"
+                               name="address"
+                               class="form-control form-control-lg  "
+                               autofocus="autofocus"
+                               onFocus="geolocate()"
+                               placeholder="Adresse à Puteaux">
+                    </div>
+                    <input type="hidden" name="latitude" id="latitude" placeholder="Latitude"  >
+                    <input type="hidden" name="longitude" id="longitude" placeholder="Longitude"  >
                     <div class="form-group">
                         <label for="password">Mot de Passe</label>:
                         <input type="password"

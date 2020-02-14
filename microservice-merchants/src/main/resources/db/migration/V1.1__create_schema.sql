@@ -14,7 +14,9 @@ CREATE TABLE public.merchants(
                                  category     VARCHAR (200) NOT NULL ,
                                  reset_token varchar(36) default null,
                                  token_date timestamp default null,
-                                 address   VARCHAR (100) ,
+                                 address   VARCHAR (100) not  null ,
+                                 longitude   VARCHAR (100) not null,
+                                 latitude   VARCHAR (100)not null ,
                                  password   VARCHAR (100)   ,
                                  CONSTRAINT merchants_PK PRIMARY KEY (id)
 )WITHOUT OIDS;

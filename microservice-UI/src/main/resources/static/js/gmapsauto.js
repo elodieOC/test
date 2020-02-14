@@ -25,11 +25,11 @@ function initAutocomplete() {
     // Create the autocomplete object, restricting the search predictions to
     // geographical location types.
     autocomplete = new google.maps.places.Autocomplete(
-        document.getElementById('address'), {types: ['geocode']});
+        document.getElementById('address'), {types: ['geocode'], componentRestrictions: {country:'fr'}});
 
     // Avoid paying for data that you don't need by restricting the set of
     // place fields that are returned to just the address components.
-    autocomplete.setFields(['address_component']);
+    autocomplete.setFields(['address_component', 'geometry']);
 
     // When the user selects an address from the drop-down, populate the
     // address fields in the form.
@@ -43,7 +43,6 @@ function fillInAddress() {
         document.getElementById(component).value = '';
         document.getElementById(component).disabled = false;
     }
-
     // Get each component of the address from the place details,
     // and then fill-in the corresponding field on the form.
     for (var i = 0; i < place.address_components.length; i++) {
@@ -54,6 +53,7 @@ function fillInAddress() {
         }
     }
 }
+
 
 
 

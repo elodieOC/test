@@ -65,6 +65,17 @@ public class ClientUsersController {
         String toBeReturned;
         HttpSession session = request.getSession();
         try {
+            String[] longAddress = user.getAddress().split(",", user.getAddress().length());
+            String address=longAddress[0];
+            String city = longAddress[1].replaceAll("\\s+","");
+            if (!city.equals("Puteaux")){
+                model.addAttribute("errorMessage", "Cette application supporte actuellement les commerces de Puteaux uniquement");
+                return "register";
+            }
+            user.setAddress(address+", "+city);
+            ArrayList<String>longlat=MapsUtils.geocodeFromString(user.getAddress());
+            user.setLongitude(longlat.get(0));
+            user.setLatitude(longlat.get(1));
             UserBean userToRegister = usersProxy.addUser(user);
             toBeReturned = setSessionAttributes(userToRegister, session);
         }
@@ -126,6 +137,7 @@ public class ClientUsersController {
     public String userDetails(@PathVariable Integer userId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         UserBean user = usersProxy.showUser(userId);
+
         //session is always checked, here check if user accessing profile is owner of profile
         if(!session.getAttribute("loggedInUserId").equals(userId)){
             System.out.println("User trying to access profile is not the owner of the profile");
@@ -147,7 +159,7 @@ public class ClientUsersController {
             List<MerchantBean> myRewardingShops = new ArrayList<>();
             for (RewardBean r : userRewards) {
                 MerchantBean m = merchantsProxy.showShop(r.getIdMerchant());
-                m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m));
+                m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m.getAddress()));
                 myRewardingShops.add(m);
             }
             model.addAttribute("shops", myRewardingShops);
@@ -194,12 +206,14 @@ public class ClientUsersController {
             user.setFirstName(editUserDTO.getFirstName());
         }if(!editUserDTO.getLastName().isEmpty()){
             user.setLastName(editUserDTO.getLastName());
+        }if(!editUserDTO.getAddress().isEmpty()){
+            user.setAddress(editUserDTO.getAddress());
         }
         try{
             UserBean userToEdit = usersProxy.editUser(user);
             toBeReturned = setSessionAttributes(userToEdit, session);
         }catch (Exception e){
-            e.printStackTrace();
+            e.printStackTrace(); //TODO revoir message d'erreur
             model.addAttribute("errorMessage", "ERREUR ERREUR");
             toBeReturned = "redirect:/Utilisateurs/MonProfil/edit/"+editUserDTO.getId();
         }

@@ -52,15 +52,17 @@
                                placeholder="Catégorie">
                     </div>
                     <div class="form-group">
-                        <label for="category">Adresse</label>:
+                        <label for="address">Adresse(à Puteaux)</label>:
                         <input type="text"
                                id="address"
                                name="address"
                                class="form-control"
                                autofocus="autofocus"
                                onFocus="geolocate()"
-                               placeholder="Adresse">
+                               placeholder="Adresse à Puteaux">
                     </div>
+                    <input type="hidden" name="latitude" id="latitude" />
+                    <input type="hidden" name="longitude" id="longitude" />
                     <div class="form-group">
                         <label for="category">Points pour avoir une récompense</label>:
                         <input type="text"
