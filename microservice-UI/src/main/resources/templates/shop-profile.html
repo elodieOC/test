@@ -66,8 +66,15 @@
         <div class="mb-5" th:if="${sessionId == merchant.getUserId()}">
             <div class="row mt-5">
             </div>
-            <form th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
-                <div class="col-sm-6 col-sm-offset-3  mx-auto">
+            <form th:action="@{/Marchands/edit/{id}(id=${merchant.getId()})}">
+                <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
+                    <input type="submit"
+                           class="form-control btn btn-lg btn-primary"
+                           value="Editer informations">
+                </div>
+            </form>
+            <form class="mb-5" th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
+                <div class="col-sm-6 col-sm-offset-3 mt-5 mx-auto">
                     <input type="submit"
                            class="form-control btn btn-lg btn-danger"
                            value="Suppression de boutique">

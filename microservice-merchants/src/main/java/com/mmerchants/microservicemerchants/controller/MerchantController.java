@@ -58,6 +58,31 @@ public class MerchantController {
         return merchant;
     }
 
+    /**
+     * Edits shop information if they've been changed
+     * @param shop
+     * @return user
+     */
+    @PostMapping(value = "/Marchands/edit")
+    ResponseEntity<Merchant> editShop(@RequestBody Merchant shop)  {
+        Merchant originalShop = merchantDao.getOne(shop.getId());
+        if(!originalShop.getEmail().equals(shop.getEmail())){
+            originalShop.setEmail(shop.getEmail());
+        }
+        if(!originalShop.getAddress().equals(shop.getAddress())){
+            originalShop.setAddress(shop.getAddress());
+            originalShop.setLatitude(shop.getLatitude());
+            originalShop.setLongitude(shop.getLongitude());
+        }
+        if(!originalShop.getMerchantName().equals(shop.getMerchantName())){
+            originalShop.setMerchantName(shop.getMerchantName());
+        }
+        if(!originalShop.getMaxPoints().equals(shop.getMaxPoints())){
+            originalShop.setMaxPoints( shop.getMaxPoints());
+        }
+        merchantDao.save(originalShop);
+        return new ResponseEntity<Merchant>(originalShop, HttpStatus.OK);
+    }
       /**
      * <p>deletes a merchant from db and all its datas</p>
      * @param id

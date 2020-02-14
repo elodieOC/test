@@ -208,6 +208,9 @@ public class ClientUsersController {
             user.setLastName(editUserDTO.getLastName());
         }if(!editUserDTO.getAddress().isEmpty()){
             user.setAddress(editUserDTO.getAddress());
+            ArrayList<String>longlat=MapsUtils.geocodeFromString(user.getAddress());
+            user.setLongitude(longlat.get(0));
+            user.setLatitude(longlat.get(1));
         }
         try{
             UserBean userToEdit = usersProxy.editUser(user);

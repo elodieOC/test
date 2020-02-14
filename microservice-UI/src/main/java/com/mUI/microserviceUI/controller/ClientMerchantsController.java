@@ -187,6 +187,57 @@ public class ClientMerchantsController {
         model.addAttribute("shopList", list);
         return "myshops";
     }
+    /*
+     **************************************
+     * Edit Merchant
+     * ************************************
+     */
+    @GetMapping("/Marchands/edit/{shopId}")
+    public String editUserPage(@PathVariable Integer shopId, Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        MerchantBean shop = merchantsProxy.showShop(shopId);
+        //session is always checked, here check if user editing profile is owner of profile
+        if(!session.getAttribute("loggedInUserId").equals(shop.getUserId())){
+            System.out.println("User trying to edit shop profile is not the owner of the shop");
+            System.out.println("User is: [id:"
+                    +session.getAttribute("loggedInUserId")+ ", email:"
+                    +session.getAttribute("loggedInUserEmail")+", role:"
+                    +session.getAttribute("loggedInUserRole")+"]");
+            return "redirect:/Accueil";
+        }
+        model.addAttribute("shop", shop);
+        model.addAttribute("shopId", shop.getId());
+        return "edit-shop";
+    }
+
+    @RequestMapping("/Marchands/edit")
+    public String editUser(@ModelAttribute("shop") EditShopDTO editShopDTO, ModelMap model, HttpServletRequest request){
+        String toBeReturned;
+        HttpSession session = request.getSession();
+        MerchantBean shop = merchantsProxy.showShop(editShopDTO.getId());
+        if(!editShopDTO.getEmail().isEmpty()){
+            shop.setEmail(editShopDTO.getEmail());
+        }if(!editShopDTO.getAddress().isEmpty()){
+            shop.setAddress(editShopDTO.getAddress());
+            ArrayList<String>longlat=MapsUtils.geocodeFromString(shop.getAddress());
+            shop.setLongitude(longlat.get(0));
+            shop.setLatitude(longlat.get(1));
+        }if(!editShopDTO.getMerchantName().isEmpty()){
+            shop.setMerchantName(editShopDTO.getMerchantName());
+        }if(!editShopDTO.getMaxPoints().isEmpty()){
+            shop.setMaxPoints(Integer.parseInt(editShopDTO.getMaxPoints()));
+        }
+        try{
+            MerchantBean shopToEdit = merchantsProxy.editShop(shop);
+            toBeReturned = "redirect:/Marchands/"+editShopDTO.getId();
+        }catch (Exception e){
+            e.printStackTrace(); //TODO revoir message d'erreur
+            model.addAttribute("errorMessage", "ERREUR ERREUR");
+            toBeReturned = "redirect:/Marchands/edit/"+editShopDTO.getId();
+        }
+        return toBeReturned;
+    }
+
 
 
     /*

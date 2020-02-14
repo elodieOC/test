@@ -23,6 +23,9 @@ public interface MicroserviceMerchantsProxy {
     @GetMapping( value = "microservice-merchants/Marchands/{id}")
     MerchantBean showShop(@PathVariable("id") Integer id);
 
+    @PostMapping( value = "microservice-merchants/Marchands/edit")
+    MerchantBean editShop(@RequestBody MerchantBean merchantBean);
+
     @PostMapping(value = "microservice-merchants/Marchands/delete/{id}")
     void deleteShop(@PathVariable("id") Integer id);
 

@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{fragments/layout}">
 <head>
-    <title>Shop Register</title>
+    <title>Editer les informations</title>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3StaLZTw1Tb8vj9COuE1sMMBNh9OEtZ4&libraries=places&components=country:fr&callback=initAutocomplete"
             async defer></script>
@@ -13,17 +13,17 @@
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
         <div class="row mt-5">
-            <h1 class="mb-3 mt-3 mx-auto">Enregistrer une Boutique</h1>
+            <h1 class="mb-3 mt-3 mx-auto">Editer les informations</h1>
         </div>
         <div class="row">
             <div class="mx-auto col-md-6 mt-4">
-                <form th:action="@{/Marchands/add-shop}" method="post" th:object="${addShopDTO}">
+                <form th:action="@{/Marchands/edit}" method="post" th:object="${shop}">
                     <td th:if="${errorMessage ne null}">
                         <div class="alert alert-danger">
                             <span  th:text="${errorMessage}"/>
                         </div>
                     </td>
-                    <input type="hidden" name="userId" th:value="${sessionId}"/>
+                    <input type="hidden" name="id" th:value="${shopId}"/>
                     <div class="form-group">
                         <label for="email">Email</label>:
                         <input type="email"
@@ -31,7 +31,7 @@
                                name="email"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Email">
+                               th:placeholder="${shop.email}">
                     </div>
                     <div class="form-group">
                         <label for="merchantName">Nom</label>:
@@ -40,16 +40,7 @@
                                name="merchantName"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Nom">
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Categorie</label>:
-                        <input type="text"
-                               id="category"
-                               name="category"
-                               class="form-control"
-                               autofocus="autofocus"
-                               placeholder="Catégorie">
+                               th:placeholder="${shop.merchantName}">
                     </div>
                     <div class="form-group">
                         <label for="address">Adresse(à Puteaux)</label>:
@@ -59,10 +50,8 @@
                                class="form-control"
                                autofocus="autofocus"
                                onFocus="geolocate()"
-                               placeholder="Adresse à Puteaux">
+                               th:placeholder="${shop.address}">
                     </div>
-                    <input type="hidden" name="latitude" id="latitude" />
-                    <input type="hidden" name="longitude" id="longitude" />
                     <div class="form-group">
                         <label for="maxPoints">Points pour avoir une récompense</label>:
                         <input type="text"
@@ -70,7 +59,7 @@
                                name="maxPoints"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Points">
+                               th:placeholder="${shop.maxPoints}">
                     </div>
                     <div class="form-group mt-5">
                         <div class="row">
@@ -79,7 +68,7 @@
                                        name="login-submit"
                                        id="login-submit"
                                        class="form-control btn btn-lg btn-info"
-                                       value="Création de boutique">
+                                       value="Valider les informations">
                             </div>
                         </div>
                     </div>

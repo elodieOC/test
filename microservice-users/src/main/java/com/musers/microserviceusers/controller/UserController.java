@@ -104,6 +104,11 @@ public class UserController {
         return new ResponseEntity<User>(userLogged, HttpStatus.OK);
     }
 
+    /**
+     * Edits user information if they've been changed
+     * @param user
+     * @return user
+     */
     @PostMapping(value = "/Utilisateurs/edit")
     ResponseEntity<User> editUser(@RequestBody User user)  {
         User originalUser = userDao.getOne(user.getId());
@@ -121,6 +126,8 @@ public class UserController {
         }
         if(!originalUser.getAddress().equals(user.getAddress())){
             originalUser.setAddress( user.getAddress());
+            originalUser.setLatitude(user.getLatitude());
+            originalUser.setLongitude(user.getLongitude());
         }
         userDao.save(originalUser);
         return new ResponseEntity<User>(originalUser, HttpStatus.OK);
