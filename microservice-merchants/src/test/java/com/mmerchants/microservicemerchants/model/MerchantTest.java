@@ -12,17 +12,26 @@ public class MerchantTest {
 
     /** Jeu de données */
     private Merchant testMerchant;
+    private Category testCategory;
+    private Category testCategory2;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         testMerchant = new Merchant();
+        testCategory = new Category();
+        testCategory2 = new Category();
+        /*Category*/
+        testCategory.setId(1);
+        testCategory.setCategoryName("boulangerie");
+        testCategory2.setId(2);
+        testCategory2.setCategoryName("pizzeria");
         /*Merchant*/
         testMerchant.setId(1);
         testMerchant.setEmail("boulangerie@aufournil.fr");
         testMerchant.setMerchantName("Le Fournil");
-        testMerchant.setCategory("boulangerie");
+        testMerchant.setCategory(testCategory);
         testMerchant.setAddress("15 rue du chocolat");
         testMerchant.setMaxPoints(10);
         testMerchant.setUserId(2);
@@ -66,10 +75,10 @@ public class MerchantTest {
 
     @Test
     public void getSetCategory() {
-        Assert.assertEquals("boulangerie", testMerchant.getCategory());
-        testMerchant.setCategory("pizzeria");
-        Assert.assertEquals("pizzeria", testMerchant.getCategory());
-        Assert.assertNotEquals("boulangerie", testMerchant.getCategory());
+        Assert.assertEquals("boulangerie", testMerchant.getCategory().getCategoryName());
+        testMerchant.setCategory(testCategory2);
+        Assert.assertEquals("pizzeria", testMerchant.getCategory().getCategoryName());
+        Assert.assertNotEquals("boulangerie", testMerchant.getCategory().getCategoryName());
     }
 
     @Test

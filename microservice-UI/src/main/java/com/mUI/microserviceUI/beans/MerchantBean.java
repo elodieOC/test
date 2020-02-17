@@ -4,7 +4,7 @@ public class MerchantBean {
 
     private Integer id;
     private String merchantName;
-    private String category;
+    private CategoryBean category;
     private String email;
     private String address;
     private Integer userId;
@@ -98,11 +98,11 @@ public class MerchantBean {
         this.merchantName = merchantName;
     }
 
-    public String getCategory() {
+    public CategoryBean getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(CategoryBean category) {
         this.category = category;
     }
 

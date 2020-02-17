@@ -8,7 +8,7 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' - '+${merchant.category}" />
+        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' - '+${merchant.getCategory().getCategoryName()}" />
         <h2 class="text-center mb-5 text-capitalize" th:text= "${merchant.address}" />
 
         <div class="row">

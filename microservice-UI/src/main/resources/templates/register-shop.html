@@ -42,14 +42,12 @@
                                autofocus="autofocus"
                                placeholder="Nom">
                     </div>
+
                     <div class="form-group">
                         <label for="category">Categorie</label>:
-                        <input type="text"
-                               id="category"
-                               name="category"
-                               class="form-control"
-                               autofocus="autofocus"
-                               placeholder="Catégorie">
+                        <select class="form-control" th:field="*{category}" name="category" id="category">
+                            <option th:each="c : ${cats}" th:value="${c.getId()}" th:text="${c.getCategoryName()}"></option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="address">Adresse(à Puteaux)</label>:

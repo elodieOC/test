@@ -1,5 +1,6 @@
 package com.mmerchants.microservicemerchants.controller;
 
+import com.mmerchants.microservicemerchants.dao.CategoryDao;
 import com.mmerchants.microservicemerchants.dao.MerchantDao;
 import com.mmerchants.microservicemerchants.exceptions.CannotAddException;
 import com.mmerchants.microservicemerchants.exceptions.NotFoundException;
@@ -19,6 +20,8 @@ import java.util.Optional;
 public class MerchantController {
     @Autowired
     private MerchantDao merchantDao;
+    @Autowired
+    private CategoryDao categoryDao;
 
     /**
      * <p>Lists all merchants</p>
@@ -89,8 +92,8 @@ public class MerchantController {
      */
     @PostMapping(value = "/Marchands/delete/{id}")
     public void deleteUSer(@PathVariable Integer id){
-        Optional<Merchant> user = merchantDao.findById(id);
-        if(!user.isPresent()) {
+        Optional<Merchant> shop = merchantDao.findById(id);
+        if(!shop.isPresent()) {
             throw new NotFoundException("La boutique avec l'id " + id + " est INTROUVABLE.");
         }
         Merchant merchantToDelete = merchantDao.getOne(id);

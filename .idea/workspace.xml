@@ -3,14 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="9ca31c92-415f-4045-8aa9-dfa1078cf13a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/microservice-rewards/target/" />
     <ignored path="$PROJECT_DIR$/microservice-merchants/target/" />
@@ -66,10 +69,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="190" column="41" selection-start-line="190" selection-start-column="41" selection-end-line="191" selection-end-column="51" />
+            <state relative-caret-position="55">
+              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,10 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="17">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -88,11 +92,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="92" column="110" selection-start-line="92" selection-start-column="72" selection-end-line="92" selection-end-column="110" />
+            <state relative-caret-position="17">
+              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#2208#2209#0" expanded="true" />
+                <element signature="e#2243#2244#0" expanded="true" />
+                <element signature="e#2305#2306#0" expanded="true" />
+                <element signature="e#2353#2354#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -110,8 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>UserBean</find>
-      <find>fly</find>
       <find>User</find>
       <find>Merchant04</find>
       <find>user</find>
@@ -125,7 +151,6 @@
       <find>CompteFidelites</find>
       <find>MerchantBean</find>
       <find>merchant</find>
-      <find>Marchands</find>
       <find>NotEmpty</find>
       <find>image</find>
       <find>url</find>
@@ -140,6 +165,9 @@
       <find>editUserDTO</find>
       <find>we</find>
       <find>walking</find>
+      <find>Merchant</find>
+      <find>Marchands</find>
+      <find>jac</find>
     </findStrings>
     <replaceStrings>
       <replace>UserBean</replace>
@@ -159,6 +187,8 @@
       <replace>password</replace>
       <replace>ml-2</replace>
       <replace>editShopDTO</replace>
+      <replace>Category</replace>
+      <replace>Categories</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -167,25 +197,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.5__maj_schema.sql" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/NewsletterBean.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/contact.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientRewardsController.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/login.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/password-forgot.html" />
-        <option value="$PROJECT_DIR$/microservice-users/src/main/resources/bootstrap.properties" />
-        <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/dao/NewsletterDao.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceUsersProxy.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-admin.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/card-profile.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/EditUserDTO.java" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.7__maj_data.sql" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/Place.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.3__maj_schema.sql" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.6__maj_schema.sql" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/UserBean.java" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/model/User.java" />
@@ -199,25 +216,38 @@
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/AddShopDTO.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/EditShopDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/edit-shop.html" />
         <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/edit-user.html" />
         <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/bootstrap.properties" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/Distance.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/DistanceMatrix.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" />
         <option value="$PROJECT_DIR$/microservice-UI/pom.xml" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/static/css/main.css" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/static/fontawesome-free/css/fontawesome.css" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/layout.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.4__ini_data.sql" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.4__init_data.sql" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/Category.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/CategoryBean.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.3__maj_schema.sql" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategorySerializer.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Category.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/CategoryDao.java" />
       </list>
     </option>
   </component>
@@ -309,22 +339,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemerchants" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-merchants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="migration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
@@ -510,7 +534,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581691020839" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581929635197" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/microservice-mailing" />
@@ -535,15 +559,15 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mmerchants.microservicemerchants.controller" />
       <recent name="com.mUI.microserviceUI.beans" />
+      <recent name="com.mmerchants.microservicemerchants.dao" />
+      <recent name="com.mmerchants.microservicemerchants.model" />
       <recent name="com.musers.microserviceusers.dao" />
-      <recent name="com.musers.microserviceusers.model" />
-      <recent name="com.musers.microserviceusers.exceptions" />
-      <recent name="com.mUI.microserviceUI.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\F41374\IdeaProjects\test\microservice-UI\src\main\resources\templates" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-merchants\src\main\resources\db\migration" />
+      <recent name="C:\Users\F41374\IdeaProjects\test\microservice-UI\src\main\resources\templates" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-users\src\main\resources\db\migration" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-UI\src\main\resources\static\css" />
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-UI\src\main\resources\static\img" />
@@ -764,7 +788,7 @@
       <workItem from="1580389227312" duration="32968000" />
       <workItem from="1580755900817" duration="23944000" />
       <workItem from="1581087772062" duration="5142000" />
-      <workItem from="1581357091313" duration="34394000" />
+      <workItem from="1581357091313" duration="42308000" />
     </task>
     <servers />
   </component>
@@ -801,7 +825,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263982000" />
+    <option name="totallyTimeSpent" value="271896000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -816,7 +840,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49382716" visible="true" weight="0.22995462" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49382716" visible="true" weight="0.22844176" />
       <window_info id="Structure" order="1" sideWeight="0.50617284" side_tool="true" weight="0.2677761" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -855,7 +879,7 @@
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32980332" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49382716" visible="true" weight="0.2246596" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49382716" visible="true" weight="0.22995462" />
       <window_info id="Structure" order="1" sideWeight="0.50617284" side_tool="true" weight="0.2677761" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -879,7 +903,7 @@
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Duplicate detector" order="14" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.46972176" />
+      <window_info anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.46972176" />
       <window_info anchor="bottom" id="Thumbnails" order="17" weight="0.3289689" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -911,119 +935,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="747" selection-start-line="747" selection-end-line="747" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/card-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="24" column="85" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.7__maj_data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="e#1015#1016#0" expanded="true" />
-            <element signature="e#1047#1048#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.4__maj_data.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.3__maj_schema.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.5__maj_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.6__maj_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.1__create_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.2__maj_schema.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.3__maj_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="60" lean-forward="true" selection-start-line="8" selection-start-column="60" selection-end-line="11" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.1__create_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.2__init_data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="16" column="239" selection-start-line="16" selection-start-column="239" selection-end-line="16" selection-end-column="239" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/UserBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-          <folding>
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#890#891#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/GeoCoding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -1112,23 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/AddShopDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/EditShopDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1149,31 +1043,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="66" column="45" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="129" column="57" selection-start-line="129" selection-start-column="57" selection-end-line="129" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1191,27 +1064,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/edit-shop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="61" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="158" column="116" lean-forward="true" selection-start-line="158" selection-start-column="116" selection-end-line="158" selection-end-column="116" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1235,26 +1091,6 @@
             <element signature="e#822#823#0" expanded="true" />
             <element signature="e#881#882#0" expanded="true" />
             <element signature="e#931#932#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#513#514#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1322,10 +1158,261 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="92" column="110" selection-start-line="92" selection-start-column="72" selection-end-line="92" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="158" column="116" lean-forward="true" selection-start-line="158" selection-start-column="116" selection-end-line="158" selection-end-column="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.1__create_schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.2__maj_schema.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/resources/db/migration/V1.2__init_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="239" selection-start-line="16" selection-start-column="239" selection-end-line="16" selection-end-column="239" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="190" column="41" selection-start-line="190" selection-start-column="41" selection-end-line="191" selection-end-column="51" />
+        <state relative-caret-position="529">
+          <caret line="304" column="5" lean-forward="true" selection-start-line="304" selection-start-column="5" selection-end-line="304" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/AddShopDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/edit-shop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.3__maj_schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="18" column="69" lean-forward="true" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="80" column="90" selection-start-line="80" selection-start-column="90" selection-end-line="80" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.4__init_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="116" selection-start-line="9" selection-start-column="116" selection-end-line="9" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/controller/RewardsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategorySerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="24" column="55" lean-forward="true" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Merchant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <folding>
+            <element signature="e#1021#1022#0" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1150#1151#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1289#1290#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1425#1426#0" expanded="true" />
+            <element signature="e#1459#1460#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
+            <element signature="e#1535#1536#0" expanded="true" />
+            <element signature="e#1573#1574#0" expanded="true" />
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+            <element signature="e#1691#1692#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1768#1769#0" expanded="true" />
+            <element signature="e#1799#1800#0" expanded="true" />
+            <element signature="e#1847#1848#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1950#1951#0" expanded="true" />
+            <element signature="e#1995#1996#0" expanded="true" />
+            <element signature="e#2031#2032#0" expanded="true" />
+            <element signature="e#2068#2069#0" expanded="true" />
+            <element signature="e#2100#2101#0" expanded="true" />
+            <element signature="e#2151#2152#0" expanded="true" />
+            <element signature="e#2193#2194#0" expanded="true" />
+            <element signature="e#2230#2231#0" expanded="true" />
+            <element signature="e#2261#2262#0" expanded="true" />
+            <element signature="e#2311#2312#0" expanded="true" />
+            <element signature="e#2351#2352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="8" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/CategoryBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="48" column="79" selection-start-line="48" selection-start-column="79" selection-end-line="48" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="10" column="136" selection-start-line="10" selection-start-column="136" selection-end-line="10" selection-end-column="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#2208#2209#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+            <element signature="e#2305#2306#0" expanded="true" />
+            <element signature="e#2353#2354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="30" column="62" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/CategoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1334,34 +1421,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="153" column="83" selection-start-line="153" selection-start-column="83" selection-end-line="153" selection-end-column="83" />
+        <state relative-caret-position="55">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html">
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="92" column="110" selection-start-line="92" selection-start-column="72" selection-end-line="92" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
         </state>
       </provider>
     </entry>

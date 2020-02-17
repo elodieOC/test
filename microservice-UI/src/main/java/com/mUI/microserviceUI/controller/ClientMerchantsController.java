@@ -79,7 +79,9 @@ public class ClientMerchantsController {
     public String registerPage(Model model, HttpServletRequest request) {
         AddShopDTO addShopDTO = new AddShopDTO();
         HttpSession session = request.getSession();
+        List<CategoryBean> allCats = merchantsProxy.listCategories();
         model.addAttribute("sessionId", session.getAttribute("loggedInUserId"));
+        model.addAttribute("cats", allCats);
         model.addAttribute("addShopDTO", addShopDTO);
         return "register-shop";
     }
@@ -100,12 +102,22 @@ public class ClientMerchantsController {
             model.addAttribute("errorMessage", "Cette application supporte actuellement les commerces de Puteaux uniquement");
             return "register-shop";
         }
+        if (Integer.parseInt(addShopDTO.getMaxPoints())>10){
+            model.addAttribute("errorMessage", "Vous devez attribuer un maximum de 10 points à une carte fidélité");
+            return "register-shop";
+        }
         try {
             Integer maxP = Integer.parseInt(addShopDTO.getMaxPoints());
             MerchantBean theMerchant = new MerchantBean();
             theMerchant.setUserId(addShopDTO.getUserId());
             theMerchant.setAddress(address+", "+city);
-            theMerchant.setCategory(addShopDTO.getCategory());
+
+            CategoryBean cat = merchantsProxy.showCategory(Integer.parseInt(addShopDTO.getCategory()));
+            if(cat==null){
+                model.addAttribute("errorMessage", "Cette catégorie n'existe pas");
+                return "register-shop";
+            }
+            theMerchant.setCategory(cat);
             theMerchant.setEmail(addShopDTO.getEmail());
             theMerchant.setMaxPoints(maxP);
             theMerchant.setMerchantName(addShopDTO.getMerchantName());
@@ -266,7 +278,7 @@ public class ClientMerchantsController {
         HttpSession session = request.getSession();
         Integer userId = (Integer) session.getAttribute("loggedInUserId");
         merchantsProxy.deleteShop(id);
-        return "redirect:/Utilisateurs/MonProfil/"+userId;
+        return "redirect:/Marchands/MesBoutiques";
     }
 
 

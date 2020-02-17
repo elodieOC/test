@@ -22,10 +22,6 @@ public class Merchant {
     private String email;
 
     @NotEmpty
-    @Column(name="category")
-    private String category;
-
-    @NotEmpty
     @Column(name="address")
     private String address;
 
@@ -43,39 +39,13 @@ public class Merchant {
     @NotNull
     @Column(name="max_points")
     private Integer maxPoints;
+
+
+    @ManyToOne
+    @JoinColumn(name="id_category")
+    private Category category;
+
     public Merchant() {
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public Integer getMaxPoints() {
-        return maxPoints;
-    }
-
-    public void setMaxPoints(Integer maxPoints) {
-        this.maxPoints = maxPoints;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public Integer getId() {
@@ -102,20 +72,52 @@ public class Merchant {
         this.email = email;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getMaxPoints() {
+        return maxPoints;
+    }
+
+    public void setMaxPoints(Integer maxPoints) {
+        this.maxPoints = maxPoints;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
