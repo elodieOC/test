@@ -22,13 +22,13 @@
         </div>
     </div>
     <div class="row">
-        <div th:each="shop : ${shopList}" class="card col-md-3 mt-5 mr-5 ml-5 mx-auto">
+        <div th:each="shop : ${shopList}" class="card col-md-3 mt-3 mr-5 ml-5 mx-auto">
             <a th:href="@{/Marchands/__${shop.id}__}" th:style="|text-decoration:none;|">
                 <!--Card-->
                 <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
                     <div class="row ml-2">
-                        <img th:src="${shop.getIconLink()}" th:style="'width:30px'">
-                        <h4 class="ml-2" th:text= "${shop.merchantName}" />
+                        <img th:attr="src=@{'data:image/png;base64,'+${shop.icon}}" th:style="'width:50px'"/>
+                        <h4 class="ml-5" th:text= "${shop.merchantName}" />
                     </div>
                 </div>
                 <!--Card content-->

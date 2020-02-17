@@ -116,8 +116,14 @@
                 <a th:href="@{/CarteFidelites/__${account.getId()}__}" th:style="|text-decoration:none;|">
                     <div th:each="shop:${shops}">
                         <div th:if="${shop.getId() == account.getIdMerchant()}" class="card col-md-3 mt-5 mr-5 ml-5 mx-auto">
-                            <div class="card-header text-center bg-dark text-white mb-1">
-                                <h4 th:text= "${#strings.capitalize(shop.merchantName)}" />
+                            <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
+                                <div class="row ml-2">
+                                    <img  th:if="${shop.getCategory().getId()==1}" th:src="@{/img/bread-gr.png}" alt="pain" th:style="'width:50px'"/>
+                                    <img th:if="${shop.getCategory().getId()==2}" th:src="@{/img/comb-gr.png}" alt="peigne" th:style="'width:50px'"/>
+                                    <img th:if="${shop.getCategory().getId()==3}" th:src="@{/img/cart-gr.png}" alt="caddy" th:style="'width:50px'"/>
+                                    <img  th:if="${shop.getCategory().getId()==4}" th:src="@{/img/question-gr.jpg}" alt="question" th:style="'width:50px'"/>
+                                    <h4 class="ml-5" th:text= "${shop.merchantName}" />
+                                </div>
                             </div>
                             <!--Card content-->
                             <div class="card-body">
@@ -128,7 +134,7 @@
                             </div>
                             <!--/.Card content-->
                             <div class="card-footer text-capitalize">
-                                <p th:text="${shop.getCategory()}"/>
+                                <p th:text="${shop.getCategory().getCategoryName()}"/>
                                 <p th:text="${shop.address}"/>
                             </div>
                         </div>

@@ -21,6 +21,7 @@ public class RestrictionFilterConfig implements Filter {
         String path = request.getRequestURI().substring( request.getContextPath().length());
         if ( !path.contains( "MonProfil") &&
                 !path.contains("Marchands/nouvelle-boutique") &&
+                !path.contains("Admin") &&
                 !path.contains("Marchands/MesBoutiques") &&
                 !path.contains("Marchands/add")&&
                 !path.contains("CarteFidelites")){

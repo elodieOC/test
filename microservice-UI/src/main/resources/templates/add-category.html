@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Ajouter une catégorie</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+        <div class="row mt-5">
+            <h1 class="mb-3 mt-3 mx-auto">Nouvelle catégorie</h1>
+        </div>
+        <div class="row">
+            <div class="mx-auto col-md-6 mt-4">
+                <form th:action="@{/Admin/Categories/add-cat}" enctype="multipart/form-data" method="post">
+                    <td th:if="${errorMessage ne null}">
+                        <div class="alert alert-danger">
+                            <span  th:text="${errorMessage}"/>
+                        </div>
+                    </td>
+
+                    <div class="form-group">
+                        <label for="categoryName">Nom de la catégorie</label>:
+                        <input type="text"
+                               id="categoryName"
+                               name="categoryName"
+                               class="form-control form-control-lg  "
+                               autofocus="autofocus"
+                               placeholder="Nom de la catégorie">
+
+                        <div class="form-group input-group mt-5 mb-5">
+                            <label for="file" class="text-muted mr-3">Ajouter une image: </label>
+                            <input  type="file" name="file" id="file" />
+                        </div>
+                    </div>
+                    <div class="form-group mt-5">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                                <input type="submit"
+                                       name="login-submit"
+                                       id="login-submit"
+                                       class="form-control btn btn-lg btn-info"
+                                       value="Création de catégorie">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

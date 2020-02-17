@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Editer une catégorie</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+    <div class="in-content">
+        <div class="row mt-5">
+            <h1 class="mb-3 mt-3 mx-auto">Edition catégorie</h1>
+        </div>
+        <div class="row">
+            <div class="mx-auto col-md-6 mt-4">
+                <form th:action="@{/Admin/Categories/edit}" enctype="multipart/form-data" method="post" th:object="${cat}">
+                    <td th:if="${errorMessage ne null}">
+                        <div class="alert alert-danger">
+                            <span  th:text="${errorMessage}"/>
+                        </div>
+                    </td>
+
+                    <input type="hidden" name="id" id="id" >
+                    <div class="form-group">
+                        <label for="categoryName">Nom de la catégorie</label>:
+                        <input type="text"
+                               id="categoryName"
+                               name="categoryName"
+                               class="form-control form-control-lg  "
+                               autofocus="autofocus"
+                               th:placeholder="${cat.categoryName}">
+
+                        <div class="form-group input-group mt-5 mb-5">
+                            <img th:attr="src=@{'data:image/png;base64,'+${cat.icon}}" th:style="'width:50px'"/>
+                        </div>
+
+                        <div class="form-group input-group mt-5 mb-5">
+                            <label for="imageFile" class="text-muted mr-3">Editer l'image: </label>
+                            <input id="imageFile" type="file" name="imageFile" />
+                        </div>
+                    </div>
+                    <div class="form-group mt-5">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3  mx-auto">
+                                <input type="submit"
+                                       name="login-submit"
+                                       id="login-submit"
+                                       class="form-control btn btn-lg btn-info"
+                                       value="Valider les changements">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

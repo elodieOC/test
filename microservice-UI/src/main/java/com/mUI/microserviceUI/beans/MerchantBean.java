@@ -10,7 +10,6 @@ public class MerchantBean {
     private Integer userId;
     private Integer maxPoints;
     private String mapsAddress;
-    private String iconLink;
     private String longitude;
     private String latitude;
     private DistanceMatrix dm;
@@ -40,14 +39,6 @@ public class MerchantBean {
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
-    }
-
-    public String getIconLink() {
-        return iconLink;
-    }
-
-    public void setIconLink(String iconLink) {
-        this.iconLink = iconLink;
     }
 
     public String getMapsAddress() {

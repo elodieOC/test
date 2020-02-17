@@ -85,7 +85,6 @@ public class MapsUtils {
                 place.setPlace_id(predsJsonArray.getJSONObject(i).getString("place_id"));
                 place.setName(predsJsonArray.getJSONObject(i).getString("name"));
                 place.setFormatted_address(predsJsonArray.getJSONObject(i).getString("formatted_address"));
-                place.setIcon(predsJsonArray.getJSONObject(i).getString("icon"));
             }
         } catch (JSONException e) {
             e.getMessage();
@@ -103,7 +102,6 @@ public class MapsUtils {
         try{
             String search = URLEncoder.encode(m.getMerchantName()+" "+m.getAddress(), "UTF-8");
             Place place =  MapsUtils.searchPlaceFromText(search);
-            m.setIconLink(place.getIcon());
         }catch (UnsupportedEncodingException e){
             e.getMessage();
         }

@@ -1,12 +1,11 @@
-package com.mUI.microserviceUI.beans;
+package com.mmerchants.microservicemerchants.model;
 
 import java.util.List;
 
-public class CategoryBean {
+public class CategoryDTO {
     private Integer id;
     private String categoryName;
     private String icon;
-    private List<MerchantBean> merchants;
 
     public Integer getId() {
         return id;
@@ -32,11 +31,4 @@ public class CategoryBean {
         this.categoryName = categoryName;
     }
 
-    public List<MerchantBean> getMerchants() {
-        return merchants;
-    }
-
-    public void setMerchants(List<MerchantBean> merchants) {
-        this.merchants = merchants;
-    }
 }

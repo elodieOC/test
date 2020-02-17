@@ -1,10 +1,9 @@
 package com.mmerchants.microservicemerchants.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Base64;
 import java.util.List;
 
 @Entity
@@ -20,8 +19,29 @@ public class Category {
     @Column(name="category_name", unique = true)
     private String categoryName;
 
+    @Lob
+    @Column(name = "icon")
+    private byte[] icon;
+
     @OneToMany(mappedBy="category")
     private List<Merchant> merchants;
+
+    public Category(CategoryDTO categoryDTO) {
+        this.id = categoryDTO.getId();
+        this.categoryName = categoryDTO.getCategoryName();
+        this.icon = Base64.getDecoder().decode(categoryDTO.getIcon());
+    }
+
+    public Category() {
+    }
+
+    public byte[] getIcon() {
+        return icon;
+    }
+
+    public void setIcon(byte[] icon) {
+        this.icon = icon;
+    }
 
     public Integer getId() {
         return id;

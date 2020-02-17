@@ -1,14 +1,11 @@
 package com.mUI.microserviceUI.beans;
 
-import java.util.ArrayList;
-
 public class Place {
 
     private String place_id;
     private String formatted_address;
     private String name;
     private String opening_hours;
-    private String icon;
 
     public Place() {
     }
@@ -45,14 +42,6 @@ public class Place {
         this.opening_hours = opening_hours;
     }
 
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
     @Override
     public String toString() {
         return "Place{" +
@@ -60,7 +49,6 @@ public class Place {
                 ", formatted_address='" + formatted_address + '\'' +
                 ", name='" + name + '\'' +
                 ", opening_hours='" + opening_hours + '\'' +
-                ", icon='" + icon + '\'' +
                 '}';
     }
 }
