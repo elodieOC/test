@@ -1,7 +1,5 @@
 package com.mmerchants.microservicemerchants.model;
 
-import java.util.List;
-
 public class CategoryDTO {
     private Integer id;
     private String categoryName;

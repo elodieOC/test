@@ -5,8 +5,25 @@ import java.util.List;
 public class CategoryBean {
     private Integer id;
     private String categoryName;
-    private String icon;
+    private Integer categoryIcon;
+    private CategoryIconBean icon;
     private List<MerchantBean> merchants;
+
+    public Integer getCategoryIcon() {
+        return categoryIcon;
+    }
+
+    public void setCategoryIcon(Integer categoryIcon) {
+        this.categoryIcon = categoryIcon;
+    }
+
+    public CategoryIconBean getIconDto() {
+        return icon;
+    }
+
+    public void setIconDto(CategoryIconBean icon) {
+        this.icon = icon;
+    }
 
     public Integer getId() {
         return id;
@@ -20,13 +37,13 @@ public class CategoryBean {
         return categoryName;
     }
 
-    public String getIcon() {
-        return icon;
+  /*  public Integer getIconDto() {
+        return iconDto;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
+    public void setIconDto(Integer iconDto) {
+        this.iconDto = iconDto;
+    }*/
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;

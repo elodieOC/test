@@ -1,9 +1,9 @@
 package com.mmerchants.microservicemerchants.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.Base64;
 import java.util.List;
 
 @Entity
@@ -19,28 +19,23 @@ public class Category {
     @Column(name="category_name", unique = true)
     private String categoryName;
 
-    @Lob
-    @Column(name = "icon")
-    private byte[] icon;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "icon_id", referencedColumnName = "id")
+    private CategoryIcon categoryIcon;
 
     @OneToMany(mappedBy="category")
+    @JsonIgnore
     private List<Merchant> merchants;
-
-    public Category(CategoryDTO categoryDTO) {
-        this.id = categoryDTO.getId();
-        this.categoryName = categoryDTO.getCategoryName();
-        this.icon = Base64.getDecoder().decode(categoryDTO.getIcon());
-    }
 
     public Category() {
     }
 
-    public byte[] getIcon() {
-        return icon;
+    public CategoryIcon getCategoryIcon() {
+        return categoryIcon;
     }
 
-    public void setIcon(byte[] icon) {
-        this.icon = icon;
+    public void setCategoryIcon(CategoryIcon categoryIcon) {
+        this.categoryIcon = categoryIcon;
     }
 
     public Integer getId() {
@@ -66,4 +61,6 @@ public class Category {
     public void setMerchants(List<Merchant> merchants) {
         this.merchants = merchants;
     }
+
+
 }

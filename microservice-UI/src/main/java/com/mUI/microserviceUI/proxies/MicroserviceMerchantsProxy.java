@@ -1,7 +1,6 @@
 package com.mUI.microserviceUI.proxies;
 
-import com.mUI.microserviceUI.beans.CategoryBean;
-import com.mUI.microserviceUI.beans.MerchantBean;
+import com.mUI.microserviceUI.beans.*;
 import com.mUI.microserviceUI.config.FeignConfig;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -22,10 +21,10 @@ public interface MicroserviceMerchantsProxy {
     List<CategoryBean> listCategories();
 
     @PostMapping(value = "microservice-merchants/Marchands/add-shop")
-    MerchantBean addShop(@RequestBody MerchantBean merchantBean);
+    MerchantBean addShop(@RequestBody AddShopDTO addShopDTO);
 
     @PostMapping(value = "microservice-merchants/Categories/add-category")
-    CategoryBean addCategory(@RequestBody CategoryBean categoryBean);
+    CategoryBean addCategory(@RequestBody AddCategoryDTO addCategoryDTO);
 
     @PostMapping(value = "microservice-merchants/Categories/edit")
     CategoryBean editCategory(@RequestBody CategoryBean categoryBean);
@@ -35,6 +34,9 @@ public interface MicroserviceMerchantsProxy {
 
     @GetMapping( value = "microservice-merchants/Categories/{id}")
     CategoryBean showCategory(@PathVariable("id") Integer id);
+
+    @GetMapping( value = "microservice-merchants/CategoryIcon/{id}")
+    CategoryIconBean getCategoryIcon(@PathVariable("id") Integer id);
 
     @PostMapping( value = "microservice-merchants/Marchands/edit")
     MerchantBean editShop(@RequestBody MerchantBean merchantBean);

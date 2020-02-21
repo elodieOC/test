@@ -15,7 +15,7 @@ packaged as web and desktop font files.
 
 # Code: MIT License (https://opensource.org/licenses/MIT)
 In the Font Awesome Free download, the MIT license applies to all non-font and
-non-icon files.
+non-categoryIcon files.
 
 # Attribution
 Attribution is required by MIT, SIL OFL, and CC BY licenses. Downloaded Font

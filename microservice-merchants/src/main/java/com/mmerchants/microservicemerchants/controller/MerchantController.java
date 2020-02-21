@@ -4,7 +4,10 @@ import com.mmerchants.microservicemerchants.dao.CategoryDao;
 import com.mmerchants.microservicemerchants.dao.MerchantDao;
 import com.mmerchants.microservicemerchants.exceptions.CannotAddException;
 import com.mmerchants.microservicemerchants.exceptions.NotFoundException;
+import com.mmerchants.microservicemerchants.model.Category;
+import com.mmerchants.microservicemerchants.model.CategoryDTO;
 import com.mmerchants.microservicemerchants.model.Merchant;
+import com.mmerchants.microservicemerchants.model.MerchantDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,16 +37,20 @@ public class MerchantController {
 
      /**
      * <p>Adds a new shop to db</p>
-     * @param merchant
+     * @param merchantDTO
      * @return responseEntity
      */
     @PostMapping(value = "/Marchands/add-shop")
-    public ResponseEntity<Merchant> addMerchant(@RequestBody Merchant merchant) {
-        if(merchantDao.findFirstByMerchantName(merchant.getMerchantName()).isPresent()){
+    public ResponseEntity<Merchant> addMerchant(@RequestBody MerchantDTO merchantDTO) {
+        if(merchantDao.findFirstByMerchantName(merchantDTO.getMerchantName()).isPresent()){
             throw new CannotAddException("UniqueFail");
         }
-        Merchant merchantAdded =  merchantDao.save(merchant);
-        if (merchantAdded == null) {throw new CannotAddException("AddFail");}
+        Category cat = categoryDao.getById(merchantDTO.getCategoryId());
+        Merchant toSave = new Merchant(merchantDTO);
+        toSave.setCategory(cat);
+        Merchant merchantAdded =  merchantDao.save(toSave);
+        if (merchantAdded == null) {
+            throw new CannotAddException("AddFail");}
         return new ResponseEntity<Merchant>(merchantAdded, HttpStatus.CREATED);
     }
 

@@ -31,7 +31,7 @@
                                name="email"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Email">
+                               placeholder="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="merchantName">Nom</label>:
@@ -40,12 +40,12 @@
                                name="merchantName"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Nom">
+                               placeholder="Nom" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="category">Categorie</label>:
-                        <select class="form-control" th:field="*{category}" name="category" id="category">
+                        <label for="categoryId">Categorie</label>:
+                        <select class="form-control" th:field="*{categoryId}" name="categoryId" id="categoryId">
                             <option th:each="c : ${cats}" th:value="${c.getId()}" th:text="${c.getCategoryName()}"></option>
                         </select>
                     </div>
@@ -57,18 +57,18 @@
                                class="form-control"
                                autofocus="autofocus"
                                onFocus="geolocate()"
-                               placeholder="Adresse à Puteaux">
+                               placeholder="Adresse à Puteaux" required>
                     </div>
                     <input type="hidden" name="latitude" id="latitude" />
                     <input type="hidden" name="longitude" id="longitude" />
                     <div class="form-group">
-                        <label for="maxPoints">Points pour avoir une récompense</label>:
+                        <label for="points">Points pour avoir une récompense</label>:
                         <input type="text"
-                               id="maxPoints"
-                               name="maxPoints"
+                               id="points"
+                               name="points"
                                class="form-control"
                                autofocus="autofocus"
-                               placeholder="Points">
+                               placeholder="Points" required>
                     </div>
                     <div class="form-group mt-5">
                         <div class="row">

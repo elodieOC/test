@@ -8,32 +8,51 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-        <h2>Actions</h2>
+        <h2>Catégories</h2>
         <div class="mb-5 mt-5">
-            <a th:href="@{/Admin/Categories/nouvelle-categorie}">Ajouter une catégorie</a>
-            <table class="table table-bordered mt-5 table-dark">
+                <a th:href="@{/Admin/Categories/nouvelle-categorie}">
+                    <input type="submit"
+                           name="login-submit"
+                           id="login-submit"
+                           class="form-control btn btn-lg btn-info col-md-3"
+                           value="Ajouter une catégorie">
+                </a>
+
+            <table class="table table-bordered mt-5 mb-5 table-dark">
                 <tr>
-                    <th>nom</th>
-                    <th>image</th>
-                    <th>editer</th>
-                    <th>supprimer</th>
+                    <th>Nom</th>
+                    <th>Image</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
                 </tr>
-                <tr th:each="cat : ${cats}" class="mt-1 mb-1">
+                <tr th:if="${cats.isEmpty()}" class="mt-1 mb-1">
+                    <td colspan="4" th:text="'Il n\'y a pas encore de catégorie'"></td>
+                </tr>
+                <tr th:if="${!cats.isEmpty()}" th:each="cat : ${cats}" class="mt-1 mb-1">
                     <td th:text="${cat.getCategoryName()}"></td>
-                    <td><img th:attr="src=@{'data:image/png;base64,'+${cat.icon}}" th:style="'width:50px'"/></td>
+                    <td><img th:attr="src=@{'data:image/png;base64,'+${cat.icon.icon}}" th:style="'width:50px'"/></td>
                     <td><a th:href="@{/Admin/Categories/edit/__${cat.id}__}">Editer</a></td>
                     <td><a th:href="@{/Admin/Categories/delete/__${cat.id}__}">Supprimer</a></td>
                 </tr>
             </table>
         </div>
 
-        <h2>Liste utilisteurs</h2>
-        <div th:each="user : ${users}" class="card col-md-4 mt-5">
-            <a th:href="@{/Utilisateurs/MonProfil/__${user.id}__}" >
-                <h5 class="card-header" th:text= "'id: '+${user.id}+' - '+${user.firstName}+' '+${user.lastName}"></h5>
-            </a>
-        </div>
-
+        <h2>Boutiques</h2>
+        <table class="table table-bordered mt-5 table-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Catégorie</th>
+            </tr>
+            <tr th:if="${shops.isEmpty()}" class="mt-1 mb-1">
+                <td colspan="4" th:text="'Il n\'y a pas encore de boutique'"></td>
+            </tr>
+            <tr th:if="${!shops.isEmpty()}" th:each="shop : ${shops}" class="mt-1 mb-1">
+                <td th:text="${shop.merchantName}"></td>
+                <td th:text="${shop.address}"></td>
+                <td th:text="${shop.categoryId.categoryName}"></td>
+            </tr>
+        </table>
     </div>
 </div>
 </body>

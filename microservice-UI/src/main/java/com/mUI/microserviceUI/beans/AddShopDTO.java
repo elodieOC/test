@@ -1,24 +1,33 @@
 package com.mUI.microserviceUI.beans;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class AddShopDTO {
 
     @NotEmpty
     private String merchantName;
-    @NotEmpty
-    private String category;
+    @NotNull
+    private Integer categoryId;
     @NotEmpty
     private String email;
     @NotEmpty
     private String address;
     private Integer userId;
-    @NotEmpty
-    private String maxPoints;
+    private Integer maxPoints;
     private String longitude;
     private String latitude;
+    private String points;
 
     public AddShopDTO() {
+    }
+
+    public String getPoints() {
+        return points;
+    }
+
+    public void setPoints(String points) {
+        this.points = points;
     }
 
     public String getLongitude() {
@@ -37,11 +46,11 @@ public class AddShopDTO {
         this.latitude = latitude;
     }
 
-    public String getMaxPoints() {
+    public Integer getMaxPoints() {
         return maxPoints;
     }
 
-    public void setMaxPoints(String maxPoints) {
+    public void setMaxPoints(Integer maxPoints) {
         this.maxPoints = maxPoints;
     }
 
@@ -69,12 +78,12 @@ public class AddShopDTO {
         this.merchantName = merchantName;
     }
 
-    public String getCategory() {
-        return category;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getEmail() {
@@ -89,7 +98,7 @@ public class AddShopDTO {
     public String toString() {
         return "AddShopDTO{" +
                 "merchantName='" + merchantName + '\'' +
-                ", category='" + category + '\'' +
+                ", categoryId='" + categoryId + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", userId=" + userId +

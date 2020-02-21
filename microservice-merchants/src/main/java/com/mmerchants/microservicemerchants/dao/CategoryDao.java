@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface CategoryDao extends JpaRepository<Category, Integer> {
 
     Optional<Category> findFirstByCategoryName(String name);
+    Category getById(Integer id);
 
 
 }

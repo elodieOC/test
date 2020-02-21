@@ -80,8 +80,8 @@ public class ClientMerchantsController {
         AddShopDTO addShopDTO = new AddShopDTO();
         HttpSession session = request.getSession();
         List<CategoryBean> allCats = merchantsProxy.listCategories();
-        model.addAttribute("sessionId", session.getAttribute("loggedInUserId"));
         model.addAttribute("cats", allCats);
+        model.addAttribute("sessionId", session.getAttribute("loggedInUserId"));
         model.addAttribute("addShopDTO", addShopDTO);
         return "register-shop";
     }
@@ -98,33 +98,25 @@ public class ClientMerchantsController {
         String[] longAddress = addShopDTO.getAddress().split(",", addShopDTO.getAddress().length());
         String address=longAddress[0];
         String city = longAddress[1].replaceAll("\\s+","");
+
+        List<CategoryBean> allCats = merchantsProxy.listCategories();
         if (!city.equals("Puteaux")){
+            model.addAttribute("cats", allCats);
             model.addAttribute("errorMessage", "Cette application supporte actuellement les commerces de Puteaux uniquement");
             return "register-shop";
         }
-        if (Integer.parseInt(addShopDTO.getMaxPoints())>10){
+        if (Integer.parseInt(addShopDTO.getPoints())>10){
+            model.addAttribute("cats", allCats);
             model.addAttribute("errorMessage", "Vous devez attribuer un maximum de 10 points à une carte fidélité");
             return "register-shop";
         }
         try {
-            Integer maxP = Integer.parseInt(addShopDTO.getMaxPoints());
-            MerchantBean theMerchant = new MerchantBean();
-            theMerchant.setUserId(addShopDTO.getUserId());
-            theMerchant.setAddress(address+", "+city);
-
-            CategoryBean cat = merchantsProxy.showCategory(Integer.parseInt(addShopDTO.getCategory()));
-            if(cat==null){
-                model.addAttribute("errorMessage", "Cette catégorie n'existe pas");
-                return "register-shop";
-            }
-            theMerchant.setCategory(cat);
-            theMerchant.setEmail(addShopDTO.getEmail());
-            theMerchant.setMaxPoints(maxP);
-            theMerchant.setMerchantName(addShopDTO.getMerchantName());
-            ArrayList<String>longlat=MapsUtils.geocodeFromString(theMerchant.getAddress());
-            theMerchant.setLongitude(longlat.get(0));
-            theMerchant.setLatitude(longlat.get(1));
-            MerchantBean merchantToRegister = merchantsProxy.addShop(theMerchant);
+            addShopDTO.setMaxPoints(Integer.parseInt(addShopDTO.getPoints()));
+            ArrayList<String>longlat=MapsUtils.geocodeFromString(addShopDTO.getAddress());
+            addShopDTO.setLongitude(longlat.get(0));
+            addShopDTO.setLatitude(longlat.get(1));
+            addShopDTO.setAddress(address);
+            MerchantBean merchantToRegister = merchantsProxy.addShop(addShopDTO);
             toBeReturned = "redirect:/Marchands/"+merchantToRegister.getId();
         }
         catch (Exception e){
@@ -132,6 +124,7 @@ public class ClientMerchantsController {
             if(e instanceof CannotAddException){
                 model.addAttribute("errorMessage", e.getMessage());
             }
+            model.addAttribute("cats", allCats);
             toBeReturned = "register-shop";
         }
         return toBeReturned;

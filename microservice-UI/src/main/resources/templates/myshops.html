@@ -8,8 +8,11 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-        <div class="row mt-5">
+        <div class="row mt-5 mb-5">
             <h2 th:text="'Mes boutiques'" class="mb-5 mx-auto"/>
+        </div>
+        <div th:if="${shopList.isEmpty()}" class="row mb-5 mt-5 mx-auto">
+             <h3 th:text="'Vous n\'avez pas encore de boutique'" class="mx-auto"></h3>
         </div>
         <div class="row">
             <a th:href="@{/Marchands/nouvelle-boutique}" class="mx-auto">
@@ -27,7 +30,7 @@
                 <!--Card-->
                 <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
                     <div class="row ml-2">
-                        <img th:attr="src=@{'data:image/png;base64,'+${shop.icon}}" th:style="'width:50px'"/>
+                        <img th:attr="src=@{'data:image/png;base64,'+${shop.category.categoryIcon.icon}}" th:style="'width:50px'"/>
                         <h4 class="ml-5" th:text= "${shop.merchantName}" />
                     </div>
                 </div>

@@ -25,7 +25,7 @@ $ yarn add @fortawesome/fontawesome-free
 * /sprites - SVG icons packaged in a convenient sprite
 * /scss, /less - CSS Pre-processor files for Web Fonts with CSS
 * /webfonts - Accompanying files for Web Fonts with CSS
-* /svg - Individual icon files in SVG format
+* /svg - Individual categoryIcon files in SVG format
 
 ## Documentation
 

@@ -48,6 +48,16 @@ public class Merchant {
     public Merchant() {
     }
 
+    public Merchant(MerchantDTO dto) {
+        this.setUserId(dto.getUserId());
+        this.setEmail(dto.getEmail());
+        this.setAddress(dto.getAddress());
+        this.setMerchantName(dto.getMerchantName());
+        this.setMaxPoints(dto.getMaxPoints());
+        this.setLatitude(dto.getLatitude());
+        this.setLongitude(dto.getLongitude());
+    }
+
     public Integer getId() {
         return id;
     }
