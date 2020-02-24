@@ -17,11 +17,11 @@ public class CategoryBean {
         this.categoryIcon = categoryIcon;
     }
 
-    public CategoryIconBean getIconDto() {
+    public CategoryIconBean getIcon() {
         return icon;
     }
 
-    public void setIconDto(CategoryIconBean icon) {
+    public void setIcon(CategoryIconBean icon) {
         this.icon = icon;
     }
 
@@ -36,14 +36,6 @@ public class CategoryBean {
     public String getCategoryName() {
         return categoryName;
     }
-
-  /*  public Integer getIconDto() {
-        return iconDto;
-    }
-
-    public void setIconDto(Integer iconDto) {
-        this.iconDto = iconDto;
-    }*/
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;

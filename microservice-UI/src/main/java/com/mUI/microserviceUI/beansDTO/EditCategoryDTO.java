@@ -1,19 +1,16 @@
-package com.mUI.microserviceUI.beans;
+package com.mUI.microserviceUI.beansDTO;
 
-import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
-public class AddCategoryDTO {
+
+public class EditCategoryDTO {
     private Integer id;
     private String categoryName;
+    private MultipartFile imageFile;
     private String icon;
-
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getIcon() {
@@ -24,6 +21,10 @@ public class AddCategoryDTO {
         this.icon = icon;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getCategoryName() {
         return categoryName;
     }
@@ -32,5 +33,11 @@ public class AddCategoryDTO {
         this.categoryName = categoryName;
     }
 
+    public MultipartFile getImageFile() {
+        return imageFile;
+    }
 
+    public void setImageFile(MultipartFile imageFile) {
+        this.imageFile = imageFile;
+    }
 }

@@ -2,6 +2,9 @@ package com.mUI.microserviceUI.controller;
 
 
 import com.mUI.microserviceUI.beans.*;
+import com.mUI.microserviceUI.beansDTO.AddCategoryDTO;
+import com.mUI.microserviceUI.beansDTO.CategoryDTO;
+import com.mUI.microserviceUI.beansDTO.EditCategoryDTO;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import com.mUI.microserviceUI.utils.ImageFileProcessing;
@@ -36,7 +39,7 @@ public class ClientAdminController {
         List<CategoryBean> cats =  merchantsProxy.listCategories();
         for (CategoryBean c:cats){
             if (c.getCategoryIcon() != null) {
-                c.setIconDto(merchantsProxy.getCategoryIcon(c.getCategoryIcon()));
+                c.setIcon(merchantsProxy.getCategoryIcon(c.getCategoryIcon()));
             }
         }
         List<MerchantBean> merchants = merchantsProxy.listMerchants();
@@ -86,11 +89,19 @@ public class ClientAdminController {
      */
     @GetMapping("/Admin/Categories/edit/{id}")
     public String editCategoryForm(@PathVariable Integer id, Model model){
-        CategoryBean categoryBean = merchantsProxy.showCategory(id);
+        List<CategoryBean> cats =  merchantsProxy.listCategories();
+        CategoryBean cat = new CategoryBean();
+        for (CategoryBean c:cats){
+            if (c.getCategoryIcon() != null && c.getId() == id) {
+                c.setIcon(merchantsProxy.getCategoryIcon(c.getCategoryIcon()));
+                cat = c;
+            }
+        }
+        CategoryIconBean iconBean = merchantsProxy.getCategoryIcon(cat.getCategoryIcon());
         EditCategoryDTO editCategoryDTO = new EditCategoryDTO();
         editCategoryDTO.setId(id);
-        editCategoryDTO.setCategoryName(categoryBean.getCategoryName());
-        editCategoryDTO.setIcon(categoryBean.getIconDto().getIcon());
+        editCategoryDTO.setCategoryName(cat.getCategoryName());
+        editCategoryDTO.setIcon(iconBean.getIcon());
         model.addAttribute("cat", editCategoryDTO);
         return "edit-category";
     }
@@ -102,18 +113,25 @@ public class ClientAdminController {
      */
     @RequestMapping(value = "/Admin/Categories/edit")
     public String editCat(@ModelAttribute("cat") EditCategoryDTO editCategoryDTO, Model model){
-        CategoryBean cat = merchantsProxy.showCategory(editCategoryDTO.getId());
+        List<CategoryBean> cats =  merchantsProxy.listCategories();
+        CategoryBean cat = merchantsProxy.getCategory(editCategoryDTO.getId());
+        CategoryDTO dto = new CategoryDTO();
+        dto.setId(editCategoryDTO.getId());
+        for (CategoryBean c:cats){
+            if (c.getCategoryIcon() != null && c.getId() == editCategoryDTO.getId()) {
+                c.setIcon(merchantsProxy.getCategoryIcon(c.getCategoryIcon()));
+                cat = c;
+            }
+        }
         if(!editCategoryDTO.getCategoryName().isEmpty() && !cat.getCategoryName().equals(editCategoryDTO.getCategoryName())){
-            cat.setCategoryName(editCategoryDTO.getCategoryName());
+            dto.setCategoryName(editCategoryDTO.getCategoryName());
         }
         if (!editCategoryDTO.getImageFile().isEmpty()){
             byte[] tab = ImageFileProcessing.getImageForEntityAddFromForm(editCategoryDTO.getImageFile());
-            CategoryIconBean categoryIconBean = new CategoryIconBean();
-            categoryIconBean.setIcon(Base64.getEncoder().encodeToString(tab));
-            cat.setIconDto(categoryIconBean);
+            dto.setIcon(Base64.getEncoder().encodeToString(tab));
         }
         try{
-            merchantsProxy.editCategory(cat);
+            merchantsProxy.editCategory(dto);
             return "redirect:/Admin";
         }catch (Exception e){
             e.printStackTrace();

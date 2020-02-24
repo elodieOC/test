@@ -1,4 +1,4 @@
-package com.mUI.microserviceUI.beans;
+package com.mUI.microserviceUI.beansDTO;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;

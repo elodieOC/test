@@ -20,23 +20,10 @@ public class CategorySerializer extends StdSerializer<Category> {
     public void serialize(
             Category value, JsonGenerator jgen, SerializerProvider provider)
             throws IOException, JsonProcessingException {
-
         jgen.writeStartObject();
         jgen.writeNumberField("id", value.getId());
         jgen.writeStringField("categoryName", value.getCategoryName());
-      //  jgen.writeStringField("icon", Base64.getEncoder().encodeToString(value.getCategoryIcon()));
         jgen.writeNumberField("categoryIcon", value.getCategoryIcon().getId());
-       /* //Iterate List
-        jgen.writeArrayFieldStart("merchants");
-        for(Merchant merchant: value.getMerchants()) {
-            jgen.writeStartObject();
-            jgen.writeNumberField("id", merchant.getId());
-            jgen.writeStringField("merchantName", merchant.getMerchantName());
-            jgen.writeStringField("longitude", merchant.getLongitude());
-            jgen.writeStringField("latitude", merchant.getLatitude());
-            jgen.writeEndObject();
-        }
-        jgen.writeEndArray();*/
         jgen.writeEndObject();
     }
 }

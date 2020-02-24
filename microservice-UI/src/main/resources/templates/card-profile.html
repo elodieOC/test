@@ -81,7 +81,9 @@
         <!-- QR CODE -->
         <div th:if="${#strings.contains(#httpServletRequest.requestURI, 'code')}">
             <div class="row text-center mt-5 mb-5">
-                <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
+                <div class="mx-auto">
+                    <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
+                </div>
             </div>
         </div>
         <!-- Reward -->

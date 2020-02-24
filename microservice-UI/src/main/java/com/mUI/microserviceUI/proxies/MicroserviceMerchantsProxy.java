@@ -1,6 +1,10 @@
 package com.mUI.microserviceUI.proxies;
 
 import com.mUI.microserviceUI.beans.*;
+import com.mUI.microserviceUI.beansDTO.AddCategoryDTO;
+import com.mUI.microserviceUI.beansDTO.AddShopDTO;
+import com.mUI.microserviceUI.beansDTO.CategoryDTO;
+import com.mUI.microserviceUI.beansDTO.EditCategoryDTO;
 import com.mUI.microserviceUI.config.FeignConfig;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -20,6 +24,9 @@ public interface MicroserviceMerchantsProxy {
     @GetMapping(value = "microservice-merchants/Categories")
     List<CategoryBean> listCategories();
 
+    @GetMapping(value = "microservice-merchants/Icons")
+    List<CategoryIconBean> listIcons();
+
     @PostMapping(value = "microservice-merchants/Marchands/add-shop")
     MerchantBean addShop(@RequestBody AddShopDTO addShopDTO);
 
@@ -27,13 +34,16 @@ public interface MicroserviceMerchantsProxy {
     CategoryBean addCategory(@RequestBody AddCategoryDTO addCategoryDTO);
 
     @PostMapping(value = "microservice-merchants/Categories/edit")
-    CategoryBean editCategory(@RequestBody CategoryBean categoryBean);
+    CategoryBean editCategory(@RequestBody CategoryDTO categoryDTO);
 
     @GetMapping( value = "microservice-merchants/Marchands/{id}")
     MerchantBean showShop(@PathVariable("id") Integer id);
 
     @GetMapping( value = "microservice-merchants/Categories/{id}")
     CategoryBean showCategory(@PathVariable("id") Integer id);
+
+    @GetMapping( value = "microservice-merchants/Category/{id}")
+    CategoryBean getCategory(@PathVariable("id") Integer id);
 
     @GetMapping( value = "microservice-merchants/CategoryIcon/{id}")
     CategoryIconBean getCategoryIcon(@PathVariable("id") Integer id);

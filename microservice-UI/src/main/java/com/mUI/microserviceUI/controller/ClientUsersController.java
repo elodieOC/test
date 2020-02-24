@@ -1,6 +1,7 @@
 package com.mUI.microserviceUI.controller;
 
 import com.mUI.microserviceUI.beans.*;
+import com.mUI.microserviceUI.beansDTO.EditUserDTO;
 import com.mUI.microserviceUI.exceptions.BadLoginPasswordException;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMailingProxy;
@@ -19,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mUI.microserviceUI.utils.MapsUtils.getDistanceDuration;
 
 /**
  * <h2>Controller linking with microservice-users</h2>
@@ -159,7 +162,12 @@ public class ClientUsersController {
             List<MerchantBean> myRewardingShops = new ArrayList<>();
             for (RewardBean r : userRewards) {
                 MerchantBean m = merchantsProxy.showShop(r.getIdMerchant());
+                //set up google map
                 m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m.getAddress()));
+                //set up category icon
+                m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
+                //set up distance/duration datas
+                m.setDm(getDistanceDuration(usersProxy.showUser(userId),m));
                 myRewardingShops.add(m);
             }
             model.addAttribute("shops", myRewardingShops);

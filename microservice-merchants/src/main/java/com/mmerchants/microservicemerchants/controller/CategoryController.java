@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.*;
 
 /**
@@ -28,24 +27,30 @@ public class CategoryController {
     private CategoryIconDao iconDao;
 
     /**
-     * <p>Lists all merchants</p>
+     * <p>Lists all categories</p>
      * @return a list
      */
     @GetMapping(value= "/Categories")
     public List<Category> listCategories() {
         List<Category> categories = categoryDao.findAll();
-        /*List<CategoryDTO> categoryDTOS = new ArrayList<>();
-        for (Category c:categories){
-            CategoryDTO dto = new CategoryDTO();
-            dto.setCategoryName(c.getCategoryName());
-            dto.setId(c.getId());
-            if(c.getCategoryIcon()!=null) {
-                dto.setIcon(Base64.getEncoder().encodeToString(c.getCategoryIcon().getIcon()));
-            }
-            else {dto.setIcon(null);}
-            categoryDTOS.add(dto);
-        }*/
         return categories;
+    }
+
+    /**
+     * <p>Lists all icons</p>
+     * @return a list
+     */
+    @GetMapping(value= "/Icons")
+    public List<CategoryIconDTO> listIcons() {
+        List<CategoryIcon> icons = iconDao.findAll();
+        List<CategoryIconDTO> dtos = new ArrayList<>();
+        for (CategoryIcon ci: icons){
+            CategoryIconDTO dto = new CategoryIconDTO();
+            dto.setId(ci.getId());
+            dto.setIcon(Base64.getEncoder().encodeToString(ci.getIcon()));
+            dtos.add(dto);
+        }
+        return dtos;
     }
 
     /**
@@ -60,8 +65,27 @@ public class CategoryController {
         }
         Category category = new Category();
         CategoryIcon icon = new CategoryIcon();
+        CategoryIcon iconAdded = new CategoryIcon();
         icon.setIcon(Base64.getDecoder().decode(catDTO.getIcon()));
-        CategoryIcon iconAdded = iconDao.save(icon);
+        List<CategoryIcon> icons = iconDao.findAll();
+        //if icons exist in db check if this one exists
+        if (!icons.isEmpty()) {
+            int counter = 0;
+            for (CategoryIcon ic : icons) {
+                //if found, counter increments and sets i to existing icon
+                if (Arrays.equals(ic.getIcon(), icon.getIcon())) {
+                    //TODO ajouter message dans la page System.out.println("ICON ALREADY EXISTS");
+                    throw new CannotAddException("UniqueFail");
+                }
+            }
+            //if it doesn't exist, save it
+            if (counter == 0) {
+                iconAdded = iconDao.save(icon);
+            }
+        }
+        else {
+            iconAdded = iconDao.save(icon);
+        }
         if (iconAdded == null) {throw new CannotAddException("AddFail");}
         category.setCategoryName(catDTO.getCategoryName());
         category.setCategoryIcon(iconAdded);
@@ -77,32 +101,42 @@ public class CategoryController {
      */
     @PostMapping(value = "/Categories/edit")
     ResponseEntity<Category> editCategory(@RequestBody CategoryDTO catDTO)  {
-        Integer id = catDTO.getId();
-        Category originalCat= categoryDao.getById(id);
-        Category editedCat = new Category();
-        editedCat.setCategoryName(catDTO.getCategoryName());
-        if(catDTO.getIcon()!=null) {
+        Integer idCat = catDTO.getId();
+        Category originalCat = categoryDao.getById(idCat);
+        if(catDTO.getCategoryName()!=null&&!originalCat.getCategoryName().equals(catDTO.getCategoryName())){
+            originalCat.setCategoryName(catDTO.getCategoryName());
+        }
+        //if an image is sent by catDTO
+        if(!catDTO.getIcon().isEmpty()) {
+            //Create a categoryIcon
             CategoryIcon i = new CategoryIcon();
             i.setIcon(Base64.getDecoder().decode(catDTO.getIcon()));
-            editedCat.setCategoryIcon(i);
-        }
-        if(!originalCat.getCategoryName().equals(editedCat.getCategoryName())){
-            originalCat.setCategoryName(editedCat.getCategoryName());
-        }
-        if(originalCat.getCategoryIcon() == null || !Arrays.equals(originalCat.getCategoryIcon().getIcon(), editedCat.getCategoryIcon().getIcon())){
-            originalCat.setCategoryIcon(editedCat.getCategoryIcon());
-            List<CategoryIcon> icons = iconDao.findAll();
-            if (icons.isEmpty()){
-                iconDao.save(originalCat.getCategoryIcon());
-            }
-            else {
-                for (CategoryIcon i : icons) {
-                    if (!Arrays.equals(i.getIcon(), originalCat.getCategoryIcon().getIcon())) {
-                        iconDao.save(originalCat.getCategoryIcon());
+            //if original category doesn't have an icon OR if icons are different
+            if (originalCat.getCategoryIcon() == null || !Arrays.equals(originalCat.getCategoryIcon().getIcon(), i.getIcon())) {
+                List<CategoryIcon> icons = iconDao.findAll();
+                //if icons exist in db check if this one exists
+                if (!icons.isEmpty()) {
+                    for (CategoryIcon ic : icons) {
+                        //if found, counter increments and throws error
+                        if (Arrays.equals(ic.getIcon(), i.getIcon())) {
+                            //TODO ajouter message dans la page System.out.println("ICON ALREADY EXISTS");
+                            throw new CannotAddException("UniqueFail");
+                        }
                     }
+                    //if it doesn't exist, save it
+                    iconDao.save(i);
+                    i=iconDao.findTopByOrderByIdDesc();
                 }
+                //if icons is empty in db, save it automatically
+                else{
+                    iconDao.save(i);
+                    i=iconDao.findTopByOrderByIdDesc();
+                }
+                //bind the icon to the category
+                originalCat.setCategoryIcon(i);
             }
         }
+        System.out.println("ORIG CAT ICON ID "+originalCat.getCategoryIcon().getId());
         categoryDao.save(originalCat);
         return new ResponseEntity<Category>(originalCat, HttpStatus.OK);
     }
@@ -161,7 +195,7 @@ public class CategoryController {
         return dto;
     }
 
-      /**
+    /**
      * <p>deletes a merchant from db and all its datas</p>
      * @param id
      */
@@ -175,5 +209,5 @@ public class CategoryController {
         categoryDao.delete(catToDelete);
     }
 
-   
+
 }

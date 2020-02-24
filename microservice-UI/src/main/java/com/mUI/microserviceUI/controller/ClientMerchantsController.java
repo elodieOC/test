@@ -1,6 +1,8 @@
 package com.mUI.microserviceUI.controller;
 
 import com.mUI.microserviceUI.beans.*;
+import com.mUI.microserviceUI.beansDTO.AddShopDTO;
+import com.mUI.microserviceUI.beansDTO.EditShopDTO;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
@@ -52,8 +54,12 @@ public class ClientMerchantsController {
         HttpSession session = request.getSession();
         Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
         List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
+        List<CategoryIconBean> icons = merchantsProxy.listIcons();
         for (MerchantBean m:merchantBeanList){
+            //set up google map
            setUpForGMaps(m);
+           //set up category icon
+            m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
            //if a user is logged in, sets up DistanceMatrix attributes from the user's address
            if(userId!=null) {
                m.setDm(getDistanceDuration(usersProxy.showUser(userId),m));
@@ -195,7 +201,10 @@ public class ClientMerchantsController {
         List<MerchantBean> list = new ArrayList<>();
         for(MerchantBean shop:allShops){
             if(loggedInUserId.equals(shop.getUserId())){
+                //set up google map
                 setUpForGMaps(shop);
+                //set up category icon
+                shop.getCategory().setIcon(merchantsProxy.getCategoryIcon(shop.getCategory().getCategoryIcon()));
                 list.add(shop);
             }
         }
