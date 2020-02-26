@@ -79,11 +79,9 @@
             </form>
         </div>
         <!-- QR CODE -->
-        <div th:if="${#strings.contains(#httpServletRequest.requestURI, 'code')}">
-            <div class="row text-center mt-5 mb-5">
-                <div class="mx-auto">
+        <div class="row mb-5">
+            <div class="mx-auto" th:if="${#strings.contains(#httpServletRequest.requestURI, 'code')}">
                     <img th:src="'data:image/jpg;base64,'+${reward.base64}" />
-                </div>
             </div>
         </div>
         <!-- Reward -->

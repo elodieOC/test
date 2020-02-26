@@ -74,7 +74,6 @@ public class CategoryController {
             for (CategoryIcon ic : icons) {
                 //if found, counter increments and sets i to existing icon
                 if (Arrays.equals(ic.getIcon(), icon.getIcon())) {
-                    //TODO ajouter message dans la page System.out.println("ICON ALREADY EXISTS");
                     throw new CannotAddException("UniqueFail");
                 }
             }
@@ -119,7 +118,6 @@ public class CategoryController {
                     for (CategoryIcon ic : icons) {
                         //if found, counter increments and throws error
                         if (Arrays.equals(ic.getIcon(), i.getIcon())) {
-                            //TODO ajouter message dans la page System.out.println("ICON ALREADY EXISTS");
                             throw new CannotAddException("UniqueFail");
                         }
                     }

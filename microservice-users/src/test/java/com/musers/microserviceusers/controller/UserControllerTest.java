@@ -23,7 +23,6 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserControllerTest {
-//TODO INTEGRATION TEST
     private UserController userController = new UserController();
     @Mock
     private UserDao mockUserDao;

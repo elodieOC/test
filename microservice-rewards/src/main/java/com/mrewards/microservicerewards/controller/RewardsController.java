@@ -71,7 +71,7 @@ public class RewardsController {
         }
         // create QR Code each time the page is called, not saved in db
         String data = "localhost:8080/CarteFidelites/"+reward.get().getId()+"/add-point";
-        int size = 400;
+        int size = 395;
         try {
             // encode
             BitMatrix bitMatrix = qrCodeGenerator.generateMatrix(data, size);

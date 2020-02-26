@@ -109,9 +109,6 @@
         </div>
         <!-- List of fidelity cards -->
         <div th:if="${#strings.contains(#httpServletRequest.requestURI, 'mescartes')}">
-            <div class="row mt-5">
-                <h2 th:text="'Mes comptes fidélités'" class="mb-5 mx-auto"/>
-            </div>
             <div th:each="account : ${userRewards}" class="mb-5">
                 <a th:href="@{/CarteFidelites/__${account.getId()}__}" th:style="|text-decoration:none;|">
                     <div th:each="shop:${shops}">

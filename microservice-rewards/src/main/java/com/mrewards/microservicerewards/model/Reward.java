@@ -27,8 +27,6 @@ public class Reward {
 
     @Column(name="rewards")
     private Integer rewardsNbr;
-
-    //TODO add rewardsToCollect
     
     @NotNull
     @Column(name="id_user")

@@ -8,9 +8,9 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
-        <h1 class="text-center mb-5 text-capitalize" th:text= "${merchant.merchantName}+' - '+${merchant.getCategory().getCategoryName()}" />
-        <h2 class="text-center mb-5 text-capitalize" th:text= "${merchant.address}" />
-
+        <h1 class="text-center text-capitalize" th:text= "${merchant.merchantName}" />
+        <h3 class="text-center mb-5 text-capitalize" th:text= "${merchant.getCategory().getCategoryName()}" />
+        <h2 class="text-center text-capitalize" th:text= "${merchant.address}" />
         <div class="row">
             <div class="mx-auto">
                 <i class="ml-2 fas fa-walking"></i>

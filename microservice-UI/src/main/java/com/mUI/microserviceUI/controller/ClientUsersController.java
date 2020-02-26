@@ -16,6 +16,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -201,7 +203,7 @@ public class ClientUsersController {
     }
 
     @RequestMapping("/Utilisateurs/edit")
-    public String editUser(@ModelAttribute("user") EditUserDTO editUserDTO, ModelMap model, HttpServletRequest request){
+    public String editUser(@ModelAttribute("user") EditUserDTO editUserDTO, ModelMap model, RedirectAttributes atts, HttpServletRequest request){
         String toBeReturned;
         HttpSession session = request.getSession();
         UserBean user = usersProxy.showUser(editUserDTO.getId());
@@ -223,8 +225,8 @@ public class ClientUsersController {
             UserBean userToEdit = usersProxy.editUser(user);
             toBeReturned = setSessionAttributes(userToEdit, session);
         }catch (Exception e){
-            e.printStackTrace(); //TODO revoir message d'erreur
-            model.addAttribute("errorMessage", "ERREUR ERREUR");
+            e.printStackTrace();
+            atts.addFlashAttribute("errorMessage", "Erreur dans la modification");
             toBeReturned = "redirect:/Utilisateurs/MonProfil/edit/"+editUserDTO.getId();
         }
         return toBeReturned;
@@ -236,7 +238,6 @@ public class ClientUsersController {
      * Newsletter
      * ************************************
      */
-//TODO scheduledTask for newsletter boolean
     /**
      * Contact page and newsletter subscription
      * @param model

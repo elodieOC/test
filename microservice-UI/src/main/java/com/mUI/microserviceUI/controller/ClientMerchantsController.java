@@ -15,6 +15,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -104,7 +106,6 @@ public class ClientMerchantsController {
         model.addAttribute("addShopDTO", addShopDTO);
         return "register-shop";
     }
-//TODO voir comment gérer les catégories (prédéfinies? liste déroulante?
     /**
      * <p>Process called after the submit button is clicked on register page</p>
      * @param addShopDTO merchant being created by DTO
@@ -177,7 +178,6 @@ public class ClientMerchantsController {
         if(userId!=null) {
             merchant.setDm(getDistanceDuration(usersProxy.showUser(userId),merchant));
         }
-        //TODO total des récompenses distribuées???
         //if user in session is owner of shops, show the users with cards of the shops
         if(merchant.getUserId() == userId){
             //search if shop has active fidelity cards
@@ -249,7 +249,7 @@ public class ClientMerchantsController {
     }
 
     @RequestMapping("/Marchands/edit")
-    public String editUser(@ModelAttribute("shop") EditShopDTO editShopDTO, ModelMap model, HttpServletRequest request){
+    public String editUser(@ModelAttribute("shop") EditShopDTO editShopDTO, RedirectAttributes atts, ModelMap model, HttpServletRequest request){
         String toBeReturned;
         HttpSession session = request.getSession();
         MerchantBean shop = merchantsProxy.showShop(editShopDTO.getId());
@@ -276,8 +276,8 @@ public class ClientMerchantsController {
             MerchantBean shopToEdit = merchantsProxy.editShop(shop);
             toBeReturned = "redirect:/Marchands/"+shopToEdit.getId();
         }catch (Exception e){
-            e.printStackTrace(); //TODO revoir message d'erreur
-            model.addAttribute("errorMessage", "ERREUR ERREUR");
+            e.printStackTrace();
+            atts.addFlashAttribute("errorMessage", "Erreur dans la modification de la boutique");
             toBeReturned = "redirect:/Marchands/edit/"+editShopDTO.getId();
         }
         return toBeReturned;
