@@ -16,7 +16,7 @@
         <div class="row offset-md-4 ">
             <a th:each="cat: ${cats}"
                th:href="@{/Marchands/cat/__${cat.id}__}" role="button"
-               th:class="${#strings.contains(#httpServletRequest.requestURI, 'cat/'+cat.id)?'btn btn-outline-info btn-lg mt-2 mx-sm-auto mr-md-3 ml-md-3 active':'btn btn-outline-info btn-lg mt-2 mx-sm-auto mr-md-3 ml-md-3'}"
+               th:class="${#strings.contains(#httpServletRequest.requestURI, 'cat/'+cat.id)?'btn btn-outline-info btn-lg m-2 active':'btn btn-outline-info btn-lg m-2'}"
               th:text="${cat.categoryName}">
             </a>
         </div>
@@ -27,15 +27,17 @@
             <div th:each="merchant : ${merchants}" class="card col-md-5 mb-3 mt-5 mr-5 ml-5 mx-auto">
                 <a th:href="@{/Marchands/__${merchant.id}__}" th:style="|text-decoration:none;|">
                     <!--Card-->
-                    <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
-                        <div class="row ml-2">
-                            <img th:attr="src=@{'data:image/png;base64,'+${merchant.category.icon.icon}}" th:style="'width:50px'"/>
-                                <h4 class="ml-5 ml-md-2" th:text= "${merchant.merchantName}" />
-                                <span class="ml-5">
-                                    <i class="ml-2 fas fa-walking"></i>
+                    <div class="card-header text-capitalize bg-dark text-white mb-1">
+                        <div class="row">
+                            <img class="ml-3" style="width: 50px;" th:attr="src=@{'data:image/png;base64,'+${merchant.category.icon.icon}}"/>
+                            <div class="col-8 ml-3">
+                                <h4 style="height: 25px;" class="ml-md-2" th:text= "${merchant.merchantName}" />
+                                <span style="height: 25px;">
+                                    <i class="fas fa-walking"></i>
                                     <h4 th:if="${userId eq null}" class="ml-2 d-inline-block"> km/min</h4>
                                     <h4 th:if="${userId ne null}" class="ml-1 d-inline-block" th:text="${merchant.dm.getDistanceText()+' / '+merchant.dm.getDurationText()}" />
                                 </span>
+                            </div>
                         </div>
                     </div>
                     <!--Card content-->

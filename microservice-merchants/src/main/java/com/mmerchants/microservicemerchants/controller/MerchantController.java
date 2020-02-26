@@ -4,10 +4,8 @@ import com.mmerchants.microservicemerchants.dao.CategoryDao;
 import com.mmerchants.microservicemerchants.dao.MerchantDao;
 import com.mmerchants.microservicemerchants.exceptions.CannotAddException;
 import com.mmerchants.microservicemerchants.exceptions.NotFoundException;
-import com.mmerchants.microservicemerchants.model.Category;
-import com.mmerchants.microservicemerchants.model.CategoryDTO;
-import com.mmerchants.microservicemerchants.model.Merchant;
-import com.mmerchants.microservicemerchants.model.MerchantDTO;
+import com.mmerchants.microservicemerchants.model.*;
+import com.mmerchants.microservicemerchants.proxies.MicroserviceRewardsProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +23,8 @@ public class MerchantController {
     private MerchantDao merchantDao;
     @Autowired
     private CategoryDao categoryDao;
+    @Autowired
+    private MicroserviceRewardsProxy rewardsProxy;
 
     /**
      * <p>Lists all merchants</p>
@@ -94,16 +94,22 @@ public class MerchantController {
         return new ResponseEntity<Merchant>(originalShop, HttpStatus.OK);
     }
       /**
-     * <p>deletes a merchant from db and all its datas</p>
+     * <p>deletes a merchant from db and all its datas (fidelity cards included)</p>
      * @param id
      */
     @PostMapping(value = "/Marchands/delete/{id}")
-    public void deleteUSer(@PathVariable Integer id){
+    public void deleteShop(@PathVariable Integer id){
         Optional<Merchant> shop = merchantDao.findById(id);
         if(!shop.isPresent()) {
             throw new NotFoundException("La boutique avec l'id " + id + " est INTROUVABLE.");
         }
         Merchant merchantToDelete = merchantDao.getOne(id);
+        List<RewardBean> rewards = rewardsProxy.listRewards();
+        for (RewardBean r: rewards){
+            if(r.getIdMerchant()==merchantToDelete.getId()){
+                rewardsProxy.deleteAccount(r.getId());
+            }
+        }
         merchantDao.delete(merchantToDelete);
     }
 

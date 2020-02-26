@@ -160,14 +160,14 @@ public class ClientUsersController {
         if(!userRewards.isEmpty()) {
             List<MerchantBean> myRewardingShops = new ArrayList<>();
             for (RewardBean r : userRewards) {
-                MerchantBean m = merchantsProxy.showShop(r.getIdMerchant());
-                //set up google map
-                m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m.getAddress()));
-                //set up category icon
-                m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
-                //set up distance/duration datas
-                m.setDm(getDistanceDuration(usersProxy.showUser(userId),m));
-                myRewardingShops.add(m);
+                    MerchantBean m = merchantsProxy.showShop(r.getIdMerchant());
+                    //set up google map
+                    m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m.getAddress()));
+                    //set up category icon
+                    m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
+                    //set up distance/duration datas
+                    m.setDm(getDistanceDuration(usersProxy.showUser(userId), m));
+                    myRewardingShops.add(m);
             }
             model.addAttribute("shops", myRewardingShops);
         }
