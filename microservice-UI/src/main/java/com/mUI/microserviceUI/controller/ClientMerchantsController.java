@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static com.mUI.microserviceUI.utils.MapsUtils.getDistanceDuration;
@@ -51,21 +53,32 @@ public class ClientMerchantsController {
      */
     @GetMapping("/Marchands")
     public String listMerchants(Model model,HttpServletRequest request){
-        HttpSession session = request.getSession();
         Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
-        List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
-        List<CategoryIconBean> icons = merchantsProxy.listIcons();
-        for (MerchantBean m:merchantBeanList){
-            //set up google map
-           setUpForGMaps(m);
-           //set up category icon
-            m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
-           //if a user is logged in, sets up DistanceMatrix attributes from the user's address
-           if(userId!=null) {
-               m.setDm(getDistanceDuration(usersProxy.showUser(userId),m));
-           }
-        }
+        List<MerchantBean> merchantBeanList = getMerchantList(request);
+        List<CategoryBean> cats = merchantsProxy.listCategories();
         model.addAttribute("merchants", merchantBeanList);
+        model.addAttribute("cats", cats);
+        model.addAttribute("userId", userId);
+        return "merchants";
+    }
+    /**
+     * <p>show list of possible merchants by categorie Id</p>
+     * @param model
+     * @return merchants.html filtered
+     */
+    @GetMapping("/Marchands/cat/{catId}")
+    public String listMerchantsByOneCategory(Model model,HttpServletRequest request, @PathVariable Integer catId){
+        Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
+        List<MerchantBean> merchantBeanList = getMerchantList(request);
+        List<CategoryBean> cats = merchantsProxy.listCategories();
+        List<MerchantBean> filteredByCat = new ArrayList<>();
+        for (MerchantBean m:merchantBeanList){
+            if(m.getCategory().getId()==catId){
+                filteredByCat.add(m);
+            }
+        }
+        model.addAttribute("merchants", filteredByCat);
+        model.addAttribute("cats", cats);
         model.addAttribute("userId", userId);
         return "merchants";
     }
@@ -192,7 +205,7 @@ public class ClientMerchantsController {
     /**
      * shows lists of shop with its owner id
      * @param model
-     * @return merchant-details.html
+     * @return owner's shops sorted by id
      */
     @RequestMapping("/Marchands/MesBoutiques")
     public String shopListByOwner(Model model, HttpServletRequest request){
@@ -208,6 +221,7 @@ public class ClientMerchantsController {
                 list.add(shop);
             }
         }
+        list.sort(Comparator.comparing(MerchantBean::getId));
         model.addAttribute("shopList", list);
         return "myshops";
     }
@@ -239,11 +253,18 @@ public class ClientMerchantsController {
         String toBeReturned;
         HttpSession session = request.getSession();
         MerchantBean shop = merchantsProxy.showShop(editShopDTO.getId());
+        String[] longAddress = editShopDTO.getAddress().split(",", editShopDTO.getAddress().length());
+        String address=longAddress[0];
+        String city = longAddress[1].replaceAll("\\s+","");
+        if (!city.equals("Puteaux")){
+            model.addAttribute("errorMessage", "Cette application supporte actuellement les commerces de Puteaux uniquement");
+            toBeReturned = "redirect:/Marchands/edit/"+editShopDTO.getId();
+        }
         if(!editShopDTO.getEmail().isEmpty()){
             shop.setEmail(editShopDTO.getEmail());
         }if(!editShopDTO.getAddress().isEmpty()){
-            shop.setAddress(editShopDTO.getAddress());
-            ArrayList<String>longlat=MapsUtils.geocodeFromString(shop.getAddress());
+            shop.setAddress(address);
+            ArrayList<String>longlat=MapsUtils.geocodeFromString(editShopDTO.getAddress());
             shop.setLongitude(longlat.get(0));
             shop.setLatitude(longlat.get(1));
         }if(!editShopDTO.getMerchantName().isEmpty()){
@@ -253,7 +274,7 @@ public class ClientMerchantsController {
         }
         try{
             MerchantBean shopToEdit = merchantsProxy.editShop(shop);
-            toBeReturned = "redirect:/Marchands/"+editShopDTO.getId();
+            toBeReturned = "redirect:/Marchands/"+shopToEdit.getId();
         }catch (Exception e){
             e.printStackTrace(); //TODO revoir message d'erreur
             model.addAttribute("errorMessage", "ERREUR ERREUR");
@@ -289,4 +310,33 @@ public class ClientMerchantsController {
         return new ModelAndView("redirect:/Accueil");
     }
 
+    /**
+     * function used in routes /Marchands and /Marchands/cat/{catId}
+     * gets list of shops and sets google map an category icon
+     * if a user is logged in, adds the distance information to it and sort by closest distance to user's address
+     * @param request
+     * @return list of shops (sorted by distance if a user is logged in/or by id=>created first)
+     */
+    private List<MerchantBean> getMerchantList(HttpServletRequest request){
+        Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
+        List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
+        for (MerchantBean m:merchantBeanList){
+            //set up google map
+            setUpForGMaps(m);
+            //set up category icon
+            m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
+            //if a user is logged in, sets up DistanceMatrix attributes from the user's address
+            if(userId!=null) {
+                m.setDm(getDistanceDuration(usersProxy.showUser(userId),m));
+                m.setDurationValue(m.getDm().getDurationValue());
+            }
+        }
+        if(userId!=null){
+            merchantBeanList.sort(Comparator.comparing(MerchantBean::getDurationValue));
+        }
+        else{
+            merchantBeanList.sort(Comparator.comparing(MerchantBean::getId));
+        }
+        return merchantBeanList;
+    }
 }

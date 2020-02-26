@@ -4,6 +4,7 @@ package com.mmerchants.microservicemerchants.model;
 public class MerchantDTO {
     private String merchantName;
     private Integer categoryId;
+    private Integer id;
     private String email;
     private String address;
     private Integer userId;
@@ -12,6 +13,14 @@ public class MerchantDTO {
     private String latitude;
 
     public MerchantDTO() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLongitude() {

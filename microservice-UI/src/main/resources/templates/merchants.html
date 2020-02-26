@@ -13,6 +13,13 @@
 <body>
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
+        <div class="row offset-md-4 ">
+            <a th:each="cat: ${cats}"
+               th:href="@{/Marchands/cat/__${cat.id}__}" role="button"
+               th:class="${#strings.contains(#httpServletRequest.requestURI, 'cat/'+cat.id)?'btn btn-outline-info btn-lg mt-2 mx-sm-auto mr-md-3 ml-md-3 active':'btn btn-outline-info btn-lg mt-2 mx-sm-auto mr-md-3 ml-md-3'}"
+              th:text="${cat.categoryName}">
+            </a>
+        </div>
         <div th:if="${merchants.isEmpty()}" class="mt-5 mx-auto">
             <h3 th:text="'Il n\'y a pas encore de boutique'"  class="mx-auto"></h3>
         </div>
@@ -23,7 +30,7 @@
                     <div class="card-header text-center text-capitalize bg-dark text-white mb-1">
                         <div class="row ml-2">
                             <img th:attr="src=@{'data:image/png;base64,'+${merchant.category.icon.icon}}" th:style="'width:50px'"/>
-                                <h4 class="ml-5" th:text= "${merchant.merchantName}" />
+                                <h4 class="ml-5 ml-md-2" th:text= "${merchant.merchantName}" />
                                 <span class="ml-5">
                                     <i class="ml-2 fas fa-walking"></i>
                                     <h4 th:if="${userId eq null}" class="ml-2 d-inline-block"> km/min</h4>

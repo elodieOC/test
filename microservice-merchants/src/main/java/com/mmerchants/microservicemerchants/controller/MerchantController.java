@@ -74,8 +74,8 @@ public class MerchantController {
      * @return user
      */
     @PostMapping(value = "/Marchands/edit")
-    ResponseEntity<Merchant> editShop(@RequestBody Merchant shop)  {
-        Merchant originalShop = merchantDao.getOne(shop.getId());
+    ResponseEntity<Merchant> editShop(@RequestBody MerchantDTO shop)  {
+        Merchant originalShop = merchantDao.findMerchantById(shop.getId());
         if(!originalShop.getEmail().equals(shop.getEmail())){
             originalShop.setEmail(shop.getEmail());
         }

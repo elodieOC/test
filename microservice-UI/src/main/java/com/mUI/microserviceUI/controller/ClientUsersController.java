@@ -121,7 +121,6 @@ public class ClientUsersController {
             toBeReturned = setSessionAttributes(userToConnect, session);
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("FIELDS: "+userBean.getEmail()+" "+userBean.getPassword());
             if(e instanceof BadLoginPasswordException){
                 model.addAttribute("errorMessage", "Login ou Mot de Passe incorrect");
             }

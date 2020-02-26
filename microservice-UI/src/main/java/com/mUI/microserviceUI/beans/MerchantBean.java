@@ -13,8 +13,17 @@ public class MerchantBean {
     private String longitude;
     private String latitude;
     private DistanceMatrix dm;
+    private Integer durationValue;
 
     public MerchantBean() {
+    }
+
+    public Integer getDurationValue() {
+        return durationValue;
+    }
+
+    public void setDurationValue(Integer durationValue) {
+        this.durationValue = durationValue;
     }
 
     public DistanceMatrix getDm() {
