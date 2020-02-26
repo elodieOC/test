@@ -50,7 +50,7 @@
             <tr th:if="${!shops.isEmpty()}" th:each="shop : ${shops}" class="mt-1 mb-1">
                 <td th:text="${shop.merchantName}"></td>
                 <td th:text="${shop.address}"></td>
-                <td th:text="${shop.categoryId.categoryName}"></td>
+                <td th:text="${shop.category.categoryName}"></td>
             </tr>
         </table>
     </div>
