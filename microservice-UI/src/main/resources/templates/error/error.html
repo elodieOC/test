@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Error</title>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+    <!-- Custom stlylesheet -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/error.css}"/>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag" class="container">
+<div id="notfound">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>Oups!</h1>
+            <h2 th:if="${status==404}">404 - La page n'a pas pu être trouvée</h2>
+            <h2 th:if="${status==500}">500 - Nos serveurs sont en pause</h2>
+            <h2 th:unless="${status==500 or status==404}">Une erreur est survenue</h2>
+        </div>
+        <a  th:href="@{/Accueil}">Accueil</a>
+    </div>
+</div>
+</div>
+</body>
+</html>
