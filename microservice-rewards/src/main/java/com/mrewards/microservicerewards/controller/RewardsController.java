@@ -12,6 +12,7 @@ import com.mrewards.microservicerewards.utils.QRCodeGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.net.InetAddress;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +36,8 @@ public class RewardsController {
 
     private QRCodeGenerator qrCodeGenerator;
 
+    @Autowired
+    Environment environment;
     Logger log = LoggerFactory.getLogger(this.getClass());
 
     /**
@@ -77,7 +81,17 @@ public class RewardsController {
         log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         Optional<Reward> reward = searchOptionalReward(id);
         // create QR Code each time the page is called, not saved in db
-        String data = "localhost:8080/CarteFidelites/"+reward.get().getId()+"/add-point";
+        // !!!!!!!  For test purposes in Local, the host is set in the url to test qrcode
+        // scanning on mobile device from the same network as the computer !!!!!!!!!!!!!!!
+        //Get Host address:
+        String host = "";
+        try{
+            host = InetAddress.getLocalHost().getHostAddress();
+        }catch (Exception e){
+            host = "localhost";
+            e.printStackTrace();
+        }
+        String data = "http://"+host+":8080/CarteFidelites/"+reward.get().getId()+"/add-point";
         int size = 395;
         try {
             // encode
@@ -110,7 +124,7 @@ public class RewardsController {
 
     /**
      * <p>Adds points to an account </p>
-     * @param id
+     * @param id id of fidelicty card
      * @return reward
      */
     @PostMapping(value = "/CarteFidelites/{id}/add-point")

@@ -410,6 +410,7 @@ public class ClientUsersController {
           redirectPage = "password-reset";
       } catch (Exception e) {
           e.printStackTrace();
+          log.error("Failure reset password");
           redirectPage = "redirect:/Utilisateurs/connexion";
       }
       return redirectPage;

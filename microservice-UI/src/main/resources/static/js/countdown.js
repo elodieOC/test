@@ -3,7 +3,7 @@ var seconds = 6;
 function countdown() {
     seconds = seconds - 1;
     if (seconds < 0) {
-        window.location = "/CarteFidelites/"+document.getElementById("cardId").value;
+        window.location = "/Accueil";
     } else {
         // Update remaining seconds
         document.getElementById("countdown").innerHTML = seconds;

@@ -29,7 +29,7 @@
                     <!--Card-->
                     <div class="card-header text-capitalize bg-dark text-white mb-1">
                         <div class="row">
-                            <img class="ml-3" style="width: 50px;" th:attr="src=@{'data:image/png;base64,'+${merchant.category.icon.icon}}"/>
+                            <img class="ml-3" style="width: 50px; height: 50px" th:attr="src=@{'data:image/png;base64,'+${merchant.category.icon.icon}}"/>
                             <div class="col-8 ml-3">
                                 <h4 style="height: 25px;" class="ml-md-2" th:text= "${merchant.merchantName}" />
                                 <span style="height: 25px;">

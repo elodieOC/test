@@ -61,14 +61,15 @@
             </div>
 
             <!--TEST LOCAL-->
-            <form th:action="@{/CarteFidelites/{id}/add-point(id=${reward.getId()})}" method="post" th:object="${reward}">
+          <!--  <form th:action="@{/CarteFidelites/{id}/add-point(id=${reward.getId()})}" method="post" th:object="${reward}">
                 <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5">
                     <input type="submit"
                            class="form-control btn btn-lg btn-primary"
                            value="Ajouter un point (TEST LOCAL)">
                 </div>
-            </form>
+            </form> -->
             <!-- / TEST LOCAL-->
+
             <!-- Delete account -->
             <form class="mb-5" th:action="@{/CarteFidelites/delete/{id}(id=${reward.getId()})}" method="post" th:object="${reward}">
                 <div class="col-sm-6 col-sm-offset-3  mx-auto mt-5 mb-5">

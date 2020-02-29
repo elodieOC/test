@@ -106,14 +106,14 @@ public class ClientRewardsController {
      * @param request servlet request
      * @return success or home page
      */
-    @PostMapping(value = "/CarteFidelites/{id}/add-point")
+    @RequestMapping(value = "/CarteFidelites/{id}/add-point")
     public String addPoint(@PathVariable("id") Integer id, HttpServletRequest request){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         HttpSession session = request.getSession();
         //only a merchant can add a point to a card.
 
-        /*START to delete when not local test */
+  /*      /*START to delete when not local test
         log.info("call rewardProxy");
         RewardBean rewardBean = rewardsProxy.showReward(id);
         log.info("call rewardProxy");
@@ -121,24 +121,26 @@ public class ClientRewardsController {
             toBeReturned = "redirect:successPointAdded";
         /*END to delete when not local test */
 
-        /* UNCOMMENT when not local tests or development
+        // UNCOMMENT when not local tests or development
         if(session.getAttribute("loggedInUserRole").equals("MERCHANT")) {
             RewardBean rewardBean = rewardsProxy.showReward(id);
-            if(rewardBean.getIdMerchant() == session.getAttribute("loggedInUserId")) {
+            MerchantBean m = merchantsProxy.showShop(rewardBean.getIdMerchant());
+            if(m.getUserId() == session.getAttribute("loggedInUserId")) {
+                log.info("calling rewards proxy");
                 rewardsProxy.addPoint(id);
-                toBeReturned = "redirect:/CarteFidelites/" + id;
+                toBeReturned = "redirect:successPointAdded";
             }
             else{
-                System.out.println("Le marchand avec l'id "+session.getAttribute("loggedInUserId")+
+                log.warn("Le marchand avec l'id "+session.getAttribute("loggedInUserId")+
                         " a essayé d'accéder à une autre boutique");
                 toBeReturned="redirect:/Accueil";
                 }
             }
         else{
-            System.out.println("L'utilsiateur avec l'id "+session.getAttribute("loggedInUserId")+
+            log.warn("L'utilsiateur avec l'id "+session.getAttribute("loggedInUserId")+
                     " a essayé d'accéder à une boutique sans être marchand");
             toBeReturned="redirect:/Accueil";
-        }*/
+        }
         return toBeReturned;
     }
 
