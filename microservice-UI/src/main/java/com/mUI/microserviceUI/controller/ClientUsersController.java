@@ -382,18 +382,13 @@ public class ClientUsersController {
         try{
             log.info("call usersProxy");
             userToFind = usersProxy.findUserForPassword(userBean.getEmail());
+            log.info("call mailingProxy");
+            mailingProxy.sendLinkForPassword(userToFind.getEmail(), userToFind.getResetToken(), appUrl);
             theModel.addAttribute("successMessage", "Un email a été envoyé à l'adresse indiquée");
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("EMAIL INPUT = "+userBean.getEmail());
+            log.error("Failure:email unknown "+userBean.getEmail());
             theModel.addAttribute("errorMessage", "email inconnu");
-        }
-        //TODO le mail est bien envoyé mais renvoi le catch: FeignException: status 504 reading MicroserviceMailingProxy#sendLinkForPassword(String,String,String)
-        try{
-            log.info("call mailingProxy");
-            mailingProxy.sendLinkForPassword(userToFind.getEmail(), userToFind.getResetToken(), appUrl);
-        }catch (Exception e){
-            e.printStackTrace();
         }
         return "password-forgot";
     }
