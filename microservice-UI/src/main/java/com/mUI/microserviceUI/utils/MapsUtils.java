@@ -27,11 +27,9 @@ public class MapsUtils {
      */
     public static String setUrlAddressForMapsAPI(String address){
         String mCity = getConfigProprety("api.maps.city");
-
         String apiMapsAddress = getConfigProprety("api.maps.url");
         String mAddressForMaps = address.replaceAll(" ", "+");
         String addressForMaps = getConfigProprety("api.maps.center")+mAddressForMaps+mCity;
-
         String paramsForMaps = getConfigProprety("api.maps.zoom")+getConfigProprety("api.maps.size");
         String markersForMaps = getConfigProprety("api.maps.markers")+mAddressForMaps+mCity;
         String paramApiKey = getConfigProprety("api.maps.key");

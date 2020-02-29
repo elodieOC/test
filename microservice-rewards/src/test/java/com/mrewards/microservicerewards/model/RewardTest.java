@@ -3,8 +3,6 @@ package com.mrewards.microservicerewards.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class RewardTest {
 
     private Reward createReward(){

@@ -6,11 +6,12 @@ import com.mmerchants.microservicemerchants.exceptions.CannotAddException;
 import com.mmerchants.microservicemerchants.exceptions.NotFoundException;
 import com.mmerchants.microservicemerchants.model.*;
 import com.mmerchants.microservicemerchants.proxies.MicroserviceRewardsProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +26,7 @@ public class MerchantController {
     private CategoryDao categoryDao;
     @Autowired
     private MicroserviceRewardsProxy rewardsProxy;
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     /**
      * <p>Lists all merchants</p>
@@ -32,6 +34,8 @@ public class MerchantController {
      */
     @GetMapping(value= "/Marchands")
     public List<Merchant> listMerchants() {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        log.info("Listing of all shops");
         return merchantDao.findAll();
     }
 
@@ -42,16 +46,24 @@ public class MerchantController {
      */
     @PostMapping(value = "/Marchands/add-shop")
     public ResponseEntity<Merchant> addMerchant(@RequestBody MerchantDTO merchantDTO) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         if(merchantDao.findFirstByMerchantName(merchantDTO.getMerchantName()).isPresent()){
+            log.error("failure add shop: name already exists");
             throw new CannotAddException("UniqueFail");
         }
         Category cat = categoryDao.getById(merchantDTO.getCategoryId());
+        log.info("search by id for category to be linked to shop");
         Merchant toSave = new Merchant(merchantDTO);
+        log.info("building shop dto to send image through API");
         toSave.setCategory(cat);
         Merchant merchantAdded =  merchantDao.save(toSave);
+        log.info("add shop");
         if (merchantAdded == null) {
-            throw new CannotAddException("AddFail");}
-        return new ResponseEntity<Merchant>(merchantAdded, HttpStatus.CREATED);
+            log.error("failure add shop");
+            throw new CannotAddException("AddFail");
+        }
+        log.info("shop added");
+        return new ResponseEntity<>(merchantAdded, HttpStatus.CREATED);
     }
 
     /**
@@ -61,11 +73,8 @@ public class MerchantController {
      */
     @GetMapping(value = "/Marchands/{id}")
     public Optional<Merchant> showMerchant(@PathVariable Integer id) {
-        Optional<Merchant> merchant = merchantDao.findById(id);
-        if(!merchant.isPresent()) {
-            throw new NotFoundException("La boutique avec l'id " + id + " est INTROUVABLE.");
-        }
-        return merchant;
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        return searchOptionalMerchant(id);
     }
 
     /**
@@ -75,23 +84,30 @@ public class MerchantController {
      */
     @PostMapping(value = "/Marchands/edit")
     ResponseEntity<Merchant> editShop(@RequestBody MerchantDTO shop)  {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         Merchant originalShop = merchantDao.findMerchantById(shop.getId());
+        log.info("search by id for shop to be modified");
         if(!originalShop.getEmail().equals(shop.getEmail())){
             originalShop.setEmail(shop.getEmail());
+            log.info("changing email of shop to be modified");
         }
         if(!originalShop.getAddress().equals(shop.getAddress())){
             originalShop.setAddress(shop.getAddress());
             originalShop.setLatitude(shop.getLatitude());
             originalShop.setLongitude(shop.getLongitude());
+            log.info("changing address/lng/lat of shop to be modified");
         }
         if(!originalShop.getMerchantName().equals(shop.getMerchantName())){
             originalShop.setMerchantName(shop.getMerchantName());
+            log.info("changing name of shop to be modified");
         }
         if(!originalShop.getMaxPoints().equals(shop.getMaxPoints())){
             originalShop.setMaxPoints( shop.getMaxPoints());
+            log.info("changing maxpoints of shop to be modified");
         }
         merchantDao.save(originalShop);
-        return new ResponseEntity<Merchant>(originalShop, HttpStatus.OK);
+        log.info("shop edited");
+        return new ResponseEntity<>(originalShop, HttpStatus.OK);
     }
       /**
      * <p>deletes a merchant from db and all its datas (fidelity cards included)</p>
@@ -99,18 +115,34 @@ public class MerchantController {
      */
     @PostMapping(value = "/Marchands/delete/{id}")
     public void deleteShop(@PathVariable Integer id){
-        Optional<Merchant> shop = merchantDao.findById(id);
-        if(!shop.isPresent()) {
-            throw new NotFoundException("La boutique avec l'id " + id + " est INTROUVABLE.");
-        }
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        searchOptionalMerchant(id);
         Merchant merchantToDelete = merchantDao.getOne(id);
         List<RewardBean> rewards = rewardsProxy.listRewards();
         for (RewardBean r: rewards){
             if(r.getIdMerchant()==merchantToDelete.getId()){
+                log.info("shop fidelity card id "+r.getId()+" deleted");
                 rewardsProxy.deleteAccount(r.getId());
             }
         }
         merchantDao.delete(merchantToDelete);
+        log.info("shop deleted");
+    }
+
+
+    /**
+     * Searches for optional Merchant.
+     * @param id
+     */
+    private Optional<Merchant> searchOptionalMerchant(Integer id){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        Optional<Merchant> shop = merchantDao.findById(id);
+        log.info("searching Optional<Merchant> by id");
+        if(!shop.isPresent()) {
+            log.error("Failure: shop id " + id + " doesn't exist.");
+            throw new NotFoundException("La boutique avec l'id " + id + " est INTROUVABLE.");
+        }
+        return shop;
     }
 
    

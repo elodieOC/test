@@ -1,8 +1,5 @@
 package com.mUI.microserviceUI.beansDTO;
 
-import org.springframework.web.multipart.MultipartFile;
-
-
 public class CategoryDTO {
     private Integer id;
     private String categoryName;

@@ -6,8 +6,6 @@ import com.netflix.zuul.exception.ZuulException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
@@ -27,7 +25,7 @@ public class ResponseFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return false;
+        return true;
     }
 
     @Override
@@ -35,7 +33,7 @@ public class ResponseFilter extends ZuulFilter {
 
         HttpServletResponse response = RequestContext.getCurrentContext().getResponse();
 
-        response.setStatus(400);
+        //response.setStatus(400);
 
         log.info(" CODE HTTP {} ", response.getStatus());
 

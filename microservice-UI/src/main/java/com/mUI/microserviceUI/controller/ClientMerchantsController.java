@@ -8,6 +8,8 @@ import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import com.mUI.microserviceUI.utils.MapsUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,17 +18,13 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import static com.mUI.microserviceUI.utils.MapsUtils.getDistanceDuration;
 import static com.mUI.microserviceUI.utils.MapsUtils.setUpForGMaps;
-
 
 /**
  * <h2>Controller linking with microservice-merchants</h2>
@@ -40,6 +38,7 @@ public class ClientMerchantsController {
     private MicroserviceRewardsProxy rewardsProxy;
     @Autowired
     private MicroserviceUsersProxy usersProxy;
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
 
     /*
@@ -47,7 +46,6 @@ public class ClientMerchantsController {
     * Merchant List
     * *************************************
      */
-
     /**
      * <p>show list of possible merchants</p>
      * @param model
@@ -55,8 +53,10 @@ public class ClientMerchantsController {
      */
     @GetMapping("/Marchands")
     public String listMerchants(Model model,HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
         List<MerchantBean> merchantBeanList = getMerchantList(request);
+        log.info("call merchantProxy");
         List<CategoryBean> cats = merchantsProxy.listCategories();
         model.addAttribute("merchants", merchantBeanList);
         model.addAttribute("cats", cats);
@@ -70,8 +70,10 @@ public class ClientMerchantsController {
      */
     @GetMapping("/Marchands/cat/{catId}")
     public String listMerchantsByOneCategory(Model model,HttpServletRequest request, @PathVariable Integer catId){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
         List<MerchantBean> merchantBeanList = getMerchantList(request);
+        log.info("call merchantProxy");
         List<CategoryBean> cats = merchantsProxy.listCategories();
         List<MerchantBean> filteredByCat = new ArrayList<>();
         for (MerchantBean m:merchantBeanList){
@@ -89,8 +91,6 @@ public class ClientMerchantsController {
      * Merchant register
      * ************************************
      */
-
-
     /**
      * <p>Page that displays a form to register a merchant</p>
      * @param model attribute passed to jsp page
@@ -98,8 +98,10 @@ public class ClientMerchantsController {
      */
     @GetMapping("/Marchands/nouvelle-boutique")
     public String registerPage(Model model, HttpServletRequest request) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         AddShopDTO addShopDTO = new AddShopDTO();
         HttpSession session = request.getSession();
+        log.info("call merchantProxy");
         List<CategoryBean> allCats = merchantsProxy.listCategories();
         model.addAttribute("cats", allCats);
         model.addAttribute("sessionId", session.getAttribute("loggedInUserId"));
@@ -114,18 +116,21 @@ public class ClientMerchantsController {
      */
     @PostMapping("/Marchands/add-shop")
     public String saveMerchant(@ModelAttribute("addShopDTO")AddShopDTO addShopDTO, ModelMap model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         String[] longAddress = addShopDTO.getAddress().split(",", addShopDTO.getAddress().length());
         String address=longAddress[0];
         String city = longAddress[1].replaceAll("\\s+","");
-
+        log.info("call merchantProxy");
         List<CategoryBean> allCats = merchantsProxy.listCategories();
         if (!city.equals("Puteaux")){
+            log.info("city given in not puteaux");
             model.addAttribute("cats", allCats);
             model.addAttribute("errorMessage", "Cette application supporte actuellement les commerces de Puteaux uniquement");
             return "register-shop";
         }
         if (Integer.parseInt(addShopDTO.getPoints())>10){
+            log.info("points given are > 10");
             model.addAttribute("cats", allCats);
             model.addAttribute("errorMessage", "Vous devez attribuer un maximum de 10 points à une carte fidélité");
             return "register-shop";
@@ -136,10 +141,12 @@ public class ClientMerchantsController {
             addShopDTO.setLongitude(longlat.get(0));
             addShopDTO.setLatitude(longlat.get(1));
             addShopDTO.setAddress(address);
+            log.info("call merchantProxy");
             MerchantBean merchantToRegister = merchantsProxy.addShop(addShopDTO);
             toBeReturned = "redirect:/Marchands/"+merchantToRegister.getId();
         }
         catch (Exception e){
+            log.error("Failure:merchantsProxy.addShop");
             e.printStackTrace();
             if(e instanceof CannotAddException){
                 model.addAttribute("errorMessage", e.getMessage());
@@ -158,7 +165,9 @@ public class ClientMerchantsController {
      */
     @RequestMapping("/Marchands/{shopId}")
     public String merchantDetails(@PathVariable Integer shopId, Model model, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
+        log.info("call merchantProxy");
         MerchantBean merchant = merchantsProxy.showShop(shopId);
         setUpForGMaps(merchant);
         //prepare reward card for merchant
@@ -167,6 +176,7 @@ public class ClientMerchantsController {
         rewardCard.setMaxPoints(merchant.getMaxPoints());
         Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
         rewardCard.setIdUser(userId);
+        log.info("call merchantProxy");
         for(RewardBean r:rewardsProxy.listRewards()){
             if(r.getIdUser() == rewardCard.getIdUser()){
                 if (r.getIdMerchant() == rewardCard.getIdMerchant()){
@@ -176,11 +186,13 @@ public class ClientMerchantsController {
         }
         //if a user is logged in, sets up DistanceMatrix attributes from the user's address
         if(userId!=null) {
+            log.info("call usersProxy");
             merchant.setDm(getDistanceDuration(usersProxy.showUser(userId),merchant));
         }
         //if user in session is owner of shops, show the users with cards of the shops
         if(merchant.getUserId() == userId){
             //search if shop has active fidelity cards
+            log.info("call rewardsProxy");
             List<RewardBean>rewards = rewardsProxy.listRewards();
             List<RewardBean>shopRewards = new ArrayList<>();
             for (RewardBean r:rewards){
@@ -209,6 +221,8 @@ public class ClientMerchantsController {
      */
     @RequestMapping("/Marchands/MesBoutiques")
     public String shopListByOwner(Model model, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        log.info("call merchantProxy");
         List<MerchantBean> allShops = merchantsProxy.listMerchants();
         Integer loggedInUserId = (Integer)request.getSession().getAttribute("loggedInUserId");
         List<MerchantBean> list = new ArrayList<>();
@@ -217,6 +231,7 @@ public class ClientMerchantsController {
                 //set up google map
                 setUpForGMaps(shop);
                 //set up category icon
+                log.info("call merchantProxy");
                 shop.getCategory().setIcon(merchantsProxy.getCategoryIcon(shop.getCategory().getCategoryIcon()));
                 list.add(shop);
             }
@@ -232,12 +247,14 @@ public class ClientMerchantsController {
      */
     @GetMapping("/Marchands/edit/{shopId}")
     public String editUserPage(@PathVariable Integer shopId, Model model, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
+        log.info("call merchantProxy");
         MerchantBean shop = merchantsProxy.showShop(shopId);
         //session is always checked, here check if user editing profile is owner of profile
         if(!session.getAttribute("loggedInUserId").equals(shop.getUserId())){
-            System.out.println("User trying to edit shop profile is not the owner of the shop");
-            System.out.println("User is: [id:"
+            log.warn("User trying to edit shop profile is not the owner of the shop");
+            log.warn("User is: [id:"
                     +session.getAttribute("loggedInUserId")+ ", email:"
                     +session.getAttribute("loggedInUserEmail")+", role:"
                     +session.getAttribute("loggedInUserRole")+"]");
@@ -250,8 +267,10 @@ public class ClientMerchantsController {
 
     @RequestMapping("/Marchands/edit")
     public String editUser(@ModelAttribute("shop") EditShopDTO editShopDTO, RedirectAttributes atts, ModelMap model, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         HttpSession session = request.getSession();
+        log.info("call merchantProxy");
         MerchantBean shop = merchantsProxy.showShop(editShopDTO.getId());
         String[] longAddress = editShopDTO.getAddress().split(",", editShopDTO.getAddress().length());
         String address=longAddress[0];
@@ -273,10 +292,12 @@ public class ClientMerchantsController {
             shop.setMaxPoints(Integer.parseInt(editShopDTO.getMaxPoints()));
         }
         try{
+            log.info("call merchantProxy");
             MerchantBean shopToEdit = merchantsProxy.editShop(shop);
             toBeReturned = "redirect:/Marchands/"+shopToEdit.getId();
         }catch (Exception e){
             e.printStackTrace();
+            log.error("Failure merchantsProxy.editshop");
             atts.addFlashAttribute("errorMessage", "Erreur dans la modification de la boutique");
             toBeReturned = "redirect:/Marchands/edit/"+editShopDTO.getId();
         }
@@ -298,8 +319,10 @@ public class ClientMerchantsController {
      */
     @RequestMapping(value = "/Marchands/delete/{id}", method = RequestMethod.POST)
     public String deleteMerchant(@PathVariable("id") Integer id, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
         Integer userId = (Integer) session.getAttribute("loggedInUserId");
+        log.info("call merchantProxy");
         merchantsProxy.deleteShop(id);
         return "redirect:/Marchands/MesBoutiques";
     }
@@ -307,6 +330,7 @@ public class ClientMerchantsController {
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         return new ModelAndView("redirect:/Accueil");
     }
 
@@ -318,15 +342,19 @@ public class ClientMerchantsController {
      * @return list of shops (sorted by distance if a user is logged in/or by id=>created first)
      */
     private List<MerchantBean> getMerchantList(HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         Integer userId = (Integer)request.getSession().getAttribute("loggedInUserId");
+        log.info("call merchantProxy");
         List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
         for (MerchantBean m:merchantBeanList){
             //set up google map
             setUpForGMaps(m);
             //set up category icon
+            log.info("call merchantProxy");
             m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
             //if a user is logged in, sets up DistanceMatrix attributes from the user's address
             if(userId!=null) {
+                log.info("call usersProxy");
                 m.setDm(getDistanceDuration(usersProxy.showUser(userId),m));
                 m.setDurationValue(m.getDm().getDurationValue());
             }

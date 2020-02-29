@@ -2,7 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ca31c92-415f-4045-8aa9-dfa1078cf13a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/admin-infos.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/admin-infos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/MicroserviceUiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/MicroserviceUiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/AddCategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/AddCategoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/CategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/CategoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientRewardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientRewardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMailingProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMailingProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-public.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-public.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/config/SleuthConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/controller/MailSentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/controller/MailSentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-mailing/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-mailing/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/exceptions/BadLoginPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/exceptions/BadLoginPasswordException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryIcon.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryIcon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/proxies/MicroserviceRewardsProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/proxies/MicroserviceRewardsProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/utils/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/utils/Encryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/controller/RewardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/controller/RewardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/manager/RewardsManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/manager/RewardsManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/model/Reward.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/model/Reward.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewards/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewards/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewards/src/test/java/com/mrewards/microservicerewards/manager/RewardsManagerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewards/src/test/java/com/mrewards/microservicerewards/manager/RewardsManagerImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewards/src/test/java/com/mrewards/microservicerewards/model/RewardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewards/src/test/java/com/mrewards/microservicerewards/model/RewardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/dao/NewsletterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/dao/NewsletterDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/utils/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/utils/Encryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-users/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-users/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/controller/UserControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/filters/ResponseFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/filters/ResponseFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/microservice-rewards/target/" />
     <ignored path="$PROJECT_DIR$/microservice-merchants/target/" />
@@ -58,10 +102,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="119" column="71" selection-start-line="119" selection-start-column="71" selection-end-line="119" selection-end-column="71" />
+            <state relative-caret-position="371">
+              <caret line="410" column="38" lean-forward="true" selection-start-line="410" selection-start-column="38" selection-end-line="410" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,37 +114,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
+        <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="96" column="80" selection-start-line="96" selection-start-column="80" selection-end-line="96" selection-end-column="80" />
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMailingProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/admin-infos.html">
+        <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/controller/MailSentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/static/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-146">
-              <caret line="122" column="12" lean-forward="true" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientAdminController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+            <state relative-caret-position="70">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,18 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mes</find>
-      <find>CarteFidelites</find>
-      <find>CompteFidelites</find>
-      <find>MerchantBean</find>
-      <find>merchant</find>
-      <find>NotEmpty</find>
-      <find>image</find>
-      <find>url</find>
-      <find>ja</find>
-      <find>#show_hide_password</find>
-      <find>passwordi</find>
-      <find>contact</find>
       <find>hidden</find>
       <find>ml-1</find>
       <find>suppre</find>
@@ -148,6 +177,18 @@
       <find>myR</find>
       <find>fe</find>
       <find>img</find>
+      <find>qrCodeFile</find>
+      <find>base</find>
+      <find>boo</find>
+      <find>bootst</find>
+      <find>uder</find>
+      <find>sop</find>
+      <find>Ssy</find>
+      <find>Sys</find>
+      <find>mercc</find>
+      <find>put</find>
+      <find>getMethodName()</find>
+      <find>Defau</find>
     </findStrings>
     <replaceStrings>
       <replace>UserBean</replace>
@@ -169,6 +210,8 @@
       <replace>editShopDTO</replace>
       <replace>Category</replace>
       <replace>Categories</replace>
+      <replace>merc</replace>
+      <replace>new Object(){}.getClass().getEnclosingMethod().getName()</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -177,57 +220,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register-shop.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/AddShopDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryIcons.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/CategoryIconBean.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryIconDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/EditCategoryDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.5__maj_schema.sql" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/AddCategoryDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.6__maj_schema.sql" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Category.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.7__maj_data.sql" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.8__maj_data.sql" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/CategoryBean.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/edit-category.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/CategoryDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategorySerializer.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.8__maj_schema.sql" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.9__maj_schema.sql" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.10__maj_data.sql" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryIcon.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/CategoryDao.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/CategoryIconDao.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientAdminController.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/MerchantDTO.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/RewardBean.java" />
-        <option value="$PROJECT_DIR$/microservice-rewards/pom.xml" />
-        <option value="$PROJECT_DIR$/microservice-merchants/pom.xml" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/config/FeignExceptionConfig.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/exceptions/CustomErrorDecoder.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/proxies/MicroserviceRewardsProxy.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/MicroserviceMerchantsApplication.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/static/css/main.css" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/card-profile.html" />
-        <option value="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/controller/RewardsController.java" />
-        <option value="$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/controller/UserControllerTest.java" />
-        <option value="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/model/Reward.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
-        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" />
         <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/contact.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/about.html" />
-        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/admin-infos.html" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/manager/CategoryManager.java" />
+        <option value="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-admin.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected-merchant.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-connected.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/fragments/headers/header-public.html" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/utils/Encryption.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/register.html" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/exceptions/BadLoginPasswordException.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/exceptions/BadLoginPasswordException.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/AddCategoryDTO.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/CategoryDTO.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryIcon.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/proxies/MicroserviceRewardsProxy.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/MicroserviceUiApplication.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/dao/NewsletterDao.java" />
+        <option value="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/model/Reward.java" />
+        <option value="$PROJECT_DIR$/microservice-rewards/src/test/java/com/mrewards/microservicerewards/manager/RewardsManagerImplTest.java" />
+        <option value="$PROJECT_DIR$/microservice-rewards/src/test/java/com/mrewards/microservicerewards/model/RewardTest.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/model/MerchantTest.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/microservice-rewards/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/microservice-mailing/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientAdminController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientRewardsController.java" />
+        <option value="$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/controller/UserControllerTest.java" />
+        <option value="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/controller/RewardsController.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/MicroserviceUiApplicationTests.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/MicroserviceUsersApplicationTests.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java" />
+        <option value="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailService.java" />
+        <option value="$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/manager/RewardsManagerImpl.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/filters/ResponseFilter.java" />
+        <option value="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailConfig.java" />
+        <option value="$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMailingProxy.java" />
+        <option value="$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/controller/MailSentController.java" />
       </list>
     </option>
   </component>
@@ -276,60 +319,69 @@
           <expand>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microservicerewards" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microservicerewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemailing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemailing" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemailing" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microservicerewards" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemailing" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-mailing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microservicerewards" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="microservicemailing" type="462c0819:PsiDirectoryNode" />
+              <item name="mailing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
@@ -345,13 +397,6 @@
               <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
@@ -359,7 +404,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceUI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
@@ -368,16 +412,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="microserviceUI" type="462c0819:PsiDirectoryNode" />
-              <item name="beans" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceUI" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
@@ -390,53 +424,99 @@
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
+              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="microserviceUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microservice-users" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="microserviceusers" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microservice-UI" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zuulserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zuulserver" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zuulserver" type="462c0819:PsiDirectoryNode" />
+              <item name="filters" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -451,7 +531,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582734184022" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582994865357" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/microservice-mailing" />
@@ -462,6 +542,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -470,11 +551,11 @@
       <recent name="com.musers.microserviceusers.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.musers.microserviceusers" />
+      <recent name="com.mUI.microserviceUI.utils" />
+      <recent name="com.mrewards.microservicerewards.utils" />
+      <recent name="com.musers.microserviceusers.utils" />
       <recent name="com.mmerchants.microservicemerchants.exceptions" />
-      <recent name="com.mmerchants.microservicemerchants.model" />
-      <recent name="com.mmerchants.microservicemerchants.proxies" />
-      <recent name="com.mUI.microserviceUI.beansDTO" />
-      <recent name="com.mUI.microserviceUI.beans" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\F41374\IdeaProjects\test\microservice-UI\src\main\resources\static\img" />
@@ -508,7 +589,7 @@
     </option>
     <option name="contentProportion" value="0.23106647" />
   </component>
-  <component name="RunManager" selected="Spring Boot.MicroserviceUiApplication">
+  <component name="RunManager" selected="Spring Boot.MicroserviceMailingApplication">
     <configuration name="MerchantTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-merchants" />
       <extension name="coverage">
@@ -540,21 +621,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice-users" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.musers.microserviceusers.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.musers.microserviceusers.model" />
-      <option name="MAIN_CLASS_NAME" value="com.musers.microserviceusers.model.RoleTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RoleTest.toStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice-users" />
       <extension name="coverage">
@@ -566,6 +632,22 @@
       <option name="PACKAGE_NAME" value="com.musers.microserviceusers.model" />
       <option name="MAIN_CLASS_NAME" value="com.musers.microserviceusers.model.RoleTest" />
       <option name="METHOD_NAME" value="toStringTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.showUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice-users" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.musers.microserviceusers.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.musers.microserviceusers.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.musers.microserviceusers.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="showUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -646,7 +728,6 @@
     <list>
       <item itemvalue="JUnit.MerchantTest" />
       <item itemvalue="JUnit.MerchantTest.toStringTest" />
-      <item itemvalue="JUnit.RoleTest" />
       <item itemvalue="JUnit.RoleTest.toStringTest" />
       <item itemvalue="JUnit.UserTest.getSetUserRole" />
       <item itemvalue="Spring Boot.ConfigServerApplication" />
@@ -657,14 +738,15 @@
       <item itemvalue="Spring Boot.MicroserviceMailingApplication" />
       <item itemvalue="Spring Boot.MicroserviceUiApplication" />
       <item itemvalue="Spring Boot.MicroserviceRewardsApplication" />
+      <item itemvalue="JUnit.UserControllerTest.showUser" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest.showUser" />
         <item itemvalue="JUnit.MerchantTest" />
         <item itemvalue="JUnit.MerchantTest.toStringTest" />
         <item itemvalue="JUnit.UserTest.getSetUserRole" />
         <item itemvalue="JUnit.RoleTest.toStringTest" />
-        <item itemvalue="JUnit.RoleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -706,44 +788,44 @@
       <workItem from="1580755900817" duration="23944000" />
       <workItem from="1581087772062" duration="5142000" />
       <workItem from="1581357091313" duration="112160000" />
-      <workItem from="1582533001131" duration="21356000" />
+      <workItem from="1582533001131" duration="44399000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RoleTest_toStringTest - 2019.11.04 at 12h 28m 17s.xml">
-      <configuration name="RoleTest.toStringTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoleTest_toStringTest - 2019.11.04 at 12h 28m 49s.xml">
-      <configuration name="RoleTest.toStringTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoleTest_toStringTest - 2019.11.04 at 12h 29m 26s.xml">
-      <configuration name="RoleTest.toStringTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserTest_getSetUserRole - 2019.11.04 at 12h 35m 29s.xml">
-      <configuration name="UserTest.getSetUserRole" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserTest_getSetUserRole - 2019.11.04 at 12h 36m 49s.xml">
-      <configuration name="UserTest.getSetUserRole" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserTest_getSetUserRole - 2019.11.04 at 12h 37m 31s.xml">
-      <configuration name="UserTest.getSetUserRole" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserTest_getSetUserRole - 2019.11.04 at 12h 37m 43s.xml">
-      <configuration name="UserTest.getSetUserRole" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MerchantTest_toStringTest - 2019.11.04 at 16h 06m 57s.xml">
-      <configuration name="MerchantTest.toStringTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MerchantTest - 2019.11.04 at 16h 08m 41s.xml">
-      <configuration name="MerchantTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MerchantTest - 2019.11.04 at 16h 09m 53s.xml">
       <configuration name="MerchantTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 13h 49m 35s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 13h 53m 37s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 13h 55m 10s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 13h 56m 28s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 14h 11m 09s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 14h 14m 08s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 14h 15m 16s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 14h 15m 20s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_showUser - 2020.02.28 at 14h 17m 20s.xml">
+      <configuration name="UserControllerTest.showUser" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="363104000" />
+    <option name="totallyTimeSpent" value="386147000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -766,24 +848,25 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4811784" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Spring" order="7" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.6415712" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3289689" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.4811784" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3289689" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3289689" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3289689" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Duplicate detector" order="14" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="15" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.5155483" />
-      <window_info anchor="bottom" id="Thumbnails" order="17" weight="0.3289689" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.6415712" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="16" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run Dashboard" order="17" weight="0.5155483" />
+      <window_info anchor="bottom" id="Thumbnails" order="18" weight="0.3289689" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -840,6 +923,40 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="300" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="301" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java</url>
+          <line>293</line>
+          <properties />
+          <option name="timeStamp" value="302" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java</url>
+          <line>295</line>
+          <properties />
+          <option name="timeStamp" value="303" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java</url>
+          <line>296</line>
+          <properties />
+          <option name="timeStamp" value="304" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="((StackTraceElement[])((FeignException)e).stackTrace)[7]" custom="feign.FeignException,java.lang.StackTraceElement[]" />
@@ -853,382 +970,416 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.8.RELEASE/spring-webmvc-5.1.8.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/bootstrap.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="519" column="27" selection-start-line="519" selection-start-column="27" selection-end-line="519" selection-end-column="27" />
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="19" selection-end-column="86" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.6__maj_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.5__maj_schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.9__maj_schema.sql" />
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.10__maj_data.sql" />
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.7__maj_data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="12" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="62" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/resources/db/migration/V1.8__maj_data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/CategoryIcon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/CategoryIconDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/CategoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/CategoryIconBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="e#177#178#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/CategoryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/DistanceMatrix.java">
+    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/resources/bootstrap.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="34" />
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/MerchantBean.java">
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="26" selection-start-line="8" selection-start-column="28" selection-end-line="12" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beansDTO/EditShopDTO.java">
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/MerchantDTO.java">
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state relative-caret-position="255">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#494#495#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientAdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42" selection-start-column="42" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="38" column="73" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientRewardsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="45" column="98" lean-forward="true" selection-start-line="45" selection-start-column="98" selection-end-line="46" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/batch/ScheduledTasks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/controller/UserControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2050#2051#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/utils/Encryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/test/java/com/mUI/microserviceUI/MicroserviceUiApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/controller/RewardsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="254" column="17" lean-forward="true" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/MicroserviceUsersApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/MicroserviceUsersApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/test/java/com/mmerchants/microservicemerchants/MicroserviceMerchantsApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" column="91" selection-start-line="31" selection-start-column="91" selection-end-line="31" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/ImageFileProcessing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/ConfigUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/filters/RestrictionFilterConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/manager/RewardsManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/test/java/com/mrewards/microservicerewards/manager/RewardsManagerImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0.jar!/feign/codec/ErrorDecoder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/exceptions/CustomErrorDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/beans/UserBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="e#1598#1599#0" expanded="true" />
+            <element signature="e#2318#2319#0" expanded="true" />
+            <element signature="e#2346#2347#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0.jar!/feign/SynchronousMethodHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0.jar!/feign/MethodMetadata.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="e#2872#2873#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0.jar!/feign/RequestTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="946" selection-start-line="946" selection-end-line="946" />
+          <folding>
+            <element signature="e#35532#35533#0" expanded="true" />
+            <element signature="e#35824#35825#0" expanded="true" />
+            <element signature="e#35852#35853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/LinkedHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="443" selection-start-line="443" selection-end-line="443" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/10.1.0/feign-core-10.1.0.jar!/feign/ReflectiveFeign.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="572" selection-start-line="572" selection-end-line="572" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/ZuulServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/filters/LogFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/config/FeignConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="65" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/config/FeignExceptionConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/config/SleuthConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/mailing/MailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/mzuul/zuulserver/filters/ResponseFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceUsersProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="410" column="38" lean-forward="true" selection-start-line="410" selection-start-column="38" selection-end-line="410" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMerchantsProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="45" column="61" lean-forward="true" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/proxies/MicroserviceMerchantsProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="-158">
           <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/model/RewardBean.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-rewards/pom.xml">
+    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/proxies/MicroserviceMailingProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="170">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/pom.xml">
+    <entry file="file://$PROJECT_DIR$/microservice-users/src/main/java/com/musers/microserviceusers/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/exceptions/CustomErrorDecoder.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/config/FeignExceptionConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/config/FeignConfig.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/proxies/MicroserviceRewardsProxy.java">
+    <entry file="file://$PROJECT_DIR$/microservice-mailing/src/main/java/com/mmailing/microservicemailing/controller/MailSentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+        <state relative-caret-position="70">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/dao/MerchantDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/utils/MapsUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/MicroserviceRewardsApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/MicroserviceMerchantsApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/merchants.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/myshops.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="27" column="87" lean-forward="true" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/shop-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/user-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="87" selection-start-line="110" selection-start-column="87" selection-end-line="110" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/static/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-146">
-          <caret line="122" column="12" lean-forward="true" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/utils/QRCodeGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/manager/RewardsManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-534">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/model/Reward.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/CategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="119" column="71" selection-start-line="119" selection-start-column="71" selection-end-line="119" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientUsersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="239" column="7" selection-start-line="239" selection-start-column="7" selection-end-line="239" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-users/src/test/java/com/musers/microserviceusers/controller/UserControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-rewards/src/main/java/com/mrewards/microservicerewards/controller/RewardsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-697">
-          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientMerchantsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1070">
-          <caret line="179" column="9" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientRewardsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2023">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/card-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="95" column="95" lean-forward="true" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-merchants/src/main/java/com/mmerchants/microservicemerchants/controller/MerchantController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="96" column="80" selection-start-line="96" selection-start-column="80" selection-end-line="96" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/java/com/mUI/microserviceUI/controller/ClientAdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/microservice-UI/src/main/resources/templates/admin-infos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
         </state>
       </provider>
     </entry>

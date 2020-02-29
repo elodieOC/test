@@ -1,12 +1,9 @@
 package com.mmerchants.microservicemerchants.model;
 
-import com.mmerchants.microservicemerchants.utils.Encryption;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
-
-import java.sql.Timestamp;
 
 public class MerchantTest {
 

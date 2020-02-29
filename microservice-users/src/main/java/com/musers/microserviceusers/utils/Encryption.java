@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 /**
  * <p>Class for encoding passwords</p>
  */
+@SuppressWarnings("Duplicates")
 public class Encryption {
     /**
      * <p>Method takes a string and encrypts it with MD5 function</p>

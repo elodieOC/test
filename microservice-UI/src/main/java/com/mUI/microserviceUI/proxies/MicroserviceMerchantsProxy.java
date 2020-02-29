@@ -4,7 +4,6 @@ import com.mUI.microserviceUI.beans.*;
 import com.mUI.microserviceUI.beansDTO.AddCategoryDTO;
 import com.mUI.microserviceUI.beansDTO.AddShopDTO;
 import com.mUI.microserviceUI.beansDTO.CategoryDTO;
-import com.mUI.microserviceUI.beansDTO.EditCategoryDTO;
 import com.mUI.microserviceUI.config.FeignConfig;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;

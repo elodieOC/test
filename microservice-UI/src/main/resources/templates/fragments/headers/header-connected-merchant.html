@@ -14,10 +14,10 @@
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Mes Boutiques' ? 'active':''}"><a class="nav-link" th:href="@{/Marchands/MesBoutiques}">Mes Boutiques</a></li>
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Marchands' ? 'active':''}"><a class="nav-link" th:href="@{/Marchands}">Les Marchands</a></li>
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/Contact' ? 'active':''}">
-                        <a class="nav-link js-scroll-trigger" th:href="@{/contact}" />Contact</a>
+                        <a class="nav-link js-scroll-trigger" th:href="@{/contact}" >Contact</a>
                     </li>
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI() == '/APropos' ? 'active':''}">
-                        <a class="nav-link js-scroll-trigger" th:href="@{/APropos}" />A Propos</a>
+                        <a class="nav-link js-scroll-trigger" th:href="@{/APropos}" >A Propos</a>
                     </li>
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI().contains('/Utilisateurs/MonProfil/') ? 'active':''}"><a class="nav-link js-scroll-trigger" th:href="@{/Utilisateurs/MonProfil/__${session.loggedInUserId}__}"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
                     <li class="nav-item ml-4">

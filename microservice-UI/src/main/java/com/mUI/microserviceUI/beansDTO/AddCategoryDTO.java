@@ -1,7 +1,5 @@
 package com.mUI.microserviceUI.beansDTO;
 
-import java.util.List;
-
 public class AddCategoryDTO {
     private Integer id;
     private String categoryName;

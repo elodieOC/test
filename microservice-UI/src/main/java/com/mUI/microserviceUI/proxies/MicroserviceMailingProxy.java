@@ -3,6 +3,7 @@ package com.mUI.microserviceUI.proxies;
 import com.mUI.microserviceUI.config.FeignConfig;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "zuul-server", url = "localhost:9004",contextId = "mailingProxy", configuration = FeignConfig.class)
 @RibbonClient(name = "microservice-mailing")
 public interface MicroserviceMailingProxy {
-    @PostMapping(value = "microservice-mailing/Utilisateurs/forgot-password")
-    Boolean sendLinkForPassword(@RequestParam String email, @RequestParam String token, @RequestParam String appUrl);
+    @GetMapping(value = "microservice-mailing/mailing/forgot-password")
+    void sendLinkForPassword(@RequestParam String email, @RequestParam String token, @RequestParam String appUrl);
 }

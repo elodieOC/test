@@ -2,12 +2,11 @@ package com.mUI.microserviceUI.controller;
 
 import com.mUI.microserviceUI.beans.MerchantBean;
 import com.mUI.microserviceUI.beans.RewardBean;
-import com.mUI.microserviceUI.beans.UserBean;
 import com.mUI.microserviceUI.exceptions.CannotAddException;
 import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
-import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
-import com.mUI.microserviceUI.utils.MapsUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +14,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
-
 import static com.mUI.microserviceUI.utils.MapsUtils.setUpForGMaps;
 
 /**
@@ -33,6 +29,7 @@ public class ClientRewardsController {
     private MicroserviceRewardsProxy rewardsProxy;
     @Autowired
     private MicroserviceMerchantsProxy merchantsProxy;
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     /*
      **************************************
@@ -47,10 +44,13 @@ public class ClientRewardsController {
      */
     @PostMapping("/CarteFidelites/add-account")
     public String saveReward(@ModelAttribute("rewardCard")RewardBean rewardBean, ModelMap model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         try {
+            log.info("call merchantsProxy");
             rewardBean.setMaxPoints(merchantsProxy.showShop(rewardBean.getIdMerchant()).getMaxPoints());
             // create card
+            log.info("call rewardProxy");
             RewardBean rewardToRegister = rewardsProxy.addReward(rewardBean);
             toBeReturned = "redirect:/CarteFidelites/"+rewardToRegister.getId();
         }
@@ -72,9 +72,12 @@ public class ClientRewardsController {
      */
     @RequestMapping(value={"/CarteFidelites/{cardId}", "/CarteFidelites/{cardId}/code", "/CarteFidelites/{cardId}/reward"})
     public String rewardDetails(@PathVariable Integer cardId, Model model, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
+        log.info("call rewardProxy");
         RewardBean reward = rewardsProxy.showReward(cardId);
         MerchantBean merchantBean = new MerchantBean();
+        log.info("call merchantsProxy");
         List<MerchantBean> merchantBeanList = merchantsProxy.listMerchants();
         for(MerchantBean shop:merchantBeanList){
             if(shop.getId() == reward.getIdMerchant()){
@@ -105,12 +108,15 @@ public class ClientRewardsController {
      */
     @PostMapping(value = "/CarteFidelites/{id}/add-point")
     public String addPoint(@PathVariable("id") Integer id, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         HttpSession session = request.getSession();
         //only a merchant can add a point to a card.
 
         /*START to delete when not local test */
+        log.info("call rewardProxy");
         RewardBean rewardBean = rewardsProxy.showReward(id);
+        log.info("call rewardProxy");
             rewardsProxy.addPoint(id);
             toBeReturned = "redirect:successPointAdded";
         /*END to delete when not local test */
@@ -139,6 +145,7 @@ public class ClientRewardsController {
 
     @GetMapping ("/CarteFidelites/{id}/successPointAdded")
     public String successPointAdded(@PathVariable("id") Integer id, HttpServletRequest request, Model model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
         model.addAttribute("cardId", id);
         return "successPointAdded";
@@ -159,10 +166,13 @@ public class ClientRewardsController {
      */
     @PostMapping(value = "/CarteFidelites/{id}/redeem")
     public String redeem(@PathVariable("id") Integer id, HttpServletRequest request) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         HttpSession session = request.getSession();
+        log.info("call rewardProxy");
         RewardBean rewardBean = rewardsProxy.showReward(id);
         if(rewardBean.getIdUser() == session.getAttribute("loggedInUserId")) {
+            log.info("call rewardProxy");
             rewardsProxy.redeem(id);
             toBeReturned = "redirect:/CarteFidelites/" + rewardBean.getId();
         }
@@ -186,8 +196,10 @@ public class ClientRewardsController {
      */
     @RequestMapping(value = "/CarteFidelites/delete/{id}", method = RequestMethod.POST)
     public String deleteReward(@PathVariable("id") Integer id, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
         Integer userId = (Integer) session.getAttribute("loggedInUserId");
+        log.info("call rewardProxy");
         rewardsProxy.deleteAccount(id);
         return "redirect:/Utilisateurs/MonProfil/"+userId;
     }
@@ -196,6 +208,7 @@ public class ClientRewardsController {
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         return new ModelAndView("redirect:/Accueil");
     }
 

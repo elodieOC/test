@@ -9,6 +9,8 @@ import com.mUI.microserviceUI.proxies.MicroserviceMerchantsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceRewardsProxy;
 import com.mUI.microserviceUI.proxies.MicroserviceUsersProxy;
 import com.mUI.microserviceUI.utils.MapsUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +19,10 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.mUI.microserviceUI.utils.MapsUtils.getDistanceDuration;
 
 /**
@@ -39,6 +39,7 @@ public class ClientUsersController {
     private MicroserviceMerchantsProxy merchantsProxy;
     @Autowired
     private MicroserviceRewardsProxy rewardsProxy;
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
 
     /*
@@ -53,6 +54,7 @@ public class ClientUsersController {
      */
     @GetMapping("/Utilisateurs/inscription")
     public String registerPage(Model model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         UserBean userBean = new UserBean();
         model.addAttribute("user", userBean);
         return "register";
@@ -67,6 +69,7 @@ public class ClientUsersController {
      */
     @PostMapping("/Utilisateurs/add-user")
     public String saveUser(@ModelAttribute("user") UserBean user, HttpServletRequest request, ModelMap model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         HttpSession session = request.getSession();
         try {
@@ -74,6 +77,7 @@ public class ClientUsersController {
             String address=longAddress[0];
             String city = longAddress[1].replaceAll("\\s+","");
             if (!city.equals("Puteaux")){
+                log.info("city given in not puteaux");
                 model.addAttribute("errorMessage", "Cette application supporte actuellement les commerces de Puteaux uniquement");
                 return "register";
             }
@@ -81,6 +85,7 @@ public class ClientUsersController {
             ArrayList<String>longlat=MapsUtils.geocodeFromString(user.getAddress());
             user.setLongitude(longlat.get(0));
             user.setLatitude(longlat.get(1));
+            log.info("call usersProxy");
             UserBean userToRegister = usersProxy.addUser(user);
             toBeReturned = setSessionAttributes(userToRegister, session);
         }
@@ -109,6 +114,7 @@ public class ClientUsersController {
      */
     @GetMapping("/Utilisateurs/connexion")
     public String loginPage(Model model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         UserBean userBean = new UserBean();
         model.addAttribute("user", userBean);
         return "login";
@@ -116,12 +122,15 @@ public class ClientUsersController {
 
     @RequestMapping("/Utilisateurs/log-user")
     public String logUser(@ModelAttribute("user") UserBean userBean, ModelMap model, HttpServletRequest request) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         HttpSession session = request.getSession();
         try{
+            log.info("call usersProxy");
             UserBean userToConnect = usersProxy.logUser(userBean.getEmail(), userBean.getPassword());
             toBeReturned = setSessionAttributes(userToConnect, session);
         }catch (Exception e){
+            log.error("Failure logging user");
             e.printStackTrace();
             if(e instanceof BadLoginPasswordException){
                 model.addAttribute("errorMessage", "Login ou Mot de Passe incorrect");
@@ -139,19 +148,21 @@ public class ClientUsersController {
      */
     @RequestMapping(value = {"/Utilisateurs/MonProfil/{userId}", "/Utilisateurs/MonProfil/{userId}/mescartes"})
     public String userDetails(@PathVariable Integer userId, Model model, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
+        log.info("call usersProxy");
         UserBean user = usersProxy.showUser(userId);
-
         //session is always checked, here check if user accessing profile is owner of profile
         if(!session.getAttribute("loggedInUserId").equals(userId)){
-            System.out.println("User trying to access profile is not the owner of the profile");
-            System.out.println("User is: [id:"
+            log.warn("User trying to access profile is not the owner of the profile");
+            log.warn("User is: [id:"
                     +session.getAttribute("loggedInUserId")+ ", email:"
                     +session.getAttribute("loggedInUserEmail")+", role:"
                     +session.getAttribute("loggedInUserRole")+"]");
             return "redirect:/Accueil";
         }
         //adds the user's fidelity cards
+        log.info("call rewardsProxy");
         List<RewardBean> rewardBeans = rewardsProxy.listRewards();
         List<RewardBean> userRewards = new ArrayList<>();
         for (RewardBean reward : rewardBeans){
@@ -162,12 +173,15 @@ public class ClientUsersController {
         if(!userRewards.isEmpty()) {
             List<MerchantBean> myRewardingShops = new ArrayList<>();
             for (RewardBean r : userRewards) {
+                log.info("call merchantsProxy");
                     MerchantBean m = merchantsProxy.showShop(r.getIdMerchant());
                     //set up google map
                     m.setMapsAddress(MapsUtils.setUrlAddressForMapsAPI(m.getAddress()));
                     //set up category icon
+                    log.info("call merchantsProxy");
                     m.getCategory().setIcon(merchantsProxy.getCategoryIcon(m.getCategory().getCategoryIcon()));
                     //set up distance/duration datas
+                    log.info("call usersProxy");
                     m.setDm(getDistanceDuration(usersProxy.showUser(userId), m));
                     myRewardingShops.add(m);
             }
@@ -186,12 +200,14 @@ public class ClientUsersController {
      */
     @GetMapping("/Utilisateurs/MonProfil/edit/{id}")
     public String editUserPage(@PathVariable Integer id, Model model, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
+        log.info("call usersProxy");
         UserBean user = usersProxy.showUser(id);
         //session is always checked, here check if user editing profile is owner of profile
         if(!session.getAttribute("loggedInUserId").equals(id)){
-            System.out.println("User trying to edit profile is not the owner of the profile");
-            System.out.println("User is: [id:"
+            log.warn("User trying to edit profile is not the owner of the profile");
+            log.warn("User is: [id:"
                     +session.getAttribute("loggedInUserId")+ ", email:"
                     +session.getAttribute("loggedInUserEmail")+", role:"
                     +session.getAttribute("loggedInUserRole")+"]");
@@ -204,8 +220,10 @@ public class ClientUsersController {
 
     @RequestMapping("/Utilisateurs/edit")
     public String editUser(@ModelAttribute("user") EditUserDTO editUserDTO, ModelMap model, RedirectAttributes atts, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String toBeReturned;
         HttpSession session = request.getSession();
+        log.info("call usersProxy");
         UserBean user = usersProxy.showUser(editUserDTO.getId());
         if(!editUserDTO.getEmail().isEmpty()){
             user.setEmail(editUserDTO.getEmail());
@@ -222,6 +240,7 @@ public class ClientUsersController {
             user.setLatitude(longlat.get(1));
         }
         try{
+            log.info("call usersProxy");
             UserBean userToEdit = usersProxy.editUser(user);
             toBeReturned = setSessionAttributes(userToEdit, session);
         }catch (Exception e){
@@ -245,6 +264,7 @@ public class ClientUsersController {
      */
     @GetMapping("/contact")
     public String contact(Model model){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         UserBean userBean = new UserBean();
         model.addAttribute("user", userBean);
         return "contact";
@@ -256,6 +276,8 @@ public class ClientUsersController {
      */
     @RequestMapping(value = "/contact")
     public String registerNewsletter(@ModelAttribute("newsletter") NewsletterBean newsletter, Model model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        log.info("call usersProxy");
         List<NewsletterBean> newsletterBeanList = usersProxy.listNewsletters();
         for(NewsletterBean n:newsletterBeanList){
             if(newsletter.getEmail().equals(n.getEmail())){
@@ -264,6 +286,7 @@ public class ClientUsersController {
             }
         }
         try{
+            log.info("call usersProxy");
             NewsletterBean newsletterBean = usersProxy.addUserToNewsletter(newsletter);
             String successMessage = "Vous êtes inscrit à la Newsletter";
             model.addAttribute("successMessage", successMessage);
@@ -280,9 +303,12 @@ public class ClientUsersController {
      */
     @RequestMapping("/Utilisateurs/MonProfil/{userId}/suscribe")
     public String suscribeUserFromProfile(@PathVariable Integer userId){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        log.info("call usersProxy");
         UserBean user = usersProxy.showUser(userId);
         NewsletterBean newsletterBean = new NewsletterBean();
         newsletterBean.setEmail(user.getEmail());
+        log.info("call usersProxy");
         usersProxy.addUserToNewsletter(newsletterBean);
         return "redirect:/Utilisateurs/MonProfil/"+userId;
     }
@@ -294,7 +320,10 @@ public class ClientUsersController {
      */
     @RequestMapping("/Utilisateurs/MonProfil/{userId}/unsuscribe")
     public String unsuscribeUserFromProfile(@PathVariable Integer userId){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+        log.info("call usersProxy");
         UserBean user = usersProxy.showUser(userId);
+        log.info("call usersProxy");
         UserBean updatedUser = usersProxy.unsuscribe(user);
         return "redirect:/Utilisateurs/MonProfil/"+updatedUser.getId();
     }
@@ -313,7 +342,9 @@ public class ClientUsersController {
      */
     @RequestMapping(value = "/Utilisateurs/logout")
     public String logout(HttpSession session) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         session.invalidate();
+        log.info("session invalidated");
         return "redirect:/Accueil";
     }
 
@@ -330,6 +361,7 @@ public class ClientUsersController {
      */
     @GetMapping(value = "/Utilisateurs/MotDePasseOublie")
     public String forgotPassword(Model model) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         UserBean userBean = new UserBean();
         model.addAttribute("user", userBean);
         return "password-forgot";
@@ -344,10 +376,11 @@ public class ClientUsersController {
      */
     @RequestMapping("/Utilisateurs/forgot-password")
     public String findUserSendLinkForPassword(@ModelAttribute("user") UserBean userBean, ModelMap theModel, HttpServletRequest request) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         UserBean userToFind = new UserBean();
-        System.out.println(userBean);
         String appUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort();
         try{
+            log.info("call usersProxy");
             userToFind = usersProxy.findUserForPassword(userBean.getEmail());
             theModel.addAttribute("successMessage", "Un email a été envoyé à l'adresse indiquée");
         }catch (Exception e){
@@ -357,6 +390,7 @@ public class ClientUsersController {
         }
         //TODO le mail est bien envoyé mais renvoi le catch: FeignException: status 504 reading MicroserviceMailingProxy#sendLinkForPassword(String,String,String)
         try{
+            log.info("call mailingProxy");
             mailingProxy.sendLinkForPassword(userToFind.getEmail(), userToFind.getResetToken(), appUrl);
         }catch (Exception e){
             e.printStackTrace();
@@ -371,8 +405,10 @@ public class ClientUsersController {
      */
   @RequestMapping(value = "/Utilisateurs/MotDePasseReset", method = RequestMethod.GET)
     public String resetPasswordForm(Model model, @RequestParam("token") String token) {
+      log.info(new Object(){}.getClass().getEnclosingMethod().getName());
       String redirectPage = "";
       try {
+          log.info("call usersProxy");
           UserBean userBean = usersProxy.findUserByToken(token);
           model.addAttribute("user", userBean);
           model.addAttribute("resetToken", token);
@@ -393,7 +429,9 @@ public class ClientUsersController {
      */
     @RequestMapping (value = "/Utilisateurs/MotDePasseReset", method = RequestMethod.POST)
     public String resetPassword(@ModelAttribute("user") UserBean userBean, ModelMap theModel){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         int success = 0;
+        log.info("call usersProxy");
         UserBean userToresetPassword = usersProxy.findUserByTokenAndSetsNewPassword(userBean.getResetToken(), userBean.getPassword());
         success = 1;
         theModel.addAttribute("success", success);
@@ -413,12 +451,15 @@ public class ClientUsersController {
      */
     @RequestMapping(value = "/Utilisateurs/delete/{id}", method = RequestMethod.POST)
     public String deleteUser(@PathVariable("id") Integer id, HttpServletRequest request){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         HttpSession session = request.getSession();
+        log.info("call usersProxy");
         UserBean user = usersProxy.showUser(id);
         List<MerchantBean> userShops=new ArrayList<>();
         List<RewardBean> userCards=new ArrayList<>();
         //If user to delete is merchant, search for possible shops to delete as well
         if(user.getUserRole().getId()==3){
+            log.info("call merchantsProxy");
             List<MerchantBean> allShops = merchantsProxy.listMerchants();
             for (MerchantBean m :allShops) {
                 if(m.getUserId() == user.getId()){
@@ -427,6 +468,7 @@ public class ClientUsersController {
             }
         }
         //search for fidelity cards to delete as well
+        log.info("call rewardsProxy");
         List<RewardBean> allRewards = rewardsProxy.listRewards();
         for(RewardBean r: allRewards){
             if(r.getIdUser() == user.getId()){
@@ -434,16 +476,19 @@ public class ClientUsersController {
             }
         }
         try {
+            log.info("call usersProxy");
             usersProxy.deleteUser(id);
             //if user owns shops, delete shops
             if (!userShops.isEmpty()){
                 for(MerchantBean m:userShops){
+                    log.info("call merchantsProxy");
                     merchantsProxy.deleteShop(m.getId());
                 }
             }
             //if user owns cards, delete cards
             if(!userCards.isEmpty()){
                 for (RewardBean r:userCards){
+                    log.info("call rewardProxy");
                     rewardsProxy.deleteAccount(r.getId());
                 }
             }
@@ -457,6 +502,7 @@ public class ClientUsersController {
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         return new ModelAndView("redirect:/Utilisateurs/connexion");
     }
 
@@ -467,6 +513,7 @@ public class ClientUsersController {
      * @return url
      */
     public String setSessionAttributes(UserBean user, HttpSession session){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         String redirectString = "/Utilisateurs/MonProfil/"+user.getId();
         session.setAttribute("loggedInUserEmail", user.getEmail());
         session.setAttribute("loggedInUserId", user.getId());

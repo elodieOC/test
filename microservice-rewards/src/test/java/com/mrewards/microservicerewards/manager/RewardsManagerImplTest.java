@@ -1,12 +1,8 @@
 package com.mrewards.microservicerewards.manager;
 
-import com.mrewards.microservicerewards.dao.RewardDao;
 import com.mrewards.microservicerewards.model.Reward;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.Assert.*;
 
 public class RewardsManagerImplTest {
 
