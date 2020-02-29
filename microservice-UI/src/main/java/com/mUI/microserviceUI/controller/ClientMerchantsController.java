@@ -180,7 +180,7 @@ public class ClientMerchantsController {
         for(RewardBean r:rewardsProxy.listRewards()){
             if(r.getIdUser() == rewardCard.getIdUser()){
                 if (r.getIdMerchant() == rewardCard.getIdMerchant()){
-                    model.addAttribute("errorMessage", "Vous avez déjà une carte fidélité chez ce marchand :)");
+                    model.addAttribute("ownerCardId", rewardCard.getId());
                 }
             }
         }

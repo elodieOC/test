@@ -77,6 +77,12 @@ public class UserController {
             user.setUserRole(roleDao.getOne(2));
             log.info("set user role to user");
         }
+        Optional<Newsletter> newsletter = newsletterDao.findFirstByEmail(user.getEmail());
+        if(newsletter.isPresent()){
+            log.info("user is already suscribed to newsletter");
+            user.setNewsletterSuscriber(true);
+        }
+        log.info("user is not suscribed to newsletter");
         User userAdded =  userDao.save(user);
         log.info("add user");
         if (userAdded == null) {

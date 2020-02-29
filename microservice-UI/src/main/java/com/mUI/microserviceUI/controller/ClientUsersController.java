@@ -440,6 +440,7 @@ public class ClientUsersController {
      * ************************************
      */
 
+    //TODO ajouter message alerte voulez vous vraiment suprimer?
     /**
      * <p>deletes a user when user clicks on suppress button</p>
      * @param id

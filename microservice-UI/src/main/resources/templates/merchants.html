@@ -14,6 +14,10 @@
 <div layout:fragment="content" th:remove="tag" class="container">
     <div class="in-content">
         <div class="row offset-md-4 ">
+            <a th:href="@{/Marchands}" role="button"
+               th:class="${#strings.contains(#httpServletRequest.requestURI, 'cat/')?'btn btn-outline-info btn-lg m-2':'btn btn-outline-info btn-lg m-2 active'}"
+               th:text="'Tous'">
+            </a>
             <a th:each="cat: ${cats}"
                th:href="@{/Marchands/cat/__${cat.id}__}" role="button"
                th:class="${#strings.contains(#httpServletRequest.requestURI, 'cat/'+cat.id)?'btn btn-outline-info btn-lg m-2 active':'btn btn-outline-info btn-lg m-2'}"

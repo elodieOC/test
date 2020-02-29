@@ -25,7 +25,7 @@
                     <li class="nav-item ml-4" th:classappend="${#httpServletRequest.getRequestURI().contains('/Utilisateurs/MonProfil/') ? 'active':''}"><a class="nav-link js-scroll-trigger" th:href="@{/Utilisateurs/MonProfil/__${session.loggedInUserId}__}"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
                     <li class="nav-item ml-4">
                         <a class="nav-link js-scroll-trigger" th:href="@{/Utilisateurs/logout}">
-                            <span class="glyphicon glyphicon-off"></span>
+                            <span class="glyphicon glyphicon-off"></span> Déconnexion
                         </a>
                     </li>
                 </ul>

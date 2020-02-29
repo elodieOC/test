@@ -63,10 +63,8 @@
         </div>
         <div class="mb-5"></div>
         <!-- IF Session exists AND User in session is NOT owner of shop BUT has already the card-->
-        <td th:if="${errorMessage ne null}">
-            <div class="alert alert-info col-md-6 mx-auto">
-                <span  th:text="${errorMessage}"/>
-            </div>
+        <td th:if="${ownerCardId ne null}">
+            <a class="btn btn-info btn-lg m-2" th:href="@{/CarteFidelites/__${ownerCardId}__}">Voir ma carte fidélité</a>
         </td>
 
         <!-- IF User in session is  owner of shop -->
@@ -81,13 +79,14 @@
                 </div>
             </form>
             <form class="mb-5" th:action="@{/Marchands/delete/{id}(id=${merchant.getId()})}" method="post" th:object="${merchant}">
-                <div class="col-sm-6 col-sm-offset-3 mt-5 mx-auto">
+                <div class="col-sm-6 col-sm-offset-3 mx-auto">
                     <input type="submit"
                            class="form-control btn btn-lg btn-danger"
                            value="Suppression de boutique">
                 </div>
             </form>
         </div>
+        <div class="mt-5 mb-5"></div>
     </div>
 </div>
 </body>
