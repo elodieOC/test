@@ -129,7 +129,7 @@ public class CategoryController {
             log.info("changing name of category to be modified");
         }
         //if an image is sent by catDTO
-        if(!catDTO.getIcon().isEmpty()) {
+        if(catDTO.getIcon()!=null) {
             log.info("an image has been sent through edit form.");
             //Create a categoryIcon
             CategoryIcon i = new CategoryIcon();

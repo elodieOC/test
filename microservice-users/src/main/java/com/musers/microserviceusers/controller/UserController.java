@@ -174,7 +174,7 @@ public class UserController {
      * @return Newsletter
      */
     @PostMapping(value = "/Utilisateurs/suscribe")
-    public ResponseEntity<Newsletter> addUsertoNewsletter(@RequestBody Newsletter newsletter){
+    public ResponseEntity<Newsletter> addUserToNewsletter(@RequestBody Newsletter newsletter){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName());
         Optional<User> user = userDao.findFirstByEmail(newsletter.getEmail());
         log.info("searching Optional<User> by email");
