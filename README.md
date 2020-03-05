@@ -60,6 +60,8 @@
    </ul>
  </li> 
  <li>Dans le microservice-users, modifiez src\main\resources\db\migration\V1.2__init_data.sql afin de créér vos propres utilisateurs</li>
+ <li>Dans le microservice-users, enregistrez en local les images contenues dans src\main\resources\img</li>
+ <li>Dans le microservice-merchants, modifiez src\main\resources\db\migration\V1.7__maj_data.sql afin d'indiquer le chemin des images enregistrées</li>
  <li>Lancez les microservices:
   <ul>
       <li>config-server</li>
